@@ -97,7 +97,7 @@
 /*------------------------------------------------------------------------------
 **
 ** The maximum amount of process data in a telegram (in bytes).
-**
+** Note: Used for ping-pong protocol on both NP30 and NP40.
 **------------------------------------------------------------------------------
 */
 
@@ -189,7 +189,8 @@ typedef enum ABP_MsgErrorCodeType
    ABP_ERR_NO_RESOURCES        = 0x0E,    /* Out of resources                 */
    ABP_ERR_SEG_FAILURE         = 0x0F,    /* Segmentation failure             */
    ABP_ERR_SEG_BUF_OVERFLOW    = 0x10,    /* Segmentation buffer overflow     */
-
+   ABP_ERR_VAL_TOO_HIGH        = 0x11,    /* Written data value is too high (ABCC40) */
+   ABP_ERR_VAL_TOO_LOW         = 0x12,    /* Written data value is too low (ABCC40)  */
    ABP_ERR_OBJ_SPECIFIC        = 0xFF     /* Object specific error            */
 }
 ABP_MsgErrorCodeType;
@@ -218,6 +219,9 @@ ABP_MsgErrorCodeType;
 #define ABP_UINT32                  6        /* Unsigned 32 bit integer       */
 #define ABP_CHAR                    7        /* Character                     */
 #define ABP_ENUM                    8        /* Enumeration                   */
+#define ABP_BITS8                   9        /* 8 bit bitfield (ABCC40)       */
+#define ABP_BITS16                  10       /* 16 bit bitfield (ABCC40)      */
+#define ABP_BITS32                  11       /* 32 bit bitfield (ABCC40)      */
 
 #define ABP_SINT64                  16       /* Signed 64 bit integer         */
 #define ABP_UINT64                  17       /* Unsigned 64 bit integer       */
@@ -240,6 +244,9 @@ ABP_MsgErrorCodeType;
 #define ABP_UINT32_SIZEOF           4        /* Unsigned 32 bit integer       */
 #define ABP_CHAR_SIZEOF             1        /* Character                     */
 #define ABP_ENUM_SIZEOF             1        /* Enumeration                   */
+#define ABP_BITS8_SIZEOF            1        /* 8 bit bitfield (ABCC40)       */
+#define ABP_BITS16_SIZEOF           2        /* 16 bit bitfield (ABCC40)      */
+#define ABP_BITS32_SIZEOF           4        /* 32 bit bitfield (ABCC40)      */
 
 #define ABP_SINT64_SIZEOF           8        /* Signed 64 bit integer         */
 #define ABP_UINT64_SIZEOF           8        /* Unsigned 64 bit integer       */
@@ -262,6 +269,9 @@ ABP_MsgErrorCodeType;
 #define ABP_UINT32_MAX              0xFFFFFFFFLU
 #define ABP_CHAR_MAX                0xFFU
 #define ABP_ENUM_MAX                0xFFU
+#define ABP_BITS8_MAX               0xFFU          /* ABCC40 */
+#define ABP_BITS16_MAX              0xFFFFU        /* ABCC40 */
+#define ABP_BITS32_MAX              0xFFFFFFFFLU   /* ABCC40 */
 
 #define ABP_SINT64_MAX              0x7FFFFFFFFFFFFFFFL
 #define ABP_UINT64_MAX              0xFFFFFFFFFFFFFFFFLU
@@ -284,6 +294,9 @@ ABP_MsgErrorCodeType;
 #define ABP_UINT32_MIN              0
 #define ABP_CHAR_MIN                0
 #define ABP_ENUM_MIN                0
+#define ABP_BITS8_MIN               0 /* ABCC40 */
+#define ABP_BITS16_MIN              0 /* ABCC40 */
+#define ABP_BITS32_MIN              0 /* ABCC40 */
 
 #define ABP_SINT64_MIN              ( - ABP_SINT64_MAX - 1 )
 #define ABP_UINT64_MIN              0
@@ -449,7 +462,8 @@ ABP_LangType;
 #define ABP_ANB_IA_RESERVED1        14
 #define ABP_ANB_IA_AUX_BIT_FUNC     15
 #define ABP_ANB_IA_GPIO_CONFIG      16
-
+#define ABP_ANB_IA_VIRTUAL_ATTRS    17  /* ABCC40 */
+#define ABP_ANB_IA_BLACK_WHITE_LIST 18	/* ABCC40 */
 
 /*------------------------------------------------------------------------------
 **
@@ -472,7 +486,8 @@ ABP_LangType;
 #define ABP_ANB_IA_LED_STATUS_DS          ABP_UINT8_SIZEOF
 #define ABP_ANB_IA_AUX_BIT_FUNC_DS        ABP_UINT8_SIZEOF
 #define ABP_ANB_IA_GPIO_CONFIG_DS         ABP_UINT16_SIZEOF
-
+#define ABP_ANB_IA_VIRTUAL_ATTRS_DS       128						 /* ABCC40 */
+#define ABP_ANB_IA_BLACK_WHITE_LIST_DS    ( 12 * ABP_UINT16_SIZEOF ) /* ABCC40 */
 
 /*------------------------------------------------------------------------------
 **
@@ -588,8 +603,8 @@ ABP_AnbExceptionCodeType;
 **------------------------------------------------------------------------------
 */
 
-#define ABP_DI_OA_MAX_INST                11    /* Max number of instances    */
-
+#define ABP_DI_OA_MAX_INST                11    /* Max number of instances          */
+#define ABP_DI_OA_SUPPORT_FUNC            12    /* Supported functionality (ABCC40) */
 
 /*------------------------------------------------------------------------------
 **
@@ -599,7 +614,7 @@ ABP_AnbExceptionCodeType;
 */
 
 #define ABP_DI_OA_MAX_INST_DS             ABP_UINT16_SIZEOF
-
+#define ABP_DI_OA_SUPPORT_FUNC_DS         ABP_BITS32_SIZEOF	 /* ABCC40 */
 
 /*------------------------------------------------------------------------------
 **
@@ -611,6 +626,10 @@ ABP_AnbExceptionCodeType;
 #define ABP_DI_IA_SEVERITY                1
 #define ABP_DI_IA_EVENT_CODE              2
 #define ABP_DI_IA_NW_SPEC_EVENT_INFO      3
+#define ABP_DI_IA_SLOT                    4	 /* ABCC40 */
+#define ABP_DI_IA_ADI                     5	 /* ABCC40 */
+#define ABP_DI_IA_ELEMENT                 6	 /* ABCC40 */
+#define ABP_DI_IA_BIT                     7	 /* ABCC40 */
 
 
 /*------------------------------------------------------------------------------
@@ -622,6 +641,10 @@ ABP_AnbExceptionCodeType;
 
 #define ABP_DI_IA_SEVERITY_DS             ABP_UINT8_SIZEOF
 #define ABP_DI_IA_EVENT_CODE_DS           ABP_UINT8_SIZEOF
+#define ABP_DI_IA_SLOT_DS                 ABP_UINT16_SIZEOF	 /* ABCC40 */
+#define ABP_DI_IA_ADI_DS                  ABP_UINT16_SIZEOF	 /* ABCC40 */
+#define ABP_DI_IA_ELEMENT_DS              ABP_UINT8_SIZEOF   /* ABCC40 */
+#define ABP_DI_IA_BIT_DS                  ABP_UINT8_SIZEOF	 /* ABCC40 */
 
 
 /*------------------------------------------------------------------------------
@@ -647,7 +670,9 @@ typedef enum ABP_DiEventSeverityType
    ABP_DI_EVENT_SEVERITY_MINOR_REC   = 0x00, /* Minor, recoverable            */
    ABP_DI_EVENT_SEVERITY_MINOR_UNREC = 0x10, /* Minor, unrecoverable          */
    ABP_DI_EVENT_SEVERITY_MAJOR_REC   = 0x20, /* Major, recoverable            */
-   ABP_DI_EVENT_SEVERITY_MAJOR_UNREC = 0x30  /* Major, unrecoverable          */
+   ABP_DI_EVENT_SEVERITY_MAJOR_UNREC = 0x30, /* Major, unrecoverable          */
+   ABP_DI_EVENT_SEVERITY_MINOR_LATCH = 0x50, /* Minor, recoverable latching (ABCC40)  */
+   ABP_DI_EVENT_SEVERITY_MAJOR_LATCH = 0x60  /* Major, recoverable latching (ABCC40)  */
 }
 ABP_DiEventSeverityType;
 
@@ -791,6 +816,7 @@ ABP_DiEventCodeType;
 #define ABP_NC_VAR_IA_NUM_ELEM            3
 #define ABP_NC_VAR_IA_DESCRIPTOR          4
 #define ABP_NC_VAR_IA_VALUE               5
+#define ABP_NC_VAR_IA_CONFIG_VALUE        6	 /* ABCC40 */
 
 
 /*------------------------------------------------------------------------------
@@ -850,6 +876,26 @@ ABP_DiEventCodeType;
 
 /*------------------------------------------------------------------------------
 **
+** Application data object specific attributes (ABCC40)
+**
+**------------------------------------------------------------------------------
+*/
+
+#define ABP_APPD_OA_NR_READ_PD_MAPPABLE_INSTANCES        11
+#define ABP_APPD_OA_NR_WRITE_PD_MAPPABLE_INSTANCES       12
+
+/*------------------------------------------------------------------------------
+**
+** The data size of the Diagnostic object specific attrs, in bytes. (ABCC40)
+**
+**------------------------------------------------------------------------------
+*/
+
+#define ABP_APPD_OA_NR_READ_PD_MAPPABLE_INSTANCES_DS           ABP_UINT16_SIZEOF
+#define ABP_APPD_OA_NR_WRITE_PD_MAPPABLE_INSTANCES_DS          ABP_UINT16_SIZEOF
+
+/*------------------------------------------------------------------------------
+**
 ** The Application data object instance attributes.
 **
 **------------------------------------------------------------------------------
@@ -902,6 +948,7 @@ ABP_DiEventCodeType;
 #define ABP_APPD_GET_ADI_INFO             0x12
 #define ABP_APPD_REMAP_ADI_WRITE_AREA     0x13
 #define ABP_APPD_REMAP_ADI_READ_AREA      0x14
+#define ABP_APPD_GET_INSTANCE_NUMBERS     0x15   /* ABCC40 */
 
 
 /*------------------------------------------------------------------------------
@@ -913,6 +960,7 @@ ABP_DiEventCodeType;
 
 #define ABP_APPD_ERR_MAPPING_ITEM_NAK      0x01 /* Mapping item NAK           */
 #define ABP_APPD_ERR_INVALID_TOTAL_SIZE    0x02 /* Invalid total size         */
+#define ABP_APPD_ERR_ATTR_CTRL_FROM_OTHER_CHANNEL 0x03  /* ABCC40 */
 
 
 /*******************************************************************************
@@ -933,6 +981,7 @@ ABP_DiEventCodeType;
 
 #define ABP_APP_IA_CONFIGURED             1
 #define ABP_APP_IA_SUP_LANG               2
+#define ABP_APP_IA_SER_NUM                3   /* ABCC40 */
 
 
 /*------------------------------------------------------------------------------
@@ -943,6 +992,7 @@ ABP_DiEventCodeType;
 */
 
 #define ABP_APP_IA_CONFIGURED_DS          ABP_BOOL_SIZEOF
+#define ABP_APP_IA_SER_NUM_DS             ABP_UINT32_SIZEOF	 /* ABCC40 */
 
 
 /*------------------------------------------------------------------------------
@@ -954,7 +1004,7 @@ ABP_DiEventCodeType;
 
 #define ABP_APP_CMD_RESET_REQUEST         0x10
 #define ABP_APP_CMD_CHANGE_LANG_REQUEST   0x11
-
+#define ABP_APP_CMD_RESET_DIAGNOSTIC      0x12	 /* ABCC40 */
 
 /*******************************************************************************
 **
@@ -962,6 +1012,23 @@ ABP_DiEventCodeType;
 **
 ********************************************************************************
 */
+
+/*------------------------------------------------------------------------------
+** PACKED_STRUCT
+**
+** Compiler independent symbols to pack structures for compilers that
+** need an in-line directive.
+**
+**------------------------------------------------------------------------------
+*/
+
+#ifndef PACKED_STRUCT
+   #if defined( __GNUC__ )
+      #define PACKED_STRUCT   __attribute__ ((packed))
+   #else
+      #define PACKED_STRUCT
+   #endif				 
+#endif
 
 /*------------------------------------------------------------------------------
 **
@@ -972,7 +1039,7 @@ ABP_DiEventCodeType;
 **------------------------------------------------------------------------------
 */
 
-typedef start_packet_struct ABP_MsgHeaderType
+typedef struct ABP_MsgHeaderType
 {
    UINT8    bSourceId;
    UINT8    bDestObj;
@@ -982,7 +1049,7 @@ typedef start_packet_struct ABP_MsgHeaderType
    UINT8    bCmdExt0;
    UINT8    bCmdExt1;
 }
-end_packet_struct ABP_MsgHeaderType;
+PACKED_STRUCT ABP_MsgHeaderType;
 
 
 /*------------------------------------------------------------------------------
@@ -994,7 +1061,7 @@ end_packet_struct ABP_MsgHeaderType;
 **------------------------------------------------------------------------------
 */
 
-typedef start_packet_struct ABP_MsgType
+typedef struct ABP_MsgType
 {
    /*
    ** The message header part.
@@ -1008,7 +1075,7 @@ typedef start_packet_struct ABP_MsgType
 
    UINT8    abData[ ABP_MAX_MSG_DATA_BYTES ];
 }
-end_packet_struct ABP_MsgType;
+PACKED_STRUCT ABP_MsgType;
 
 
 /*******************************************************************************
