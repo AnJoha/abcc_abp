@@ -1,0 +1,9 @@
+# Git recommends LF to be used as end of line marker in text (textual content) files stored
+# in Git repostiory's object database. 
+
+# Set the default behavior for textual files; use as-is 
+* -text
+
+# Denote all files that are truly binary and should not be modified.
+*.png binary
+*.jpg binary
