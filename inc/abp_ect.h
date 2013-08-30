@@ -86,8 +86,9 @@
 #define ABP_ECT_IA_SERIAL_NUMBER          5
 #define ABP_ECT_IA_MANF_DEV_NAME          6
 #define ABP_ECT_IA_MANF_HW_VER            7
-
+#define ABP_ECT_IA_MANF_SW_VER            8
 #define ABP_ECT_IA_ENUM_ADIS              9
+#define ABP_ECT_IA_DEVICE_TYPE            10
 
 
 /*------------------------------------------------------------------------------
@@ -97,7 +98,7 @@
 **------------------------------------------------------------------------------
 */
 
-#define ABP_ECT_CFG_STR_LEN               24
+#define ABP_ECT_CFG_STR_LEN               32
 
 #define ABP_ECT_IA_VENDOR_ID_DS           ABP_UINT32_SIZEOF
 #define ABP_ECT_IA_PRODUCT_CODE_DS        ABP_UINT32_SIZEOF
