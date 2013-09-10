@@ -52,26 +52,6 @@
 
 /*------------------------------------------------------------------------------
 **
-** The PROFINET IO object specific message commands.
-**
-**------------------------------------------------------------------------------
-*/
-
-#define ABP_PNIO_CMD_GET_RECORD                    0x10
-#define ABP_PNIO_CMD_SET_RECORD                    0x11
-#define ABP_PNIO_CMD_GET_IM_RECORD                 0x12
-#define ABP_PNIO_CMD_SET_IM_RECORD                 0x13
-#define ABP_PNIO_CMD_AR_CHECK_IND                  0x14
-#define ABP_PNIO_CMD_CFG_MISMATCH_IND              0x15
-#define ABP_PNIO_CMD_AR_INFO_IND                   0x16
-#define ABP_PNIO_CMD_END_OF_PRM_IND                0x17
-#define ABP_PNIO_CMD_AR_OFFLINE_IND                0x18
-#define ABP_PNIO_CMD_AR_ABORT_IND                  0x19
-#define ABP_PNIO_CMD_PLUG_SUB_FAILED               0x1A
-
-
-/*------------------------------------------------------------------------------
-**
 ** The Anybus-CC PROFINET Object instance attributes.
 **
 **------------------------------------------------------------------------------
@@ -87,7 +67,6 @@
 ** Instance attributes 5-6 are reserved
 */
 
-#define ABP_PNIO_IA_MAX_SUB_SLOT_NBR            6
 #define ABP_PNIO_IA_RTM                         7
 #define ABP_PNIO_IA_IM_ORDER_ID                 8
 #define ABP_PNIO_IA_IM_SERIAL_NBR               9
@@ -105,6 +84,7 @@
 #define ABP_PNIO_IA_MOD_ID_ASSIGN_MODE          21
 #define ABP_PNIO_IA_SYSTEM_CONTACT              22
 #define ABP_PNIO_IA_PROFIENERGY_FUNC            23
+#define ABP_PNIO_IA_SYSTEM_OBJECT_ID            24
 
 
 /*------------------------------------------------------------------------------
@@ -133,9 +113,48 @@
 #define ABP_PNIO_IA_PORT2_MAC_ADDRESS_DS           ( 6 * ABP_UINT8_SIZEOF )
 #define ABP_PNIO_IA_SYSTEM_DESCRIPTION_DS          ( 255 * ABP_UINT8_SIZEOF )
 #define ABP_PNIO_IA_INTERFACE_DESCRIPTION_DS       ( 255 * ABP_UINT8_SIZEOF )
-#define ABP_PNIO_MOD_ID_ASSIGN_MODE_DS             ( ABP_UINT8_SIZEOF )
+#define ABP_PNIO_IA_MOD_ID_ASSIGN_MODE_DS          ( ABP_UINT8_SIZEOF )
 #define ABP_PNIO_IA_SYSTEM_CONTACT_DS              ( 255 * ABP_UINT8_SIZEOF )
 #define ABP_PNIO_IA_PROFIENERGY_FUNC_DS            ( ABP_UINT8_SIZEOF )
+#define ABP_PNIO_IA_SYSTEM_OBJECT_ID_DS            ( ABP_UINT32_SIZEOF )
+
+/*------------------------------------------------------------------------------
+**
+** The PROFINET IO object specific message commands.
+**
+**------------------------------------------------------------------------------
+*/
+
+#define ABP_PNIO_CMD_GET_RECORD                    0x10
+#define ABP_PNIO_CMD_SET_RECORD                    0x11
+#define ABP_PNIO_CMD_GET_IM_RECORD                 0x12
+#define ABP_PNIO_CMD_SET_IM_RECORD                 0x13
+#define ABP_PNIO_CMD_AR_CHECK_IND                  0x14
+#define ABP_PNIO_CMD_CFG_MISMATCH_IND              0x15
+#define ABP_PNIO_CMD_AR_INFO_IND                   0x16
+#define ABP_PNIO_CMD_END_OF_PRM_IND                0x17
+#define ABP_PNIO_CMD_AR_OFFLINE_IND                0x18
+#define ABP_PNIO_CMD_AR_ABORT_IND                  0x19
+#define ABP_PNIO_CMD_PLUG_SUB_FAILED               0x1A
+
+/*------------------------------------------------------------------------------
+**
+** The data size of the PROFINET Object specific message commands.
+**
+**------------------------------------------------------------------------------
+*/
+
+#define ABP_PNIO_CMD_GET_RECORD_DS                 11
+#define ABP_PNIO_CMD_SET_RECORD_DS                 256
+#define ABP_PNIO_CMD_GET_IM_RECORD_DS              4
+#define ABP_PNIO_CMD_SET_IM_RECORD_DS              256
+#define ABP_PNIO_CMD_AR_CHECK_IND_DS               256
+#define ABP_PNIO_CMD_CFG_MISMATCH_IND_DS           16
+#define ABP_PNIO_CMD_AR_INFO_IND_DS                256
+#define ABP_PNIO_CMD_END_OF_PRM_IND_DS             8
+#define ABP_PNIO_CMD_AR_OFFLINE_IND_DS             2
+#define ABP_PNIO_CMD_AR_ABORT_IND_DS               2
+#define ABP_PNIO_CMD_PLUG_SUB_FAILED_DS            8
 
 /*------------------------------------------------------------------------------
 **
