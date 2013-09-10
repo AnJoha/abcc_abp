@@ -366,6 +366,7 @@ ABP_LangType;
 **------------------------------------------------------------------------------
 */
 
+#define ABP_OBJ_NUM_ASM             235   /* Assembly mapping object          */
 #define ABP_OBJ_NUM_MDD             236   /* Modular device                   */
 #define ABP_OBJ_NUM_CIPID           237   /* CIP Identity                     */
 #define ABP_OBJ_NUM_SYNC            238   /* Sync                             */
