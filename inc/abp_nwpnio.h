@@ -106,6 +106,7 @@
 #define ABP_NWPNIO_CMD_APPL_STATE_READY            0x15
 #define ABP_NWPNIO_CMD_AR_ABORT                    0x16
 #define ABP_NWPNIO_CMD_ADD_ASM                     0x17
+#define ABP_NWPNIO_CMD_IM_OPTIONS                  0x18
 
 
 /*------------------------------------------------------------------------------
@@ -124,6 +125,7 @@
 #define ABP_NWPNIO_CMD_APPL_STATE_READY_DS         0
 #define ABP_NWPNIO_CMD_AR_ABORT_DS                 0
 #define ABP_NWPNIO_CMD_ADD_ASM_DS                  4
+#define ABP_NWPNIO_CMD_IM_OPTIONS_DS               255 /* TODO: How should it be represented? the size can variate */
 
 
 /*------------------------------------------------------------------------------
