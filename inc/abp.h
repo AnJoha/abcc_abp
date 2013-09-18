@@ -190,7 +190,8 @@ typedef enum ABP_MsgErrorCodeType
    ABP_ERR_SEG_FAILURE         = 0x0F,    /* Segmentation failure             */
    ABP_ERR_SEG_BUF_OVERFLOW    = 0x10,    /* Segmentation buffer overflow     */
    ABP_ERR_VAL_TOO_HIGH        = 0x11,    /* Written data value is too high (ABCC40) */
-   ABP_ERR_VAL_TOO_LOW         = 0x12,    /* Written data value is too low (ABCC40)  */
+   ABP_ERR_VAL_TOO_LOW         = 0x12,    /* Written data value is too low  (ABCC40) */
+   ABP_ERR_READ_ONLY_DATA      = 0x13,    /* Write access to read only data (ABCC40) */
    ABP_ERR_OBJ_SPECIFIC        = 0xFF     /* Object specific error            */
 }
 ABP_MsgErrorCodeType;
