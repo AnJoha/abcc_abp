@@ -192,6 +192,7 @@ typedef enum ABP_MsgErrorCodeType
    ABP_ERR_VAL_TOO_HIGH        = 0x11,    /* Written data value is too high (ABCC40) */
    ABP_ERR_VAL_TOO_LOW         = 0x12,    /* Written data value is too low  (ABCC40) */
    ABP_ERR_CONTROLLED_FROM_OTHER_CHANNEL = 0x13, /* NAK writes to “read process data” mapped attr. (ABCC40) */
+   ABP_ERR_MSG_CHANNEL_TOO_SMALL = 0x14,  /* Response does not fit          (ABCC40) */
    ABP_ERR_OBJ_SPECIFIC        = 0xFF     /* Object specific error            */
 }
 ABP_MsgErrorCodeType;
