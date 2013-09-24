@@ -135,14 +135,14 @@
 
 typedef enum ABP_MsgCmdType
 {
-   ABP_CMD_GET_ATTR            = 0x01,    /* Get attribute                    */
-   ABP_CMD_SET_ATTR            = 0x02,    /* Set attribute                    */
-   ABP_CMD_CREATE              = 0x03,    /* Create                           */
-   ABP_CMD_DELETE              = 0x04,    /* Delete                           */
-   ABP_CMD_RESET               = 0x05,    /* Reset                            */
-   ABP_CMD_GET_ENUM_STR        = 0x06,    /* Get enumeration string           */
-   ABP_CMD_GET_INDEXED_ATTR    = 0x07,    /* Get indexed attribute            */
-   ABP_CMD_SET_INDEXED_ATTR    = 0x08     /* Set indexed attribute            */
+   ABP_CMD_GET_ATTR              = 0x01,  /* Get attribute                    */
+   ABP_CMD_SET_ATTR              = 0x02,  /* Set attribute                    */
+   ABP_CMD_CREATE                = 0x03,  /* Create                           */
+   ABP_CMD_DELETE                = 0x04,  /* Delete                           */
+   ABP_CMD_RESET                 = 0x05,  /* Reset                            */
+   ABP_CMD_GET_ENUM_STR          = 0x06,  /* Get enumeration string           */
+   ABP_CMD_GET_INDEXED_ATTR      = 0x07,  /* Get indexed attribute            */
+   ABP_CMD_SET_INDEXED_ATTR      = 0x08   /* Set indexed attribute            */
 }
 ABP_MsgCmdType;
 
@@ -947,7 +947,6 @@ ABP_DiEventCodeType;
 
 #define ABP_APPD_CMD_GET_INST_BY_ORDER    0x10
 #define ABP_APPD_GET_PROFILE_INST_NUMBERS 0x11
-#define ABP_APPD_GET_ADI_INFO             0x12
 #define ABP_APPD_REMAP_ADI_WRITE_AREA     0x13
 #define ABP_APPD_REMAP_ADI_READ_AREA      0x14
 #define ABP_APPD_GET_INSTANCE_NUMBERS     0x15   /* ABCC40 */
