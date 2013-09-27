@@ -97,7 +97,7 @@
 
 #define ABP_PNIO_IA_DEVICE_ID_DS                   ABP_UINT16_SIZEOF
 #define ABP_PNIO_IA_VENDOR_ID_DS                   ABP_UINT16_SIZEOF
-#define ABP_PNIO_IA_STATION_TYPE_DS                ( 255 * ABP_UINT8_SIZEOF )
+#define ABP_PNIO_IA_STATION_TYPE_DS                ( 240 * ABP_UINT8_SIZEOF )
 #define ABP_PNIO_IA_MAX_AR_DS                      ABP_UINT32_SIZEOF
 #define ABP_PNIO_IA_RTM_DS                         ABP_UINT8_SIZEOF
 #define ABP_PNIO_IA_IM_ORDER_ID_DS                 ( 20 * ABP_UINT8_SIZEOF )
@@ -145,12 +145,12 @@
 */
 
 #define ABP_PNIO_CMD_GET_RECORD_DS                 11
-#define ABP_PNIO_CMD_SET_RECORD_DS                 256
+#define ABP_PNIO_CMD_SET_RECORD_DS                 255
 #define ABP_PNIO_CMD_GET_IM_RECORD_DS              4
-#define ABP_PNIO_CMD_SET_IM_RECORD_DS              256
-#define ABP_PNIO_CMD_AR_CHECK_IND_DS               256
+#define ABP_PNIO_CMD_SET_IM_RECORD_DS              255
+#define ABP_PNIO_CMD_AR_CHECK_IND_DS               255
 #define ABP_PNIO_CMD_CFG_MISMATCH_IND_DS           16
-#define ABP_PNIO_CMD_AR_INFO_IND_DS                256
+#define ABP_PNIO_CMD_AR_INFO_IND_DS                255
 #define ABP_PNIO_CMD_END_OF_PRM_IND_DS             8
 #define ABP_PNIO_CMD_AR_OFFLINE_IND_DS             2
 #define ABP_PNIO_CMD_AR_ABORT_IND_DS               2
