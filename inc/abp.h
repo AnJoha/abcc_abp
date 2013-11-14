@@ -111,7 +111,8 @@
 **------------------------------------------------------------------------------
 */
 
-#define ABP_MAX_MSG_DATA_BYTES      255
+#define ABP_MAX_MSG_255_DATA_BYTES   255
+#define ABP_MAX_MSG_DATA_BYTES      1524
 
 
 /*------------------------------------------------------------------------------
@@ -1036,14 +1037,14 @@ ABP_DiEventCodeType;
 
 /*------------------------------------------------------------------------------
 **
-** ABP_MsgHeaderType
+** ABP_Msg255HeaderType
 **
-** Structure describing a message header.
+** Structure describing a message header .
 **
 **------------------------------------------------------------------------------
 */
 
-typedef struct ABP_MsgHeaderType
+typedef struct ABP_Msg255HeaderType
 {
    UINT8    bSourceId;
    UINT8    bDestObj;
@@ -1053,8 +1054,55 @@ typedef struct ABP_MsgHeaderType
    UINT8    bCmdExt0;
    UINT8    bCmdExt1;
 }
-PACKED_STRUCT ABP_MsgHeaderType;
+PACKED_STRUCT ABP_Msg255HeaderType;
 
+/*------------------------------------------------------------------------------
+**
+** ABP_Msg255Type
+**
+** Structure describing a message.
+**
+**------------------------------------------------------------------------------
+*/
+
+typedef struct ABP_Msg255Type
+{
+   /*
+   ** The message header part.
+   */
+
+   ABP_Msg255HeaderType sHeader;
+
+   /*
+   ** The message data.
+   */
+
+   UINT8    abData[ ABP_MAX_MSG_255_DATA_BYTES ];
+}
+PACKED_STRUCT ABP_Msg255Type;
+
+/*------------------------------------------------------------------------------
+**
+** ABP_MsgHeaderType
+**
+** Structure describing a message header.
+**
+**------------------------------------------------------------------------------
+*/
+
+typedef struct ABP_MsgHeaderType
+{
+   UINT16   iDataSize;
+   UINT16   iReserved;
+   UINT8    bSourceId;
+   UINT8    bDestObj;
+   UINT16   iInstance;
+   UINT8    bCmd;
+   UINT8    bReserved;
+   UINT8    bCmdExt0;
+   UINT8    bCmdExt1;
+}
+PACKED_STRUCT ABP_MsgHeaderType;
 
 /*------------------------------------------------------------------------------
 **
@@ -1091,7 +1139,7 @@ PACKED_STRUCT ABP_MsgType;
 
 /*------------------------------------------------------------------------------
 **
-** ABP_SetMsgErrorResponse()
+** ABP_SetMsg255ErrorResponse()
 **
 ** Converts a message command header into an error response header.
 ** It clears the C-bit, sets the E-bit and enters the submitted error code.
@@ -1107,24 +1155,55 @@ PACKED_STRUCT ABP_MsgType;
 **    None
 **
 ** Usage:
-**    ABP_SetMsgErrorResponse( psMsg, bMsgDataSize, eErr );
+**    ABP_SetMsg255ErrorResponse( psMsg, bMsgDataSize, eErr );
 **
 **------------------------------------------------------------------------------
 */
 
-#define ABP_SetMsgErrorResponse( psMsg, bMsgDataSize, eErr )                   \
+#define ABP_SetMsg255ErrorResponse( psMsg, bMsgDataSize, eErr )                \
 {                                                                              \
    (psMsg)->sHeader.bCmd      &= ~ABP_MSG_HEADER_C_BIT;                        \
    (psMsg)->sHeader.bCmd      |=  ABP_MSG_HEADER_E_BIT;                        \
    (psMsg)->sHeader.bDataSize  =  (bMsgDataSize);                              \
    (psMsg)->abData[ 0 ]        =  (UINT8)(eErr);                               \
                                                                                \
-} /* end of ABP_SetMsgErrorResponse() */
-
+} /* end of ABP_SetMsg255ErrorResponse() */
 
 /*------------------------------------------------------------------------------
 **
-** ABP_SetMsgResponse()
+** ABP_SetMsgErrorResponse()
+**
+** Converts a message command header into an error response header.
+** It clears the C-bit, sets the E-bit and enters the submitted error code.
+**
+**------------------------------------------------------------------------------
+**
+** Inputs:
+**    psMsg                - Pointer to the message command to convert.
+**    iMsgDataSize         - The number of valid message data field bytes.
+**    eErr                 - The requested error code (ABP_MsgErrorCodeType).
+**
+** Outputs:
+**    None
+**
+** Usage:
+**    ABP_SetMsgErrorResponse( psMsg, iMsgDataSize, eErr );
+**
+**------------------------------------------------------------------------------
+*/
+
+#define ABP_SetMsgErrorResponse( psMsg, iMsgDataSize, eErr )                   \
+{                                                                              \
+   (psMsg)->sHeader.bCmd      &= ~ABP_MSG_HEADER_C_BIT;                        \
+   (psMsg)->sHeader.bCmd      |=  ABP_MSG_HEADER_E_BIT;                        \
+   (psMsg)->sHeader.iDataSize  =  (iMsgDataSize);                              \
+   (psMsg)->abData[ 0 ]        =  (UINT8)(eErr);                               \
+                                                                               \
+} /* end of ABP_SetMsgErrorResponse() */
+
+/*------------------------------------------------------------------------------
+**
+** ABP_SetMsg255Response()
 **
 ** Converts a message command header into a response header.
 ** It clears the C-bit and enters the submitted data size.
@@ -1139,15 +1218,44 @@ PACKED_STRUCT ABP_MsgType;
 **    None
 **
 ** Usage:
-**    ABP_SetMsgResponse( psMsg, bMsgDataSize );
+**    ABP_SetMsg255Response( psMsg, bMsgDataSize );
 **
 **------------------------------------------------------------------------------
 */
 
-#define ABP_SetMsgResponse( psMsg, bMsgDataSize )                              \
+#define ABP_SetMsg255Response( psMsg, bMsgDataSize )                           \
 {                                                                              \
    (psMsg)->sHeader.bCmd      &= ~ABP_MSG_HEADER_C_BIT;                        \
    (psMsg)->sHeader.bDataSize  =  (bMsgDataSize);                              \
+                                                                               \
+} /* end of ABP_SetMsg255Response() */
+
+/*------------------------------------------------------------------------------
+**
+** ABP_SetMsgResponse()
+**
+** Converts a message command header into a response header.
+** It clears the C-bit and enters the submitted data size.
+**
+**------------------------------------------------------------------------------
+**
+** Inputs:
+**    psMsg                - Pointer to the message command to convert.
+**    iMsgDataSize         - The number of valid message data field bytes.
+**
+** Outputs:
+**    None
+**
+** Usage:
+**    ABP_SetMsgResponse( psMsg, iMsgDataSize );
+**
+**------------------------------------------------------------------------------
+*/
+
+#define ABP_SetMsgResponse( psMsg, iMsgDataSize )                              \
+{                                                                              \
+   (psMsg)->sHeader.bCmd      &= ~ABP_MSG_HEADER_C_BIT;                        \
+   (psMsg)->sHeader.iDataSize  =  (iMsgDataSize);                              \
                                                                                \
 } /* end of ABP_SetMsgResponse() */
 
