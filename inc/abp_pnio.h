@@ -84,8 +84,6 @@
 #define ABP_PNIO_IA_MOD_ID_ASSIGN_MODE          21
 #define ABP_PNIO_IA_SYSTEM_CONTACT              22
 #define ABP_PNIO_IA_PROFIENERGY_FUNC            23
-#define ABP_PNIO_IA_SYSTEM_OBJECT_ID            24
-
 
 /*------------------------------------------------------------------------------
 **
@@ -116,7 +114,6 @@
 #define ABP_PNIO_IA_MOD_ID_ASSIGN_MODE_DS          ( ABP_UINT8_SIZEOF )
 #define ABP_PNIO_IA_SYSTEM_CONTACT_DS              ( 255 * ABP_UINT8_SIZEOF )
 #define ABP_PNIO_IA_PROFIENERGY_FUNC_DS            ( ABP_UINT8_SIZEOF )
-#define ABP_PNIO_IA_SYSTEM_OBJECT_ID_DS            ( ABP_UINT32_SIZEOF )
 
 /*------------------------------------------------------------------------------
 **
