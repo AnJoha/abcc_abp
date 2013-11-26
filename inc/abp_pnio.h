@@ -61,9 +61,12 @@
 #define ABP_PNIO_IA_VENDOR_ID                   2
 #define ABP_PNIO_IA_STATION_TYPE                3
 #define ABP_PNIO_IA_MAX_AR                      4
+
+
 /*
 ** Instance attributes 5-6 are reserved
 */
+
 #define ABP_PNIO_IA_RTM                         7
 #define ABP_PNIO_IA_IM_ORDER_ID                 8
 #define ABP_PNIO_IA_IM_SERIAL_NBR               9
@@ -81,6 +84,8 @@
 #define ABP_PNIO_IA_MOD_ID_ASSIGN_MODE          21
 #define ABP_PNIO_IA_SYSTEM_CONTACT              22
 #define ABP_PNIO_IA_PROFIENERGY_FUNC            23
+#define ABP_PNIO_IA_SYSTEM_OBJECT_ID            24
+
 
 /*------------------------------------------------------------------------------
 **
@@ -92,7 +97,7 @@
 
 #define ABP_PNIO_IA_DEVICE_ID_DS                   ABP_UINT16_SIZEOF
 #define ABP_PNIO_IA_VENDOR_ID_DS                   ABP_UINT16_SIZEOF
-#define ABP_PNIO_IA_STATION_TYPE_DS                ( 25 * ABP_UINT8_SIZEOF )
+#define ABP_PNIO_IA_STATION_TYPE_DS                ( 240 * ABP_UINT8_SIZEOF )
 #define ABP_PNIO_IA_MAX_AR_DS                      ABP_UINT32_SIZEOF
 #define ABP_PNIO_IA_RTM_DS                         ABP_UINT8_SIZEOF
 #define ABP_PNIO_IA_IM_ORDER_ID_DS                 ( 20 * ABP_UINT8_SIZEOF )
@@ -111,6 +116,7 @@
 #define ABP_PNIO_IA_MOD_ID_ASSIGN_MODE_DS          ( ABP_UINT8_SIZEOF )
 #define ABP_PNIO_IA_SYSTEM_CONTACT_DS              ( 255 * ABP_UINT8_SIZEOF )
 #define ABP_PNIO_IA_PROFIENERGY_FUNC_DS            ( ABP_UINT8_SIZEOF )
+#define ABP_PNIO_IA_SYSTEM_OBJECT_ID_DS            ( ABP_UINT32_SIZEOF )
 
 /*------------------------------------------------------------------------------
 **
