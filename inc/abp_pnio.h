@@ -127,7 +127,6 @@
 #define ABP_PNIO_CMD_CFG_MISMATCH_IND              0x15
 #define ABP_PNIO_CMD_AR_INFO_IND                   0x16
 #define ABP_PNIO_CMD_END_OF_PRM_IND                0x17
-#define ABP_PNIO_CMD_AR_OFFLINE_IND                0x18
 #define ABP_PNIO_CMD_AR_ABORT_IND                  0x19
 #define ABP_PNIO_CMD_PLUG_SUB_FAILED               0x1A
 
@@ -146,7 +145,6 @@
 #define ABP_PNIO_CMD_CFG_MISMATCH_IND_DS           16
 #define ABP_PNIO_CMD_AR_INFO_IND_DS                255
 #define ABP_PNIO_CMD_END_OF_PRM_IND_DS             8
-#define ABP_PNIO_CMD_AR_OFFLINE_IND_DS             2
 #define ABP_PNIO_CMD_AR_ABORT_IND_DS               2
 #define ABP_PNIO_CMD_PLUG_SUB_FAILED_DS            8
 
