@@ -225,10 +225,37 @@ ABP_MsgErrorCodeType;
 #define ABP_BITS8                   9        /* 8 bit bitfield (ABCC40)       */
 #define ABP_BITS16                  10       /* 16 bit bitfield (ABCC40)      */
 #define ABP_BITS32                  11       /* 32 bit bitfield (ABCC40)      */
+#define ABP_OCTET                   12       /* 8 bit data (ABCC40)           */
 
 #define ABP_SINT64                  16       /* Signed 64 bit integer         */
 #define ABP_UINT64                  17       /* Unsigned 64 bit integer       */
 #define ABP_FLOAT                   18       /* Floating point/real number    */
+
+#define ABP_PAD0                    32       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD1                    33       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD2                    34       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD3                    35       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD4                    36       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD5                    37       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD6                    38       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD7                    39       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD8                    40       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD9                    41       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD10                   42       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD11                   43       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD12                   44       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD13                   45       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD14                   46       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD15                   47       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD16                   48       /* Padding bitfield (ABCC40)     */
+
+#define ABP_BIT1                   65       /* 1 bit bitfield (ABCC40)       */
+#define ABP_BIT2                   66       /* 2 bit bitfield (ABCC40)       */
+#define ABP_BIT3                   67       /* 3 bit bitfield (ABCC40)       */
+#define ABP_BIT4                   68       /* 4 bit bitfield (ABCC40)       */
+#define ABP_BIT5                   69       /* 5 bit bitfield (ABCC40)       */
+#define ABP_BIT6                   70       /* 6 bit bitfield (ABCC40)       */
+#define ABP_BIT7                   71       /* 7 bit bitfield (ABCC40)       */
 
 
 /*------------------------------------------------------------------------------
@@ -250,6 +277,7 @@ ABP_MsgErrorCodeType;
 #define ABP_BITS8_SIZEOF            1        /* 8 bit bitfield (ABCC40)       */
 #define ABP_BITS16_SIZEOF           2        /* 16 bit bitfield (ABCC40)      */
 #define ABP_BITS32_SIZEOF           4        /* 32 bit bitfield (ABCC40)      */
+#define ABP_OCTET_SIZEOF            1        /* 8 bit data (ABCC40)           */
 
 #define ABP_SINT64_SIZEOF           8        /* Signed 64 bit integer         */
 #define ABP_UINT64_SIZEOF           8        /* Unsigned 64 bit integer       */
@@ -275,10 +303,19 @@ ABP_MsgErrorCodeType;
 #define ABP_BITS8_MAX               0xFFU          /* ABCC40 */
 #define ABP_BITS16_MAX              0xFFFFU        /* ABCC40 */
 #define ABP_BITS32_MAX              0xFFFFFFFFLU   /* ABCC40 */
+#define ABP_OCTET_MAX               0xFFU          /* ABCC40 */
 
 #define ABP_SINT64_MAX              0x7FFFFFFFFFFFFFFFL
 #define ABP_UINT64_MAX              0xFFFFFFFFFFFFFFFFLU
 #define ABP_FLOAT_MAX               3.40282347E+38F
+
+#define ABP_BITS1_MAX               0x1            /* ABCC40 */
+#define ABP_BITS2_MAX               0x3            /* ABCC40 */
+#define ABP_BITS3_MAX               0x7            /* ABCC40 */
+#define ABP_BITS4_MAX               0xF            /* ABCC40 */
+#define ABP_BITS5_MAX               0x1F           /* ABCC40 */
+#define ABP_BITS6_MAX               0x3F           /* ABCC40 */
+#define ABP_BITS7_MAX               0x7F           /* ABCC40 */
 
 
 /*------------------------------------------------------------------------------
@@ -300,10 +337,19 @@ ABP_MsgErrorCodeType;
 #define ABP_BITS8_MIN               0 /* ABCC40 */
 #define ABP_BITS16_MIN              0 /* ABCC40 */
 #define ABP_BITS32_MIN              0 /* ABCC40 */
+#define ABP_OCTET_MIN               0 /* ABCC40 */
 
 #define ABP_SINT64_MIN              ( - ABP_SINT64_MAX - 1 )
 #define ABP_UINT64_MIN              0
 #define ABP_FLOAT_MIN               1.17549435E-38F
+
+#define ABP_BITS1_MIN               0 /* ABCC40 */
+#define ABP_BITS2_MIN               0 /* ABCC40 */
+#define ABP_BITS3_MIN               0 /* ABCC40 */
+#define ABP_BITS4_MIN               0 /* ABCC40 */
+#define ABP_BITS5_MIN               0 /* ABCC40 */
+#define ABP_BITS6_MIN               0 /* ABCC40 */
+#define ABP_BITS7_MIN               0 /* ABCC40 */
 
 
 /*******************************************************************************
@@ -786,6 +832,10 @@ ABP_DiEventCodeType;
 #define ABP_NW_ERR_MULTIPLE_MAPPING       0x04  /* Multiple mapping           */
 #define ABP_NW_ERR_INVALID_ORDER_NUM      0x05  /* Invalid ADI order number   */
 #define ABP_NW_ERR_INVALID_MAP_CMD_SEQ    0x06  /* Invalid mapp cmd sequence  */
+#define ABP_NW_ERR_INVALID_MAP_CMD        0x07  /* Command impossible to parse */
+#define ABP_NW_ERR_BAD_ALIGNMENT          0x08  /* Invalid data alignment     */
+#define ABP_NW_ERR_INVALID_ADI_0          0x09  /* Invalid use of ADI 0       */
+#define ABP_NW_ERR_NW_SPEC_RESTRICTION    0xFF  /* Network specific restriction */
 
 
 /*------------------------------------------------------------------------------
@@ -1136,6 +1186,58 @@ PACKED_STRUCT ABP_MsgType;
 **
 ********************************************************************************
 */
+
+/*------------------------------------------------------------------------------
+**
+** ABP_BitSize_PADx()
+** ABP_BitSize_BITx()
+**
+** Returns the number of bits occupied by the supplied type.
+** NOTE: The macro does not check that the supplied type is of the specific type
+** class. The type class has to be verified separately.
+**
+**------------------------------------------------------------------------------
+**
+** Inputs:
+**    bType                - Type code
+**
+** Outputs:
+**    Returns the number of bits occupied by the supplied type.
+**
+** Usage:
+**    if( ABP_Is_PADx( bType ) )
+**      bOccupiedBits = ABP_BitSize_PADx( bType );
+**
+**------------------------------------------------------------------------------
+*/
+
+#define ABP_BitSize_PADx( bType ) ( (bType) & 0x1F )
+#define ABP_BitSize_BITx( bType ) ( (bType) & 0x07 )
+
+/*------------------------------------------------------------------------------
+**
+** ABP_Is_PADx()
+** ABP_Is_BITx()
+**
+** Check if the supplied type is of the specific type class (PADx or BITx).
+** Returns logical true if so, and false if not.
+**
+**------------------------------------------------------------------------------
+**
+** Inputs:
+**    bType                - Type code
+**
+** Outputs:
+**    Returns logical true if supplied type code is of the specific type class.
+**
+** Usage:
+**    if( ABP_Is_PADx( bType ) )
+**
+**------------------------------------------------------------------------------
+*/
+
+#define ABP_Is_BITx( bType )  ( ( (bType) >= ABP_BIT1 ) && ( (bType) <= ABP_BIT7 ) )
+#define ABP_Is_PADx( bType )  ( ( (bType) >= ABP_PAD0 ) && ( (bType) <= ABP_PAD16 ) )
 
 /*------------------------------------------------------------------------------
 **
