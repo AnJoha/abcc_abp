@@ -1,0 +1,107 @@
+/*******************************************************************************
+********************************************************************************
+** COPYRIGHT NOTIFICATION (c) 2013 HMS Industrial Networks AB                 **
+**                                                                            **
+** This program is the property of HMS Industrial Networks AB.                **
+** It may not be reproduced, distributed, or used without permission          **
+** of an authorized company official.                                         **
+********************************************************************************
+********************************************************************************
+** Anybus-CC Protocol - POWERLINK Definitions.
+**
+** This software component contains protocol definitions used by the POWERLINK
+** Anybus-CC module as well as applications designed to use such modules.
+**
+** The generic portion used by all Anybus-CC modules is available in the file
+** ABP.H.
+********************************************************************************
+********************************************************************************
+** Services:
+********************************************************************************
+********************************************************************************
+*/
+
+#ifndef ABP_EPL_H
+#define ABP_EPL_H
+
+
+/*******************************************************************************
+**
+** Anybus-CC POWERLINK object constants.
+**
+** Object revision: 1.
+**
+********************************************************************************
+*/
+
+/*------------------------------------------------------------------------------
+**
+** POWERLINK object instance number
+**
+**------------------------------------------------------------------------------
+*/
+
+#define ABP_EPL_OI_ID                     1
+
+
+/*------------------------------------------------------------------------------
+**
+** POWERLINK object instance attributes.
+**
+**------------------------------------------------------------------------------
+*/
+
+#define ABP_EPL_IA_VENDOR_ID              1
+#define ABP_EPL_IA_PRODUCT_CODE           2
+#define ABP_EPL_IA_MAJOR_REV              3
+#define ABP_EPL_IA_MINOR_REV              4
+#define ABP_EPL_IA_SERIAL_NUMBER          5
+#define ABP_EPL_IA_MANF_DEV_NAME          6
+#define ABP_EPL_IA_MANF_HW_VER            7
+#define ABP_EPL_IA_MANF_SW_VER            8
+
+#define ABP_EPL_IA_DEVICE_TYPE            10
+#define ABP_EPL_IA_MANF_NAME              11
+
+
+/*------------------------------------------------------------------------------
+**
+** The data size of the POWERLINK object instance attributes (in bytes).
+**
+**------------------------------------------------------------------------------
+*/
+
+#define ABP_EPL_CFG_STR_LEN               32
+
+#define ABP_EPL_IA_VENDOR_ID_DS           ABP_UINT32_SIZEOF
+#define ABP_EPL_IA_PRODUCT_CODE_DS        ABP_UINT32_SIZEOF
+#define ABP_EPL_IA_MAJOR_REV_DS           ABP_UINT16_SIZEOF
+#define ABP_EPL_IA_MINOR_REV_DS           ABP_UINT16_SIZEOF
+#define ABP_EPL_IA_SERIAL_NUMBER_DS       ABP_UINT32_SIZEOF
+#define ABP_EPL_IA_MANF_DEV_NAME_MAX_DS   ( ABP_CHAR_SIZEOF * ABP_EPL_CFG_STR_LEN )
+#define ABP_EPL_IA_MANF_HW_VER_MAX_DS     ( ABP_CHAR_SIZEOF * ABP_EPL_CFG_STR_LEN )
+#define ABP_EPL_IA_MANF_SW_VER_MAX_DS     ( ABP_CHAR_SIZEOF * ABP_EPL_CFG_STR_LEN )
+
+#define ABP_EPL_IA_DEVICE_TYPE_DS         ABP_UINT32_SIZEOF
+#define ABP_EPL_IA_MANF_NAME_MAX_DS       ( ABP_CHAR_SIZEOF * ABP_EPL_CFG_STR_LEN )
+
+/*******************************************************************************
+**
+** Network object constants.
+**
+********************************************************************************
+*/
+
+/*------------------------------------------------------------------------------
+**
+** Network object instance attribute # 7 information
+** POWERLINK specific exception constants
+**
+**------------------------------------------------------------------------------
+*/
+
+#define ABP_EPL_NW_EXCPT_ILLEGAL_DATA_TYPE           1
+#define ABP_EPL_NW_EXCPT_INSTANCE_BY_ORDER_ERROR     2
+#define ABP_EPL_NW_EXCPT_INVALID_SYNC_MODE           6
+
+#endif  /* inclusion lock */
