@@ -416,6 +416,7 @@ ABP_LangType;
 */
 
 #define ABP_OBJ_NUM_EPL             233   /* POWERLINK                        */
+#define ABP_OBJ_NUM_AFSI            234   /* Application File System Interface*/
 #define ABP_OBJ_NUM_ASM             235   /* Assembly mapping object          */
 #define ABP_OBJ_NUM_MDD             236   /* Modular device                   */
 #define ABP_OBJ_NUM_CIPID           237   /* CIP Identity                     */
