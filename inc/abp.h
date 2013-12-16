@@ -199,6 +199,100 @@ typedef enum ABP_MsgErrorCodeType
 ABP_MsgErrorCodeType;
 
 
+/*------------------------------------------------------------------------------
+**
+** Application status data type.
+**
+**------------------------------------------------------------------------------
+*/
+typedef enum ABP_AppStatusType
+{
+   ABP_APP_NO_ERROR           = 0,
+   ABP_SYNC_CONFIG_ERR        = 1,
+   ABP_PD_CONFIG_ERR          = 2,
+   ABP_SYNC_LOSS              = 3,
+   ABP_OUTPUT_ERR             = 4
+}
+ABP_AppStatusType;
+
+
+/*******************************************************************************
+**
+** Anybus interface constants
+**
+********************************************************************************
+*/
+
+/*------------------------------------------------------------------------------
+**
+** Address memory offsets.
+**
+**------------------------------------------------------------------------------
+*/
+#define ABP_WRPD_ADR_OFFSET            0x0000
+#define ABP_RDPD_ADR_OFFSET            0x1000
+#define ABP_WRMSG_ADR_OFFSET           0x2000
+#define ABP_RDMSG_ADR_OFFSET           0x3000
+#define ABP_WRPDM_ADR_OFFSET           0x3800
+#define ABP_RDPDM_ADR_OFFSET           0x3900
+#define ABP_WRMSG_LEGACY_ADR_OFFSET    0x3B00
+#define ABP_RDMSG_LEGACY_ADR_OFFSET    0x3D00
+
+#define ABP_MODCAP_ADR_OFFSET          0x3FF0
+#define ABP_LEDSTATUS_ADR_OFFSET       0x3FF2
+#define ABP_APPSTATUS_ADR_OFFSET       0x3FF4
+#define ABP_ANBSTATUS_ADR_OFFSET       0x3FF6
+#define ABP_BUFCTRL_ADR_OFFSET         0x3FF8
+#define ABP_INTMASK_ADR_OFFSET         0x3FFA
+#define ABP_INTSTATUS_ADR_OFFSET       0x3FFC
+#define ABP_CONTROL_ADR_OFFSET         0x3FFE
+#define ABP_STATUS_ADR_OFFSET          0x3FFF
+
+
+/*------------------------------------------------------------------------------
+**
+** BUFCTRL Register.
+**
+**------------------------------------------------------------------------------
+*/
+#define ABP_BUFCTRL_WRPD               0x01
+#define ABP_BUFCTRL_RDPD               0x02
+#define ABP_BUFCTRL_WRMSG              0x04
+#define ABP_BUFCTRL_RDMSG              0x08
+#define ABP_BUFCTRL_ANBR               0x10
+#define ABP_BUFCTRL_APPR               0x20
+#define ABP_BUFCTRL_APPRCLR            0x40
+
+
+/*------------------------------------------------------------------------------
+**
+** INT STATUS Register.
+**
+**------------------------------------------------------------------------------
+*/
+#define ABP_INTSTATUS_RDPDI            0x01
+#define ABP_INTSTATUS_RDMSGI           0x02
+#define ABP_INTSTATUS_WRMSGI           0x04
+#define ABP_INTSTATUS_ANBRI            0x08
+#define ABP_INTSTATUS_STATUSI          0x10
+#define ABP_INTSTATUS_PWRI             0x20
+#define ABP_INTSTATUS_SYNCI            0x40
+
+
+/*------------------------------------------------------------------------------
+**
+** INT MASK Register.
+**
+**------------------------------------------------------------------------------
+*/
+#define ABP_INTMASK_RDPDIEN            0x01
+#define ABP_INTMASK_RDMSGIEN           0x02
+#define ABP_INTMASK_WRMSGIEN           0x04
+#define ABP_INTMASK_ANBRIEN            0x08
+#define ABP_INTMASK_STATUSIEN          0x10
+#define ABP_INTMASK_SYNCIEN            0x40
+
+
 /*******************************************************************************
 **
 ** Anybus-CC data types.
