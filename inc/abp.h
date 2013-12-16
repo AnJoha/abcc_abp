@@ -1,31 +1,54 @@
 /*******************************************************************************
 ********************************************************************************
-** COPYRIGHT NOTIFICATION (c) 2013 HMS Industrial Networks AB                 **
+**
+** File Name
+** ---------
+**
+** abp.h
+**
+********************************************************************************
+********************************************************************************
+**
+** Description
+** -----------
+**
+** ABP - Anybus-CC Protocol Definitions.
+**
+** This software component contains protocol definitions used by Anybus-CC
+** modules as well as applications designed to use such modules.
+**
+** This file contains the generic portion used by all Anybus-CC modules.
+**
+** Network specific definitions that may be required by some applications are
+** published in the corresponding abp_xxx.h file(s).
+**
+********************************************************************************
+********************************************************************************
+**
+** Services List
+** -------------
+**
+** Public Services:
+**
+**    ABP_SetMsgErrorResponse()  - Convert message command to an error response.
+**    ABP_SetMsgResponse()       - Convert message command to a response.
+**
+********************************************************************************
+********************************************************************************
+**                                                                            **
+** COPYRIGHT NOTIFICATION (c) 2009 HMS Industrial Networks AB                 **
 **                                                                            **
 ** This code is the property of HMS Industrial Networks AB.                   **
 ** The source code may not be reproduced, distributed, or used without        **
-** permission. When used together with a product from HMS, permission is      **
-** granted to modify, reproduce and distribute the code in binary form        **
-** without any restrictions.                                                  **
+** permission. When used together with a product from HMS, this code can be   **
+** modified, reproduced and distributed in binary form without any            **
+** restrictions.                                                              **
 **                                                                            **
 ** THE CODE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND. HMS DOES NOT    **
 ** WARRANT THAT THE FUNCTIONS OF THE CODE WILL MEET YOUR REQUIREMENTS, OR     **
 ** THAT THE OPERATION OF THE CODE WILL BE UNINTERRUPTED OR ERROR-FREE, OR     **
 ** THAT DEFECTS IN IT CAN BE CORRECTED.                                       **
-********************************************************************************
-********************************************************************************
-** File Description:
-** ABP - Anybus-CC Protocol Definitions.
-** This software component contains protocol definitions used by Anybus-CC
-** modules as well as applications designed to use such modules.
-** This file contains the generic portion used by all Anybus-CC modules.
-** Network specific definitions that may be required by some applications are
-** published in the corresponding abp_xxx.h file(s).
-********************************************************************************
-********************************************************************************
-** Services:
-**    ABP_SetMsgErrorResponse()  - Convert message command to an error response.
-**    ABP_SetMsgResponse()       - Convert message command to a response.
+**                                                                            **
 ********************************************************************************
 ********************************************************************************
 */
@@ -34,15 +57,21 @@
 #define ABP_H_
 
 
+
 /*******************************************************************************
-** Common telegram and message constants.
+**
+** Common telegram and message constants
+**
 ********************************************************************************
 */
 
 /*------------------------------------------------------------------------------
+**
 ** Control register bitmasks.
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_CTRL_T_BIT              0x80
 #define ABP_CTRL_M_BIT              0x40
 #define ABP_CTRL_R_BIT              0x20
@@ -51,9 +80,12 @@
 
 
 /*------------------------------------------------------------------------------
+**
 ** Status register bitmasks.
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_STAT_T_BIT              0x80
 #define ABP_STAT_M_BIT              0x40
 #define ABP_STAT_R_BIT              0x20
@@ -63,339 +95,294 @@
 
 
 /*------------------------------------------------------------------------------
+**
 ** The maximum amount of process data in a telegram (in bytes).
 ** Note: Used for ping-pong protocol on both NP30 and NP40.
 **------------------------------------------------------------------------------
 */
+
 #define ABP_MAX_PROCESS_DATA        256
 
 
 /*------------------------------------------------------------------------------
+**
 ** The maximum amount of data in a message data field (in bytes).
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_MAX_MSG_255_DATA_BYTES   255
 #define ABP_MAX_MSG_DATA_BYTES      1524
 
 
 /*------------------------------------------------------------------------------
+**
 ** Message header bitmasks.
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_MSG_HEADER_C_BIT        0x40
 #define ABP_MSG_HEADER_E_BIT        0x80
 #define ABP_MSG_HEADER_CMD_BITS     0x3F
 
 
 /*------------------------------------------------------------------------------
+**
 ** Message commands.
+**
 **------------------------------------------------------------------------------
 */
+
 typedef enum ABP_MsgCmdType
 {
-   ABP_CMD_GET_ATTR                    = 0x01,  /* Get attribute.             */
-   ABP_CMD_SET_ATTR                    = 0x02,  /* Set attribute.             */
-   ABP_CMD_CREATE                      = 0x03,  /* Create.                    */
-   ABP_CMD_DELETE                      = 0x04,  /* Delete.                    */
-   ABP_CMD_RESET                       = 0x05,  /* Reset.                     */
-   ABP_CMD_GET_ENUM_STR                = 0x06,  /* Get enumeration string.    */
-   ABP_CMD_GET_INDEXED_ATTR            = 0x07,  /* Get indexed attribute.     */
-   ABP_CMD_SET_INDEXED_ATTR            = 0x08   /* Set indexed attribute.     */
+   ABP_CMD_GET_ATTR              = 0x01,  /* Get attribute                    */
+   ABP_CMD_SET_ATTR              = 0x02,  /* Set attribute                    */
+   ABP_CMD_CREATE                = 0x03,  /* Create                           */
+   ABP_CMD_DELETE                = 0x04,  /* Delete                           */
+   ABP_CMD_RESET                 = 0x05,  /* Reset                            */
+   ABP_CMD_GET_ENUM_STR          = 0x06,  /* Get enumeration string           */
+   ABP_CMD_GET_INDEXED_ATTR      = 0x07,  /* Get indexed attribute            */
+   ABP_CMD_SET_INDEXED_ATTR      = 0x08   /* Set indexed attribute            */
 }
 ABP_MsgCmdType;
 
 
 /*------------------------------------------------------------------------------
+**
 ** Reset command types.
+**
 **------------------------------------------------------------------------------
 */
+
 typedef enum ABP_ResetType
 {
-   ABP_RESET_POWER_ON                  = 0x00,  /* Power-on reset.            */
-   ABP_RESET_FACTORY_DEFAULT           = 0x01,  /* Factory default reset.     */
-   ABP_RESET_POWER_ON_FACTORY_DEFAULT  = 0x02   /* Power-on + Factory reset.  */
+   ABP_RESET_POWER_ON                  = 0x00,  /* Power-on reset             */
+   ABP_RESET_FACTORY_DEFAULT           = 0x01,  /* Factory default reset      */
+   ABP_RESET_POWER_ON_FACTORY_DEFAULT  = 0x02   /* Power-on + Factory reset   */
 }
 ABP_ResetType;
 
 
 /*------------------------------------------------------------------------------
+**
 ** Message error codes.
+**
 **------------------------------------------------------------------------------
 */
+
 typedef enum ABP_MsgErrorCodeType
 {
-   ABP_ERR_NO_ERROR           = 0x00,  /* No error.                           */
+   ABP_ERR_NO_ERROR            = 0x00,    /* No error                         */
 
-   ABP_ERR_INV_MSG_FORMAT     = 0x02,  /* Invalid message format.             */
-   ABP_ERR_UNSUP_OBJ          = 0x03,  /* Unsupported object.                 */
-   ABP_ERR_UNSUP_INST         = 0x04,  /* Unsupported instance.               */
-   ABP_ERR_UNSUP_CMD          = 0x05,  /* Unsupported command.                */
-   ABP_ERR_INV_CMD_EXT_0      = 0x06,  /* Invalid CmdExt[ 0 ].                */
-   ABP_ERR_INV_CMD_EXT_1      = 0x07,  /* Invalid CmdExt[ 1 ].                */
-   ABP_ERR_ATTR_NOT_SETABLE   = 0x08,  /* Attribute access is not set-able.   */
-   ABP_ERR_ATTR_NOT_GETABLE   = 0x09,  /* Attribute access is not get-able.   */
-   ABP_ERR_TOO_MUCH_DATA      = 0x0A,  /* Too much data in msg data field.    */
-   ABP_ERR_NOT_ENOUGH_DATA    = 0x0B,  /* Not enough data in msg data field.  */
-   ABP_ERR_OUT_OF_RANGE       = 0x0C,  /* Out of range.                       */
-   ABP_ERR_INV_STATE          = 0x0D,  /* Invalid state.                      */
-   ABP_ERR_NO_RESOURCES       = 0x0E,  /* Out of resources.                   */
-   ABP_ERR_SEG_FAILURE        = 0x0F,  /* Segmentation failure.               */
-   ABP_ERR_SEG_BUF_OVERFLOW   = 0x10,  /* Segmentation buffer overflow.       */
-   ABP_ERR_VAL_TOO_HIGH       = 0x11,  /* Written data value is too high (ABCC40).     */
-   ABP_ERR_VAL_TOO_LOW        = 0x12,  /* Written data value is too low  (ABCC40).     */
-   ABP_ERR_CONTROLLED_FROM_OTHER_CHANNEL  = 0x13,  /* NAK writes to "read process data" mapped attr. (ABCC40). */
-   ABP_ERR_MSG_CHANNEL_TOO_SMALL          = 0x14,  /* Response does not fit (ABCC40).  */
-   ABP_ERR_OBJ_SPECIFIC       = 0xFF   /* Object specific error.              */
+   ABP_ERR_INV_MSG_FORMAT      = 0x02,    /* Invalid message format           */
+   ABP_ERR_UNSUP_OBJ           = 0x03,    /* Unsupported object               */
+   ABP_ERR_UNSUP_INST          = 0x04,    /* Unsupported instance             */
+   ABP_ERR_UNSUP_CMD           = 0x05,    /* Unsupported command              */
+   ABP_ERR_INV_CMD_EXT_0       = 0x06,    /* Invalid CmdExt[ 0 ]              */
+   ABP_ERR_INV_CMD_EXT_1       = 0x07,    /* Invalid CmdExt[ 1 ]              */
+   ABP_ERR_ATTR_NOT_SETABLE    = 0x08,    /* Attribute access is not set-able */
+   ABP_ERR_ATTR_NOT_GETABLE    = 0x09,    /* Attribute access is not get-able */
+   ABP_ERR_TOO_MUCH_DATA       = 0x0A,    /* Too much data in msg data field  */
+   ABP_ERR_NOT_ENOUGH_DATA     = 0x0B,    /* Not enough data in msg data field*/
+   ABP_ERR_OUT_OF_RANGE        = 0x0C,    /* Out of range                     */
+   ABP_ERR_INV_STATE           = 0x0D,    /* Invalid state                    */
+   ABP_ERR_NO_RESOURCES        = 0x0E,    /* Out of resources                 */
+   ABP_ERR_SEG_FAILURE         = 0x0F,    /* Segmentation failure             */
+   ABP_ERR_SEG_BUF_OVERFLOW    = 0x10,    /* Segmentation buffer overflow     */
+   ABP_ERR_VAL_TOO_HIGH        = 0x11,    /* Written data value is too high (ABCC40) */
+   ABP_ERR_VAL_TOO_LOW         = 0x12,    /* Written data value is too low  (ABCC40) */
+   ABP_ERR_CONTROLLED_FROM_OTHER_CHANNEL = 0x13, /* NAK writes to “read process data” mapped attr. (ABCC40) */
+   ABP_ERR_MSG_CHANNEL_TOO_SMALL = 0x14,  /* Response does not fit          (ABCC40) */
+   ABP_ERR_OBJ_SPECIFIC        = 0xFF     /* Object specific error            */
 }
 ABP_MsgErrorCodeType;
 
 
-/*------------------------------------------------------------------------------
-** Application status data type.
-**------------------------------------------------------------------------------
-*/
-typedef enum ABP_AppStatusType
-{
-   ABP_APP_NO_ERROR           = 0,
-   ABP_SYNC_CONFIG_ERR        = 1,
-   ABP_PD_CONFIG_ERR          = 2,
-   ABP_SYNC_LOSS              = 3,
-   ABP_OUTPUT_ERR             = 4
-}
-ABP_AppStatusType;
-
-
 /*******************************************************************************
-** Anybus interface constants
-********************************************************************************
-*/
-
-/*------------------------------------------------------------------------------
-** Address memory offsets.
-**------------------------------------------------------------------------------
-*/
-#define ABP_WRPD_ADR_OFFSET            0x0000
-#define ABP_RDPD_ADR_OFFSET            0x1000
-#define ABP_WRMSG_ADR_OFFSET           0x2000
-#define ABP_RDMSG_ADR_OFFSET           0x3000
-#define ABP_WRPDM_ADR_OFFSET           0x3800
-#define ABP_RDPDM_ADR_OFFSET           0x3900
-#define ABP_WRMSG_LEGACY_ADR_OFFSET    0x3B00
-#define ABP_RDMSG_LEGACY_ADR_OFFSET    0x3D00
-
-#define ABP_MODCAP_ADR_OFFSET          0x3FF0
-#define ABP_LEDSTATUS_ADR_OFFSET       0x3FF2
-#define ABP_APPSTATUS_ADR_OFFSET       0x3FF4
-#define ABP_ANBSTATUS_ADR_OFFSET       0x3FF6
-#define ABP_BUFCTRL_ADR_OFFSET         0x3FF8
-#define ABP_INTMASK_ADR_OFFSET         0x3FFA
-#define ABP_INTSTATUS_ADR_OFFSET       0x3FFC
-#define ABP_CONTROL_ADR_OFFSET         0x3FFE
-#define ABP_STATUS_ADR_OFFSET          0x3FFF
-
-
-/*------------------------------------------------------------------------------
-** BUFCTRL Register.
-**------------------------------------------------------------------------------
-*/
-#define ABP_BUFCTRL_WRPD               0x01
-#define ABP_BUFCTRL_RDPD               0x02
-#define ABP_BUFCTRL_WRMSG              0x04
-#define ABP_BUFCTRL_RDMSG              0x08
-#define ABP_BUFCTRL_ANBR               0x10
-#define ABP_BUFCTRL_APPR               0x20
-#define ABP_BUFCTRL_APPRCLR            0x40
-
-
-/*------------------------------------------------------------------------------
-** INT STATUS Register.
-**------------------------------------------------------------------------------
-*/
-#define ABP_INTSTATUS_RDPDI            0x01
-#define ABP_INTSTATUS_RDMSGI           0x02
-#define ABP_INTSTATUS_WRMSGI           0x04
-#define ABP_INTSTATUS_ANBRI            0x08
-#define ABP_INTSTATUS_STATUSI          0x10
-#define ABP_INTSTATUS_PWRI             0x20
-#define ABP_INTSTATUS_SYNCI            0x40
-
-
-/*------------------------------------------------------------------------------
-** INT MASK Register.
-**------------------------------------------------------------------------------
-*/
-#define ABP_INTMASK_RDPDIEN            0x01
-#define ABP_INTMASK_RDMSGIEN           0x02
-#define ABP_INTMASK_WRMSGIEN           0x04
-#define ABP_INTMASK_ANBRIEN            0x08
-#define ABP_INTMASK_STATUSIEN          0x10
-#define ABP_INTMASK_SYNCIEN            0x40
-
-
-/*******************************************************************************
+**
 ** Anybus-CC data types.
+**
 ********************************************************************************
 */
 
 /*------------------------------------------------------------------------------
+**
 ** The Anybus-CC data type numbers.
+**
 **------------------------------------------------------------------------------
 */
-#define ABP_BOOL                       0        /* Boolean.                   */
-#define ABP_SINT8                      1        /* Signed 8 bit integer.      */
-#define ABP_SINT16                     2        /* Signed 16 bit integer.     */
-#define ABP_SINT32                     3        /* Signed 32 bit integer.     */
-#define ABP_UINT8                      4        /* Unsigned 8 bit integer.    */
-#define ABP_UINT16                     5        /* Unsigned 16 bit integer.   */
-#define ABP_UINT32                     6        /* Unsigned 32 bit integer.   */
-#define ABP_CHAR                       7        /* Character.                 */
-#define ABP_ENUM                       8        /* Enumeration.               */
-#define ABP_BITS8                      9        /* 8 bit bitfield (ABCC40).   */
-#define ABP_BITS16                     10       /* 16 bit bitfield (ABCC40).  */
-#define ABP_BITS32                     11       /* 32 bit bitfield (ABCC40).  */
-#define ABP_OCTET                      12       /* 8 bit data (ABCC40).       */
 
-#define ABP_SINT64                     16       /* Signed 64 bit integer.     */
-#define ABP_UINT64                     17       /* Unsigned 64 bit integer.   */
-#define ABP_FLOAT                      18       /* Floating point/real number.*/
+#define ABP_BOOL                    0        /* Boolean                       */
+#define ABP_SINT8                   1        /* Signed 8 bit integer          */
+#define ABP_SINT16                  2        /* Signed 16 bit integer         */
+#define ABP_SINT32                  3        /* Signed 32 bit integer         */
+#define ABP_UINT8                   4        /* Unsigned 8 bit integer        */
+#define ABP_UINT16                  5        /* Unsigned 16 bit integer       */
+#define ABP_UINT32                  6        /* Unsigned 32 bit integer       */
+#define ABP_CHAR                    7        /* Character                     */
+#define ABP_ENUM                    8        /* Enumeration                   */
+#define ABP_BITS8                   9        /* 8 bit bitfield (ABCC40)       */
+#define ABP_BITS16                  10       /* 16 bit bitfield (ABCC40)      */
+#define ABP_BITS32                  11       /* 32 bit bitfield (ABCC40)      */
+#define ABP_OCTET                   12       /* 8 bit data (ABCC40)           */
 
-#define ABP_PAD0                       32       /* Padding bitfield (ABCC40). */
-#define ABP_PAD1                       33       /* Padding bitfield (ABCC40). */
-#define ABP_PAD2                       34       /* Padding bitfield (ABCC40). */
-#define ABP_PAD3                       35       /* Padding bitfield (ABCC40). */
-#define ABP_PAD4                       36       /* Padding bitfield (ABCC40). */
-#define ABP_PAD5                       37       /* Padding bitfield (ABCC40). */
-#define ABP_PAD6                       38       /* Padding bitfield (ABCC40). */
-#define ABP_PAD7                       39       /* Padding bitfield (ABCC40). */
-#define ABP_PAD8                       40       /* Padding bitfield (ABCC40). */
-#define ABP_PAD9                       41       /* Padding bitfield (ABCC40). */
-#define ABP_PAD10                      42       /* Padding bitfield (ABCC40). */
-#define ABP_PAD11                      43       /* Padding bitfield (ABCC40). */
-#define ABP_PAD12                      44       /* Padding bitfield (ABCC40). */
-#define ABP_PAD13                      45       /* Padding bitfield (ABCC40). */
-#define ABP_PAD14                      46       /* Padding bitfield (ABCC40). */
-#define ABP_PAD15                      47       /* Padding bitfield (ABCC40). */
-#define ABP_PAD16                      48       /* Padding bitfield (ABCC40). */
+#define ABP_SINT64                  16       /* Signed 64 bit integer         */
+#define ABP_UINT64                  17       /* Unsigned 64 bit integer       */
+#define ABP_FLOAT                   18       /* Floating point/real number    */
 
-#define ABP_BIT1                       65       /* 1 bit bitfield (ABCC40).   */
-#define ABP_BIT2                       66       /* 2 bit bitfield (ABCC40).   */
-#define ABP_BIT3                       67       /* 3 bit bitfield (ABCC40).   */
-#define ABP_BIT4                       68       /* 4 bit bitfield (ABCC40).   */
-#define ABP_BIT5                       69       /* 5 bit bitfield (ABCC40).   */
-#define ABP_BIT6                       70       /* 6 bit bitfield (ABCC40).   */
-#define ABP_BIT7                       71       /* 7 bit bitfield (ABCC40).   */
+#define ABP_PAD0                    32       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD1                    33       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD2                    34       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD3                    35       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD4                    36       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD5                    37       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD6                    38       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD7                    39       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD8                    40       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD9                    41       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD10                   42       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD11                   43       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD12                   44       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD13                   45       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD14                   46       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD15                   47       /* Padding bitfield (ABCC40)     */
+#define ABP_PAD16                   48       /* Padding bitfield (ABCC40)     */
+
+#define ABP_BIT1                   65       /* 1 bit bitfield (ABCC40)       */
+#define ABP_BIT2                   66       /* 2 bit bitfield (ABCC40)       */
+#define ABP_BIT3                   67       /* 3 bit bitfield (ABCC40)       */
+#define ABP_BIT4                   68       /* 4 bit bitfield (ABCC40)       */
+#define ABP_BIT5                   69       /* 5 bit bitfield (ABCC40)       */
+#define ABP_BIT6                   70       /* 6 bit bitfield (ABCC40)       */
+#define ABP_BIT7                   71       /* 7 bit bitfield (ABCC40)       */
 
 
 /*------------------------------------------------------------------------------
+**
 ** The size of the Anybus-CC data types (in bytes).
+**
 **------------------------------------------------------------------------------
 */
-#define ABP_BOOL_SIZEOF                1        /* Boolean.                   */
-#define ABP_SINT8_SIZEOF               1        /* Signed 8 bit integer.      */
-#define ABP_SINT16_SIZEOF              2        /* Signed 16 bit integer.     */
-#define ABP_SINT32_SIZEOF              4        /* Signed 32 bit integer.     */
-#define ABP_UINT8_SIZEOF               1        /* Unsigned 8 bit integer.    */
-#define ABP_UINT16_SIZEOF              2        /* Unsigned 16 bit integer.   */
-#define ABP_UINT32_SIZEOF              4        /* Unsigned 32 bit integer.   */
-#define ABP_CHAR_SIZEOF                1        /* Character.                 */
-#define ABP_ENUM_SIZEOF                1        /* Enumeration.               */
-#define ABP_BITS8_SIZEOF               1        /* 8 bit bitfield (ABCC40).   */
-#define ABP_BITS16_SIZEOF              2        /* 16 bit bitfield (ABCC40).  */
-#define ABP_BITS32_SIZEOF              4        /* 32 bit bitfield (ABCC40).  */
-#define ABP_OCTET_SIZEOF               1        /* 8 bit data (ABCC40).       */
 
-#define ABP_SINT64_SIZEOF              8        /* Signed 64 bit integer.     */
-#define ABP_UINT64_SIZEOF              8        /* Unsigned 64 bit integer.   */
-#define ABP_FLOAT_SIZEOF               4        /* Floating point/real number.*/
+#define ABP_BOOL_SIZEOF             1        /* Boolean                       */
+#define ABP_SINT8_SIZEOF            1        /* Signed 8 bit integer          */
+#define ABP_SINT16_SIZEOF           2        /* Signed 16 bit integer         */
+#define ABP_SINT32_SIZEOF           4        /* Signed 32 bit integer         */
+#define ABP_UINT8_SIZEOF            1        /* Unsigned 8 bit integer        */
+#define ABP_UINT16_SIZEOF           2        /* Unsigned 16 bit integer       */
+#define ABP_UINT32_SIZEOF           4        /* Unsigned 32 bit integer       */
+#define ABP_CHAR_SIZEOF             1        /* Character                     */
+#define ABP_ENUM_SIZEOF             1        /* Enumeration                   */
+#define ABP_BITS8_SIZEOF            1        /* 8 bit bitfield (ABCC40)       */
+#define ABP_BITS16_SIZEOF           2        /* 16 bit bitfield (ABCC40)      */
+#define ABP_BITS32_SIZEOF           4        /* 32 bit bitfield (ABCC40)      */
+#define ABP_OCTET_SIZEOF            1        /* 8 bit data (ABCC40)           */
+
+#define ABP_SINT64_SIZEOF           8        /* Signed 64 bit integer         */
+#define ABP_UINT64_SIZEOF           8        /* Unsigned 64 bit integer       */
+#define ABP_FLOAT_SIZEOF            4        /* Floating point/real number    */
 
 
 /*------------------------------------------------------------------------------
+**
 ** The Anybus-CC data type maximum values.
+**
 **------------------------------------------------------------------------------
 */
-#define ABP_BOOL_MAX                   !0
-#define ABP_SINT8_MAX                  0x7F
-#define ABP_SINT16_MAX                 0x7FFF
-#define ABP_SINT32_MAX                 0x7FFFFFFFL
-#define ABP_UINT8_MAX                  0xFFU
-#define ABP_UINT16_MAX                 0xFFFFU
-#define ABP_UINT32_MAX                 0xFFFFFFFFLU
-#define ABP_CHAR_MAX                   0xFFU
-#define ABP_ENUM_MAX                   0xFFU
-#define ABP_BITS8_MAX                  0xFFU          /* ABCC40 */
-#define ABP_BITS16_MAX                 0xFFFFU        /* ABCC40 */
-#define ABP_BITS32_MAX                 0xFFFFFFFFLU   /* ABCC40 */
-#define ABP_OCTET_MAX                  0xFFU          /* ABCC40 */
 
-#define ABP_SINT64_MAX                 0x7FFFFFFFFFFFFFFFL
-#define ABP_UINT64_MAX                 0xFFFFFFFFFFFFFFFFLU
-#define ABP_FLOAT_MAX                  3.40282347E+38F
+#define ABP_BOOL_MAX                !0
+#define ABP_SINT8_MAX               0x7F
+#define ABP_SINT16_MAX              0x7FFF
+#define ABP_SINT32_MAX              0x7FFFFFFFL
+#define ABP_UINT8_MAX               0xFFU
+#define ABP_UINT16_MAX              0xFFFFU
+#define ABP_UINT32_MAX              0xFFFFFFFFLU
+#define ABP_CHAR_MAX                0xFFU
+#define ABP_ENUM_MAX                0xFFU
+#define ABP_BITS8_MAX               0xFFU          /* ABCC40 */
+#define ABP_BITS16_MAX              0xFFFFU        /* ABCC40 */
+#define ABP_BITS32_MAX              0xFFFFFFFFLU   /* ABCC40 */
+#define ABP_OCTET_MAX               0xFFU          /* ABCC40 */
 
-#define ABP_BITS1_MAX                  0x1            /* ABCC40 */
-#define ABP_BITS2_MAX                  0x3            /* ABCC40 */
-#define ABP_BITS3_MAX                  0x7            /* ABCC40 */
-#define ABP_BITS4_MAX                  0xF            /* ABCC40 */
-#define ABP_BITS5_MAX                  0x1F           /* ABCC40 */
-#define ABP_BITS6_MAX                  0x3F           /* ABCC40 */
-#define ABP_BITS7_MAX                  0x7F           /* ABCC40 */
+#define ABP_SINT64_MAX              0x7FFFFFFFFFFFFFFFL
+#define ABP_UINT64_MAX              0xFFFFFFFFFFFFFFFFLU
+#define ABP_FLOAT_MAX               3.40282347E+38F
+
+#define ABP_BITS1_MAX               0x1            /* ABCC40 */
+#define ABP_BITS2_MAX               0x3            /* ABCC40 */
+#define ABP_BITS3_MAX               0x7            /* ABCC40 */
+#define ABP_BITS4_MAX               0xF            /* ABCC40 */
+#define ABP_BITS5_MAX               0x1F           /* ABCC40 */
+#define ABP_BITS6_MAX               0x3F           /* ABCC40 */
+#define ABP_BITS7_MAX               0x7F           /* ABCC40 */
 
 
 /*------------------------------------------------------------------------------
+**
 ** The Anybus-CC data type minimum values.
+**
 **------------------------------------------------------------------------------
 */
-#define ABP_BOOL_MIN                   0
-#define ABP_SINT8_MIN                  ( - ABP_SINT8_MAX - 1 )
-#define ABP_SINT16_MIN                 ( - ABP_SINT16_MAX - 1 )
-#define ABP_SINT32_MIN                 ( - ABP_SINT32_MAX - 1L )
-#define ABP_UINT8_MIN                  0
-#define ABP_UINT16_MIN                 0
-#define ABP_UINT32_MIN                 0
-#define ABP_CHAR_MIN                   0
-#define ABP_ENUM_MIN                   0
-#define ABP_BITS8_MIN                  0              /* ABCC40 */
-#define ABP_BITS16_MIN                 0              /* ABCC40 */
-#define ABP_BITS32_MIN                 0              /* ABCC40 */
-#define ABP_OCTET_MIN                  0              /* ABCC40 */
 
-#define ABP_SINT64_MIN                 ( - ABP_SINT64_MAX - 1 )
-#define ABP_UINT64_MIN                 0
-#define ABP_FLOAT_MIN                  1.17549435E-38F
+#define ABP_BOOL_MIN                0
+#define ABP_SINT8_MIN               ( - ABP_SINT8_MAX - 1 )
+#define ABP_SINT16_MIN              ( - ABP_SINT16_MAX - 1 )
+#define ABP_SINT32_MIN              ( - ABP_SINT32_MAX - 1L )
+#define ABP_UINT8_MIN               0
+#define ABP_UINT16_MIN              0
+#define ABP_UINT32_MIN              0
+#define ABP_CHAR_MIN                0
+#define ABP_ENUM_MIN                0
+#define ABP_BITS8_MIN               0 /* ABCC40 */
+#define ABP_BITS16_MIN              0 /* ABCC40 */
+#define ABP_BITS32_MIN              0 /* ABCC40 */
+#define ABP_OCTET_MIN               0 /* ABCC40 */
 
-#define ABP_BITS1_MIN                  0              /* ABCC40 */
-#define ABP_BITS2_MIN                  0              /* ABCC40 */
-#define ABP_BITS3_MIN                  0              /* ABCC40 */
-#define ABP_BITS4_MIN                  0              /* ABCC40 */
-#define ABP_BITS5_MIN                  0              /* ABCC40 */
-#define ABP_BITS6_MIN                  0              /* ABCC40 */
-#define ABP_BITS7_MIN                  0              /* ABCC40 */
+#define ABP_SINT64_MIN              ( - ABP_SINT64_MAX - 1 )
+#define ABP_UINT64_MIN              0
+#define ABP_FLOAT_MIN               1.17549435E-38F
+
+#define ABP_BITS1_MIN               0 /* ABCC40 */
+#define ABP_BITS2_MIN               0 /* ABCC40 */
+#define ABP_BITS3_MIN               0 /* ABCC40 */
+#define ABP_BITS4_MIN               0 /* ABCC40 */
+#define ABP_BITS5_MIN               0 /* ABCC40 */
+#define ABP_BITS6_MIN               0 /* ABCC40 */
+#define ABP_BITS7_MIN               0 /* ABCC40 */
 
 
 /*******************************************************************************
+**
 ** The languages supported by multilingual objects.
+**
 ********************************************************************************
 */
+
 typedef enum ABP_LangType
 {
-   ABP_LANG_ENG,                          /* English.                         */
-   ABP_LANG_DEU,                          /* German.                          */
-   ABP_LANG_SPA,                          /* Spanish.                         */
-   ABP_LANG_ITA,                          /* Italian.                         */
-   ABP_LANG_FRA,                          /* French.                          */
+   ABP_LANG_ENG,                          /* English                          */
+   ABP_LANG_DEU,                          /* German                           */
+   ABP_LANG_SPA,                          /* Spanish                          */
+   ABP_LANG_ITA,                          /* Italian                          */
+   ABP_LANG_FRA,                          /* French                           */
 
-   ABP_LANG_NUM_LANG                      /* Number of supported languages.   */
+   ABP_LANG_NUM_LANG                      /* Number of supported languages    */
 }
 ABP_LangType;
 
 
 /*******************************************************************************
+**
 ** Anybus-CC protocol object number pool.
 **
 ** Each object, whether it’s a network specific or a common object, an Anybus
 ** module or a host application object, must have a unique object number. This
 ** number list is therefore common to both the application and the Anybus.
-** Anybus objects are numbered from 1 and up while application objects are 
-** numbered from 255 and down.
+**
+** Anybus objects are numbered from 1 and up while application objects
+** are numbered from 255 and down.
+**
 ********************************************************************************
 */
 
@@ -403,6 +390,7 @@ ABP_LangType;
 ** Anybus module objects
 **------------------------------------------------------------------------------
 */
+
 #define ABP_OBJ_NUM_ANB               1   /* Anybus                           */
 #define ABP_OBJ_NUM_DI                2   /* Diagnostic                       */
 #define ABP_OBJ_NUM_NW                3   /* Network                          */
@@ -426,6 +414,7 @@ ABP_LangType;
 ** Host application objects
 **------------------------------------------------------------------------------
 */
+
 #define ABP_OBJ_NUM_EPL             233   /* POWERLINK                        */
 #define ABP_OBJ_NUM_AFSI            234   /* Application File System Interface*/
 #define ABP_OBJ_NUM_ASM             235   /* Assembly mapping object          */
@@ -452,14 +441,19 @@ ABP_LangType;
 
 
 /*******************************************************************************
+**
 ** Common object constants.
+**
 ********************************************************************************
 */
 
 /*------------------------------------------------------------------------------
+**
 ** The object standard attributes.
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_OA_NAME                 1     /* Object name                      */
 #define ABP_OA_REV                  2     /* Object revision                  */
 #define ABP_OA_NUM_INST             3     /* Current number of instances      */
@@ -467,31 +461,43 @@ ABP_LangType;
 
 
 /*------------------------------------------------------------------------------
+**
 ** The data size of the object standard attributes (in bytes).
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_OA_REV_DS               ABP_UINT8_SIZEOF
 #define ABP_OA_NUM_INST_DS          ABP_UINT16_SIZEOF
 #define ABP_OA_HIGHEST_INST_DS      ABP_UINT16_SIZEOF
 
 
 /*------------------------------------------------------------------------------
+**
 ** The object instance number.
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_INST_OBJ                0
 
 
 /*******************************************************************************
+**
 ** Anybus object constants.
+**
 ** Object revision: 4.
+**
 ********************************************************************************
 */
 
 /*------------------------------------------------------------------------------
+**
 ** The Anybus instance attributes.
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_ANB_IA_MODULE_TYPE      1
 #define ABP_ANB_IA_FW_VERSION       2
 #define ABP_ANB_IA_SERIAL_NUM       3
@@ -508,14 +514,16 @@ ABP_LangType;
 #define ABP_ANB_IA_SWITCH_STATUS    14
 #define ABP_ANB_IA_AUX_BIT_FUNC     15
 #define ABP_ANB_IA_GPIO_CONFIG      16
-#define ABP_ANB_IA_VIRTUAL_ATTRS    17    /* ABCC40 */
-#define ABP_ANB_IA_BLACK_WHITE_LIST 18    /* ABCC40 */
-
+#define ABP_ANB_IA_VIRTUAL_ATTRS    17  /* ABCC40 */
+#define ABP_ANB_IA_BLACK_WHITE_LIST 18	/* ABCC40 */
 
 /*------------------------------------------------------------------------------
+**
 ** The data size of the Anybus instance attributes (in bytes).
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_ANB_IA_MODULE_TYPE_DS         ABP_UINT16_SIZEOF
 #define ABP_ANB_IA_FW_VERSION_DS          ( 3 * ABP_UINT8_SIZEOF )
 #define ABP_ANB_IA_SERIAL_NUM_DS          ABP_UINT32_SIZEOF
@@ -531,25 +539,31 @@ ABP_LangType;
 #define ABP_ANB_IA_SWITCH_STATUS_DS       ( 2 * ABP_UINT8_SIZEOF )
 #define ABP_ANB_IA_AUX_BIT_FUNC_DS        ABP_UINT8_SIZEOF
 #define ABP_ANB_IA_GPIO_CONFIG_DS         ABP_UINT16_SIZEOF
-#define ABP_ANB_IA_VIRTUAL_ATTRS_DS       128                        /* ABCC40 */
+#define ABP_ANB_IA_VIRTUAL_ATTRS_DS       128						 /* ABCC40 */
 #define ABP_ANB_IA_BLACK_WHITE_LIST_DS    ( 12 * ABP_UINT16_SIZEOF ) /* ABCC40 */
 
-
 /*------------------------------------------------------------------------------
+**
 ** The Anybus object specific error codes.
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_ANB_ERR_INV_PRD_CFG       0x01  /* Invalid process data config    */
 #define ABP_ANB_ERR_INV_DEV_ADDR      0x02  /* Invalid device address         */
 #define ABP_ANB_ERR_INV_COM_SETTINGS  0x03  /* Invalid communication settings */
 
 
 /*------------------------------------------------------------------------------
+**
 ** Anybus state.
+**
 ** The current Anybus state is presented by status bits S[0..2] of the
 ** status register, transferred to the application in each telegram.
+**
 **------------------------------------------------------------------------------
 */
+
 typedef enum ABP_AnbStateType
 {
    ABP_ANB_STATE_SETUP             =  0x00,
@@ -564,9 +578,12 @@ ABP_AnbStateType;
 
 
 /*------------------------------------------------------------------------------
+**
 ** Anybus exception codes.
+**
 **------------------------------------------------------------------------------
 */
+
 typedef enum ABP_AnbExceptionCodeType
 {
    ABP_ANB_EXCPT_NONE               = 0x00, /* No exception                   */
@@ -586,9 +603,12 @@ ABP_AnbExceptionCodeType;
 
 
 /*------------------------------------------------------------------------------
+**
 ** LED colour codes.
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_ANB_LED_COLOUR_NONE     0x00
 #define ABP_ANB_LED_COLOUR_GREEN    0x01
 #define ABP_ANB_LED_COLOUR_RED      0x02
@@ -599,47 +619,63 @@ ABP_AnbExceptionCodeType;
 
 
 /*------------------------------------------------------------------------------
+**
 ** Auxiliary bit functionality codes.
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_ANB_AUX_BIT_FUNC_NONE   0x00     /* Not used                      */
 #define ABP_ANB_AUX_BIT_FUNC_CDI    0x01     /* Changed data indication       */
 
 
 /*------------------------------------------------------------------------------
+**
 ** GPIO configuration codes.
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_ANB_GPIO_CONFIG_STD     0x00     /* Standard GPIO                 */
 #define ABP_ANB_GPIO_CONFIG_EXT_LED 0x01     /* Extended LED functionality    */
 
 
 /*******************************************************************************
+**
 ** Diagnostic object constants.
+**
 ** Object revision: 1.
+**
 ********************************************************************************
 */
 
 /*------------------------------------------------------------------------------
+**
 ** The Diagnostic object specific object attributes.
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_DI_OA_MAX_INST                11    /* Max number of instances          */
 #define ABP_DI_OA_SUPPORT_FUNC            12    /* Supported functionality (ABCC40) */
 
-
 /*------------------------------------------------------------------------------
+**
 ** The data size of the Diagnostic object specific attributes (in bytes).
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_DI_OA_MAX_INST_DS             ABP_UINT16_SIZEOF
 #define ABP_DI_OA_SUPPORT_FUNC_DS         ABP_BITS32_SIZEOF	 /* ABCC40 */
 
-
 /*------------------------------------------------------------------------------
+**
 ** The Diagnostic instance attributes.
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_DI_IA_SEVERITY                1
 #define ABP_DI_IA_EVENT_CODE              2
 #define ABP_DI_IA_NW_SPEC_EVENT_INFO      3
@@ -650,9 +686,12 @@ ABP_AnbExceptionCodeType;
 
 
 /*------------------------------------------------------------------------------
+**
 ** The data size of the Diagnostic instance attributes (in bytes).
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_DI_IA_SEVERITY_DS             ABP_UINT8_SIZEOF
 #define ABP_DI_IA_EVENT_CODE_DS           ABP_UINT8_SIZEOF
 #define ABP_DI_IA_SLOT_DS                 ABP_UINT16_SIZEOF	 /* ABCC40 */
@@ -662,17 +701,23 @@ ABP_AnbExceptionCodeType;
 
 
 /*------------------------------------------------------------------------------
+**
 ** The Diagnostic object specific error codes.
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_DI_ERR_NOT_REMOVED            0x01  /* Event could not be removed */
 #define ABP_DI_ERR_NW_SPECIFIC            0xFF  /* Network specific error     */
 
 
 /*------------------------------------------------------------------------------
+**
 ** Diagnostic object event severity.
+**
 **------------------------------------------------------------------------------
 */
+
 typedef enum ABP_DiEventSeverityType
 {
    ABP_DI_EVENT_SEVERITY_MINOR_REC   = 0x00, /* Minor, recoverable            */
@@ -686,9 +731,12 @@ ABP_DiEventSeverityType;
 
 
 /*------------------------------------------------------------------------------
+**
 ** Diagnostic object event codes.
+**
 **------------------------------------------------------------------------------
 */
+
 typedef enum ABP_DiEventCodeType
 {
    ABP_DI_EVENT_NONE                  = 0x00, /* No event                     */
@@ -721,15 +769,21 @@ ABP_DiEventCodeType;
 
 
 /*******************************************************************************
+**
 ** Network object constants.
+**
 ** Object revision: 2.
+**
 ********************************************************************************
 */
 
 /*------------------------------------------------------------------------------
+**
 ** The Network instance attributes.
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_NW_IA_NW_TYPE                 1
 #define ABP_NW_IA_NW_TYPE_STR             2
 #define ABP_NW_IA_DATA_FORMAT             3
@@ -740,9 +794,12 @@ ABP_DiEventCodeType;
 
 
 /*------------------------------------------------------------------------------
+**
 ** The data size of the Network instance attributes (in bytes).
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_NW_IA_NW_TYPE_DS              ABP_UINT16_SIZEOF
 #define ABP_NW_IA_DATA_FORMAT_DS          ABP_ENUM_SIZEOF
 #define ABP_NW_IA_PARAM_SUPPORT_DS        ABP_BOOL_SIZEOF
@@ -752,9 +809,12 @@ ABP_DiEventCodeType;
 
 
 /*------------------------------------------------------------------------------
+**
 ** The Network object specific message commands.
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_NW_CMD_MAP_ADI_WRITE_AREA        0x10
 #define ABP_NW_CMD_MAP_ADI_READ_AREA         0x11
 #define ABP_NW_CMD_MAP_ADI_WRITE_EXT_AREA    0x12
@@ -762,9 +822,12 @@ ABP_DiEventCodeType;
 
 
 /*------------------------------------------------------------------------------
+**
 ** The Network object specific error codes.
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_NW_ERR_INVALID_ADI_DATA_TYPE  0x01  /* Invalid ADI data type      */
 #define ABP_NW_ERR_INVALID_NUM_ELEMENTS   0x02  /* Invalid number of elements */
 #define ABP_NW_ERR_INVALID_TOTAL_SIZE     0x03  /* Invalid total size         */
@@ -778,23 +841,33 @@ ABP_DiEventCodeType;
 
 
 /*------------------------------------------------------------------------------
+**
 ** Common Network specific exception information codes.
+**
 ** Please see the network specific header file for the remaining codes.
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_NW_EXCPT_INFO_NONE            0x00  /* No information             */
 
 
 /*******************************************************************************
+**
 ** Network configuration object constants.
+**
 ** Object revision: 1.
+**
 ********************************************************************************
 */
 
 /*------------------------------------------------------------------------------
+**
 ** The Network configuration instance attributes.
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_NC_VAR_IA_NAME                1
 #define ABP_NC_VAR_IA_DATA_TYPE           2
 #define ABP_NC_VAR_IA_NUM_ELEM            3
@@ -804,24 +877,31 @@ ABP_DiEventCodeType;
 
 
 /*------------------------------------------------------------------------------
+**
 ** The data size of the Network configuration instance attributes (in bytes).
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_NC_VAR_IA_DATA_TYPE_DS        ABP_UINT8_SIZEOF
 #define ABP_NC_VAR_IA_NUM_ELEM_DS         ABP_UINT8_SIZEOF
 #define ABP_NC_VAR_IA_DESCRIPTOR_DS       ABP_UINT8_SIZEOF
 
 
 /*------------------------------------------------------------------------------
+**
 ** The Network configuration instance attribute descriptor bits.
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_NC_DESCR_GET_ACCESS           0x01
 #define ABP_NC_DESCR_SET_ACCESS           0x02
 #define ABP_NC_DESCR_SHARED_ACCESS        0x04
 
 
 /*------------------------------------------------------------------------------
+**
 ** The Network configuration instances common to most Anybus-CC modules.
 **
 ** Note:
@@ -834,38 +914,50 @@ ABP_DiEventCodeType;
 **       controlled by the end user (DIP switches or similar), the application
 **       shall keep these instances updated at all times because some networks
 **       require that a changed switch is indicated by the LED’s.
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_NC_INST_NUM_SW1               0x01
 #define ABP_NC_INST_NUM_SW2               0x02
 
 
 /*******************************************************************************
+**
 ** Application data object constants.
+**
 ** Object revision: 2.
+**
 ********************************************************************************
 */
 
 /*------------------------------------------------------------------------------
+**
 ** Application data object specific attributes (ABCC40)
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_APPD_OA_NR_READ_PD_MAPPABLE_INSTANCES        11
 #define ABP_APPD_OA_NR_WRITE_PD_MAPPABLE_INSTANCES       12
 
-
 /*------------------------------------------------------------------------------
+**
 ** The data size of the Diagnostic object specific attrs, in bytes. (ABCC40)
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_APPD_OA_NR_READ_PD_MAPPABLE_INSTANCES_DS           ABP_UINT16_SIZEOF
 #define ABP_APPD_OA_NR_WRITE_PD_MAPPABLE_INSTANCES_DS          ABP_UINT16_SIZEOF
 
-
 /*------------------------------------------------------------------------------
+**
 ** The Application data object instance attributes.
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_APPD_IA_NAME                  1
 #define ABP_APPD_IA_DATA_TYPE             2
 #define ABP_APPD_IA_NUM_ELEM              3
@@ -877,18 +969,24 @@ ABP_DiEventCodeType;
 
 
 /*------------------------------------------------------------------------------
+**
 ** The Application data object attribute data sizes (in bytes).
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_APPD_IA_DATA_TYPE_DS          ABP_UINT8_SIZEOF
 #define ABP_APPD_IA_NUM_ELEM_DS           ABP_UINT8_SIZEOF
 #define ABP_APPD_IA_DESCRIPTOR_DS         ABP_UINT8_SIZEOF
 
 
 /*------------------------------------------------------------------------------
+**
 ** The Application data instance attribute descriptor bits.
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_APPD_DESCR_GET_ACCESS         0x01
 #define ABP_APPD_DESCR_SET_ACCESS         0x02
 #define ABP_APPD_DESCR_MAPPABLE_WRITE_PD  0x08
@@ -896,69 +994,91 @@ ABP_DiEventCodeType;
 
 
 /*------------------------------------------------------------------------------
+**
 ** The Application data object specific message commands.
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_APPD_CMD_GET_INST_BY_ORDER    0x10
 #define ABP_APPD_GET_PROFILE_INST_NUMBERS 0x11
-#define ABP_APPD_GET_ADI_INFO_DEPRECATED  0x12  /* ABCC40 deprecated shall not be used */ 
+#define ABP_APPD_GET_ADI_INFO_DEPRECATED  0x12   /* ABCC40 deprecated shall not be used */ 
 #define ABP_APPD_REMAP_ADI_WRITE_AREA     0x13
 #define ABP_APPD_REMAP_ADI_READ_AREA      0x14
-#define ABP_APPD_GET_INSTANCE_NUMBERS     0x15  /* ABCC40 */
+#define ABP_APPD_GET_INSTANCE_NUMBERS     0x15   /* ABCC40 */
 
 
 /*------------------------------------------------------------------------------
+**
 ** The Application data object specific error codes.
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_APPD_ERR_MAPPING_ITEM_NAK      0x01 /* Mapping item NAK           */
 #define ABP_APPD_ERR_INVALID_TOTAL_SIZE    0x02 /* Invalid total size         */
-#define ABP_APPD_ERR_ATTR_CTRL_FROM_OTHER_CHANNEL 0x03   /* ABCC40 */
+#define ABP_APPD_ERR_ATTR_CTRL_FROM_OTHER_CHANNEL 0x03  /* ABCC40 */
 
 
 /*******************************************************************************
+**
 ** Application object constants.
+**
 ** Object revision: 1.
+**
 ********************************************************************************
 */
 
 /*------------------------------------------------------------------------------
+**
 ** The Application instance attributes.
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_APP_IA_CONFIGURED             1
 #define ABP_APP_IA_SUP_LANG               2
-#define ABP_APP_IA_SER_NUM                3  /* ABCC40 */
+#define ABP_APP_IA_SER_NUM                3   /* ABCC40 */
 
 
 /*------------------------------------------------------------------------------
+**
 ** The data size of the Application instance attributes (in bytes).
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_APP_IA_CONFIGURED_DS          ABP_BOOL_SIZEOF
-#define ABP_APP_IA_SER_NUM_DS             ABP_UINT32_SIZEOF /* ABCC40 */
+#define ABP_APP_IA_SER_NUM_DS             ABP_UINT32_SIZEOF	 /* ABCC40 */
 
 
 /*------------------------------------------------------------------------------
+**
 ** The Application object specific message commands.
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_APP_CMD_RESET_REQUEST         0x10
 #define ABP_APP_CMD_CHANGE_LANG_REQUEST   0x11
-#define ABP_APP_CMD_RESET_DIAGNOSTIC      0x12  /* ABCC40 */
-
+#define ABP_APP_CMD_RESET_DIAGNOSTIC      0x12	 /* ABCC40 */
 
 /*******************************************************************************
+**
 ** Typedefs
+**
 ********************************************************************************
 */
 
 /*------------------------------------------------------------------------------
-** PACKED_STRUCT.
+** PACKED_STRUCT
+**
 ** Compiler independent symbols to pack structures for compilers that
 ** need an in-line directive.
+**
 **------------------------------------------------------------------------------
 */
+
 #ifndef PACKED_STRUCT
    #if defined( __GNUC__ )
       #define PACKED_STRUCT   __attribute__ ((packed))
@@ -967,12 +1087,15 @@ ABP_DiEventCodeType;
    #endif				 
 #endif
 
-
 /*------------------------------------------------------------------------------
-** ABP_Msg255HeaderType.
-** Structure describing a message header.
+**
+** ABP_Msg255HeaderType
+**
+** Structure describing a message header .
+**
 **------------------------------------------------------------------------------
 */
+
 typedef struct ABP_Msg255HeaderType
 {
    UINT8    bSourceId;
@@ -985,32 +1108,40 @@ typedef struct ABP_Msg255HeaderType
 }
 PACKED_STRUCT ABP_Msg255HeaderType;
 
-
 /*------------------------------------------------------------------------------
-** ABP_Msg255Type.
+**
+** ABP_Msg255Type
+**
 ** Structure describing a message.
+**
 **------------------------------------------------------------------------------
 */
+
 typedef struct ABP_Msg255Type
 {
    /*
    ** The message header part.
    */
+
    ABP_Msg255HeaderType sHeader;
 
    /*
    ** The message data.
    */
+
    UINT8    abData[ ABP_MAX_MSG_255_DATA_BYTES ];
 }
 PACKED_STRUCT ABP_Msg255Type;
 
-
 /*------------------------------------------------------------------------------
+**
 ** ABP_MsgHeaderType
+**
 ** Structure describing a message header.
+**
 **------------------------------------------------------------------------------
 */
+
 typedef struct ABP_MsgHeaderType
 {
    UINT16   iDataSize;
@@ -1025,39 +1156,50 @@ typedef struct ABP_MsgHeaderType
 }
 PACKED_STRUCT ABP_MsgHeaderType;
 
-
 /*------------------------------------------------------------------------------
+**
 ** ABP_MsgType
+**
 ** Structure describing a message.
+**
 **------------------------------------------------------------------------------
 */
+
 typedef struct ABP_MsgType
 {
    /*
    ** The message header part.
    */
+
    ABP_MsgHeaderType sHeader;
 
    /*
    ** The message data.
    */
+
    UINT8    abData[ ABP_MAX_MSG_DATA_BYTES ];
 }
 PACKED_STRUCT ABP_MsgType;
 
 
 /*******************************************************************************
+**
 ** Public Services
+**
 ********************************************************************************
 */
 
 /*------------------------------------------------------------------------------
+**
 ** ABP_BitSize_PADx()
 ** ABP_BitSize_BITx()
+**
 ** Returns the number of bits occupied by the supplied type.
 ** NOTE: The macro does not check that the supplied type is of the specific type
 ** class. The type class has to be verified separately.
+**
 **------------------------------------------------------------------------------
+**
 ** Inputs:
 **    bType                - Type code
 **
@@ -1067,18 +1209,23 @@ PACKED_STRUCT ABP_MsgType;
 ** Usage:
 **    if( ABP_Is_PADx( bType ) )
 **      bOccupiedBits = ABP_BitSize_PADx( bType );
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_BitSize_PADx( bType ) ( (bType) & 0x1F )
 #define ABP_BitSize_BITx( bType ) ( (bType) & 0x07 )
 
-
 /*------------------------------------------------------------------------------
+**
 ** ABP_Is_PADx()
 ** ABP_Is_BITx()
+**
 ** Check if the supplied type is of the specific type class (PADx or BITx).
 ** Returns logical true if so, and false if not.
+**
 **------------------------------------------------------------------------------
+**
 ** Inputs:
 **    bType                - Type code
 **
@@ -1087,17 +1234,22 @@ PACKED_STRUCT ABP_MsgType;
 **
 ** Usage:
 **    if( ABP_Is_PADx( bType ) )
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_Is_BITx( bType )  ( ( (bType) >= ABP_BIT1 ) && ( (bType) <= ABP_BIT7 ) )
 #define ABP_Is_PADx( bType )  ( ( (bType) >= ABP_PAD0 ) && ( (bType) <= ABP_PAD16 ) )
 
-
 /*------------------------------------------------------------------------------
+**
 ** ABP_SetMsg255ErrorResponse()
+**
 ** Converts a message command header into an error response header.
 ** It clears the C-bit, sets the E-bit and enters the submitted error code.
+**
 **------------------------------------------------------------------------------
+**
 ** Inputs:
 **    psMsg                - Pointer to the message command to convert.
 **    bMsgDataSize         - The number of valid message data field bytes.
@@ -1108,8 +1260,10 @@ PACKED_STRUCT ABP_MsgType;
 **
 ** Usage:
 **    ABP_SetMsg255ErrorResponse( psMsg, bMsgDataSize, eErr );
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_SetMsg255ErrorResponse( psMsg, bMsgDataSize, eErr )                \
 {                                                                              \
    (psMsg)->sHeader.bCmd      &= ~ABP_MSG_HEADER_C_BIT;                        \
@@ -1119,12 +1273,15 @@ PACKED_STRUCT ABP_MsgType;
                                                                                \
 } /* end of ABP_SetMsg255ErrorResponse() */
 
-
 /*------------------------------------------------------------------------------
+**
 ** ABP_SetMsgErrorResponse()
+**
 ** Converts a message command header into an error response header.
 ** It clears the C-bit, sets the E-bit and enters the submitted error code.
+**
 **------------------------------------------------------------------------------
+**
 ** Inputs:
 **    psMsg                - Pointer to the message command to convert.
 **    iMsgDataSize         - The number of valid message data field bytes.
@@ -1135,8 +1292,10 @@ PACKED_STRUCT ABP_MsgType;
 **
 ** Usage:
 **    ABP_SetMsgErrorResponse( psMsg, iMsgDataSize, eErr );
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_SetMsgErrorResponse( psMsg, iMsgDataSize, eErr )                   \
 {                                                                              \
    (psMsg)->sHeader.bCmd      &= ~ABP_MSG_HEADER_C_BIT;                        \
@@ -1146,12 +1305,15 @@ PACKED_STRUCT ABP_MsgType;
                                                                                \
 } /* end of ABP_SetMsgErrorResponse() */
 
-
 /*------------------------------------------------------------------------------
+**
 ** ABP_SetMsg255Response()
+**
 ** Converts a message command header into a response header.
 ** It clears the C-bit and enters the submitted data size.
+**
 **------------------------------------------------------------------------------
+**
 ** Inputs:
 **    psMsg                - Pointer to the message command to convert.
 **    bMsgDataSize         - The number of valid message data field bytes.
@@ -1161,8 +1323,10 @@ PACKED_STRUCT ABP_MsgType;
 **
 ** Usage:
 **    ABP_SetMsg255Response( psMsg, bMsgDataSize );
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_SetMsg255Response( psMsg, bMsgDataSize )                           \
 {                                                                              \
    (psMsg)->sHeader.bCmd      &= ~ABP_MSG_HEADER_C_BIT;                        \
@@ -1170,12 +1334,15 @@ PACKED_STRUCT ABP_MsgType;
                                                                                \
 } /* end of ABP_SetMsg255Response() */
 
-
 /*------------------------------------------------------------------------------
+**
 ** ABP_SetMsgResponse()
+**
 ** Converts a message command header into a response header.
 ** It clears the C-bit and enters the submitted data size.
+**
 **------------------------------------------------------------------------------
+**
 ** Inputs:
 **    psMsg                - Pointer to the message command to convert.
 **    iMsgDataSize         - The number of valid message data field bytes.
@@ -1185,8 +1352,10 @@ PACKED_STRUCT ABP_MsgType;
 **
 ** Usage:
 **    ABP_SetMsgResponse( psMsg, iMsgDataSize );
+**
 **------------------------------------------------------------------------------
 */
+
 #define ABP_SetMsgResponse( psMsg, iMsgDataSize )                              \
 {                                                                              \
    (psMsg)->sHeader.bCmd      &= ~ABP_MSG_HEADER_C_BIT;                        \
@@ -1198,6 +1367,8 @@ PACKED_STRUCT ABP_MsgType;
 #endif  /* inclusion lock */
 
 /*******************************************************************************
+**
 ** End of abp.h
+**
 ********************************************************************************
 */
