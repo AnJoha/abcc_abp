@@ -1096,7 +1096,7 @@ ABP_DiEventCodeType;
 
 #define ABP_APPD_CMD_GET_INST_BY_ORDER    0x10
 #define ABP_APPD_GET_PROFILE_INST_NUMBERS 0x11
-#define ABP_APPD_GET_ADI_INFO_DEPRECATED  0x12   /* ABCC40 deprecated shall not be used */ 
+#define ABP_APPD_GET_ADI_INFO_DEPRECATED  0x12   /* ABCC40 deprecated shall not be used */
 #define ABP_APPD_REMAP_ADI_WRITE_AREA     0x13
 #define ABP_APPD_REMAP_ADI_READ_AREA      0x14
 #define ABP_APPD_GET_INSTANCE_NUMBERS     0x15   /* ABCC40 */
@@ -1133,6 +1133,7 @@ ABP_DiEventCodeType;
 #define ABP_APP_IA_CONFIGURED             1
 #define ABP_APP_IA_SUP_LANG               2
 #define ABP_APP_IA_SER_NUM                3   /* ABCC40 */
+#define ABP_APP_IA_PAR_CRTL_SUM           4   /* ABCC40 */
 
 
 /*------------------------------------------------------------------------------
@@ -1144,6 +1145,7 @@ ABP_DiEventCodeType;
 
 #define ABP_APP_IA_CONFIGURED_DS          ABP_BOOL_SIZEOF
 #define ABP_APP_IA_SER_NUM_DS             ABP_UINT32_SIZEOF	 /* ABCC40 */
+#define ABP_APP_IA_PAR_CRTL_SUM_DS        ( 16 * ABP_UINT8_SIZEOF )  /* ABCC40 */
 
 
 /*------------------------------------------------------------------------------
@@ -1178,7 +1180,7 @@ ABP_DiEventCodeType;
       #define PACKED_STRUCT   __attribute__ ((packed))
    #else
       #define PACKED_STRUCT
-   #endif				 
+   #endif
 #endif
 
 /*------------------------------------------------------------------------------
