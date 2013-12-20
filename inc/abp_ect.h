@@ -125,12 +125,14 @@
 **------------------------------------------------------------------------------
 */
 
-#define ABP_ECT_NW_EXCPT_ILLEGAL_DATA_TYPE           1
-#define ABP_ECT_NW_EXCPT_INSTANCE_BY_ORDER_ERROR     2
-#define ABP_ECT_NW_EXCPT_HIGHEST_INSTANCE_ERROR      3
-#define ABP_ECT_NW_EXCPT_NUMBER_OF_INSTANCES_ERROR   4
+#define ABP_ECT_NW_EXCPT_ILLEGAL_DATA_TYPE              1
+#define ABP_ECT_NW_EXCPT_INSTANCE_BY_ORDER_ERROR        2
+#define ABP_ECT_NW_EXCPT_HIGHEST_INSTANCE_ERROR         3
+#define ABP_ECT_NW_EXCPT_NUMBER_OF_INSTANCES_ERROR      4
 #define ABP_ECT_NW_EXCPT_HIGHEST_INSTANCE_LOWER_THAN_NUMBER_OF_INSTANCES  5
-
+#define ABP_ECT_NW_EXCPT_GET_NUM_PD_MAPPABLE_ADIS_ERROR 6
+#define ABP_ECT_NW_EXCPT_ASM_MAP_ERROR                  7
+#define ABP_ECT_NW_EXCPT_INVALID_STRUCT_ATTR_LEN        8
 
 /*******************************************************************************
 **
