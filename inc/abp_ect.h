@@ -133,6 +133,8 @@
 #define ABP_ECT_NW_EXCPT_GET_NUM_PD_MAPPABLE_ADIS_ERROR 6
 #define ABP_ECT_NW_EXCPT_ASM_MAP_ERROR                  7
 #define ABP_ECT_NW_EXCPT_INVALID_STRUCT_ATTR_LEN        8
+#define ABP_ECT_NW_EXCPT_GET_INST_NUMBERS_ERROR         9
+#define ABP_ECT_NW_EXCPT_MDD_ERROR                      10
 
 /*******************************************************************************
 **
