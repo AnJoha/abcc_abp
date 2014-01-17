@@ -51,4 +51,10 @@
 */
 #define ABP_MDD_CMD_GET_LIST              0x15
 
+/*------------------------------------------------------------------------------
+** Valid list types for the Get_List command.
+**------------------------------------------------------------------------------
+*/
+#define ABP_MDD_LIST_TYPE_ALL_MODULE_IDS   0x01
+
 #endif  /* inclusion lock */
