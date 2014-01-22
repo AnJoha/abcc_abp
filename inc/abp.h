@@ -1061,6 +1061,7 @@ ABP_DiEventCodeType;
 #define ABP_APPD_IA_MAX_VALUE             6
 #define ABP_APPD_IA_MIN_VALUE             7
 #define ABP_APPD_IA_DFLT_VALUE            8
+#define ABP_APPD_IA_NUM_SUB_ELEM          9
 
 
 /*------------------------------------------------------------------------------
