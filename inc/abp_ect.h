@@ -64,7 +64,7 @@
 
 /*------------------------------------------------------------------------------
 **
-** EtherCAT object instance number
+** Instance number where the attributes reside on the EtherCAT object.
 **
 **------------------------------------------------------------------------------
 */
@@ -89,6 +89,9 @@
 #define ABP_ECT_IA_MANF_SW_VER            8
 #define ABP_ECT_IA_ENUM_ADIS              9
 #define ABP_ECT_IA_DEVICE_TYPE            10
+#define ABP_ECT_IA_WR_PD_ASSY_INST_TRANS  11
+#define ABP_ECT_IA_RD_PD_ASSY_INST_TRANS  12
+#define ABP_ECT_IA_ADI_TRANS              13
 
 
 /*------------------------------------------------------------------------------
@@ -98,17 +101,21 @@
 **------------------------------------------------------------------------------
 */
 
-#define ABP_ECT_CFG_STR_LEN               32
+#define ABP_ECT_CFG_STR_LEN                     64
 
-#define ABP_ECT_IA_VENDOR_ID_DS           ABP_UINT32_SIZEOF
-#define ABP_ECT_IA_PRODUCT_CODE_DS        ABP_UINT32_SIZEOF
-#define ABP_ECT_IA_MAJOR_REV_DS           ABP_UINT16_SIZEOF
-#define ABP_ECT_IA_MINOR_REV_DS           ABP_UINT16_SIZEOF
-#define ABP_ECT_IA_SERIAL_NUMBER_DS       ABP_UINT32_SIZEOF
-#define ABP_ECT_IA_MANF_DEV_NAME_MAX_DS   ( ABP_CHAR_SIZEOF * ABP_ECT_CFG_STR_LEN )
-#define ABP_ECT_IA_MANF_HW_VER_MAX_DS     ( ABP_CHAR_SIZEOF * ABP_ECT_CFG_STR_LEN )
-
-#define ABP_ECT_IA_ENUM_ADIS_MAX_DS       ( ABP_UINT16_SIZEOF * 127 )
+#define ABP_ECT_IA_VENDOR_ID_DS                 ABP_UINT32_SIZEOF
+#define ABP_ECT_IA_PRODUCT_CODE_DS              ABP_UINT32_SIZEOF
+#define ABP_ECT_IA_MAJOR_REV_DS                 ABP_UINT16_SIZEOF
+#define ABP_ECT_IA_MINOR_REV_DS                 ABP_UINT16_SIZEOF
+#define ABP_ECT_IA_SERIAL_NUMBER_DS             ABP_UINT32_SIZEOF
+#define ABP_ECT_IA_MANF_DEV_NAME_MAX_DS         ( ABP_CHAR_SIZEOF * ABP_ECT_CFG_STR_LEN )
+#define ABP_ECT_IA_MANF_HW_VER_MAX_DS           ( ABP_CHAR_SIZEOF * ABP_ECT_CFG_STR_LEN )
+#define ABP_ECT_IA_MANF_SW_VER_MAX_DS           ( ABP_CHAR_SIZEOF * ABP_ECT_CFG_STR_LEN )
+#define ABP_ECT_IA_ENUM_ADIS_MAX_DS             1524
+#define ABP_ECT_IA_DEVICE_TYPE_DS               ABP_UINT32_SIZEOF
+#define ABP_ECT_IA_WR_PD_ASSY_INST_TRANS_MAX_DS 1524
+#define ABP_ECT_IA_RD_PD_ASSY_INST_TRANS_MAX_DS 1524
+#define ABP_ECT_IA_ADI_TRANS_MAX_DS             1524
 
 /*******************************************************************************
 **
@@ -156,7 +163,7 @@
 **------------------------------------------------------------------------------
 */
 
-#define ABP_NC_INST_NUM_DEVICE_ID       0x03
+#define ABP_NC_INST_NUM_DEVICE_ID       0x01
 
 /*******************************************************************************
 **
