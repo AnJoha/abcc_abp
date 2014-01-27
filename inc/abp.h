@@ -1074,7 +1074,7 @@ ABP_DiEventCodeType;
 #define ABP_APPD_IA_DATA_TYPE_DS          ABP_UINT8_SIZEOF
 #define ABP_APPD_IA_NUM_ELEM_DS           ABP_UINT8_SIZEOF
 #define ABP_APPD_IA_DESCRIPTOR_DS         ABP_UINT8_SIZEOF
-
+#define ABP_APPD_IA_NUM_SUB_ELEM_DS       ABP_UINT16_SIZEOF
 
 /*------------------------------------------------------------------------------
 **
