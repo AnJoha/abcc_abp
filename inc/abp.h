@@ -60,6 +60,23 @@
 
 /*******************************************************************************
 **
+** ABCC operation mode constants
+**
+********************************************************************************
+*/
+
+#define ABP_OP_MODE_SPI                1
+#define ABP_OP_MODE_SHIFT_REGISTER     2
+#define ABP_OP_MODE_16_BIT_PARALLEL    7
+#define ABP_OP_MODE_8_BIT_PARALLEL     8
+#define ABP_OP_MODE_SERIAL_19_2        9
+#define ABP_OP_MODE_SERIAL_57_6        10
+#define ABP_OP_MODE_SERIAL_115_2       11
+#define ABP_OP_MODE_SERIAL_625         12
+
+
+/*******************************************************************************
+**
 ** Common telegram and message constants
 **
 ********************************************************************************
@@ -291,6 +308,87 @@ ABP_AppStatusType;
 #define ABP_INTMASK_ANBRIEN            0x08
 #define ABP_INTMASK_STATUSIEN          0x10
 #define ABP_INTMASK_SYNCIEN            0x40
+
+
+/*------------------------------------------------------------------------------
+**
+** SPI control word in MOSI frame
+**
+**------------------------------------------------------------------------------
+*/
+#define ABP_SPI_CTRL_WRPD_VALID        0x01
+#define ABP_SPI_CTRL_CMDCNT            0x06
+#define ABP_SPI_CTRL_M                 0x08
+#define ABP_SPI_CTRL_LAST_FRAG         0x10
+#define ABP_SPI_CTRL_T                 0x80
+
+
+
+/*------------------------------------------------------------------------------
+**
+** SPI status word in MISO frame
+**
+**------------------------------------------------------------------------------
+*/
+#define ABP_SPI_STATUS_WRMSG_FULL      0x01
+#define ABP_SPI_STATUS_CMDCNT          0x06
+#define ABP_SPI_STATUS_M               0x08
+#define ABP_SPI_STATUS_LAST_FRAG       0x10
+#define ABP_SPI_STATUS_NEW_PD          0x20
+
+
+/*******************************************************************************
+**
+** ABCC module type constants
+**
+********************************************************************************
+*/
+#define ABP_MODULE_TYPE_ABCC                 0x0401   /* ABCC30 */
+#define ABP_MODULE_TYPE_ABCC_DRIVE_PROFILE   0x0402
+#define ABP_MODULE_TYPE_ABCC_40              0x0403
+
+
+/*******************************************************************************
+**
+** ABCC module id constants
+** MI1   MI0
+** 0     0  ( 0)  Active CompactCom 30-series
+** 0     1  ( 1 ) Passive CompactCom
+** 1     0  ( 2 ) Active CompactCom 40-series
+** 1     1  ( 3 ) Customer specific
+********************************************************************************
+*/
+#define ABP_MODULE_ID_ACTIVE_ABCC30       0
+#define ABP_MODULE_ID_PASSIVE_ABCC        1
+#define ABP_MODULE_ID_ACTIVE_ABCC40       2
+#define ABP_MODULE_ID_CUSTOMER_SPECIFIC   3
+
+/*******************************************************************************
+**
+** ABCC network types
+**
+********************************************************************************
+*/
+
+#define ABP_NW_TYPE_PDPV0                 0x0001  /* PROFIBUS DP-V0 */
+#define ABP_NW_TYPE_PDPV1                 0x0005  /* PROFIBUS DP-V1 */
+#define ABP_NW_TYPE_COP                   0x0020  /* CANopen */
+#define ABP_NW_TYPE_DEV                   0x0025  /* DeviceNet */
+#define ABP_NW_TYPE_CNT                   0x0065  /* ControlNet */
+#define ABP_NW_TYPE_PRT                   0x0084  /* PROFINET RT */
+#define ABP_NW_TYPE_EIP_1P                0x0085  /* EtherNet/IP */
+#define ABP_NW_TYPE_ECT                   0x0087  /* EtherCAT */
+#define ABP_NW_TYPE_PIR                   0x0089  /* PROFINET IRT */
+#define ABP_NW_TYPE_CCL                   0x0090  /* CC-Link */
+#define ABP_NW_TYPE_CPN                   0x0095  /* CompoNet */
+#define ABP_NW_TYPE_PRT_2P                0x0096  /* PROFINET RT 2-port */
+#define ABP_NW_TYPE_EIP_2P_BB             0x009B  /* EtherNet/IP 2-Port BB DLR */
+#define ABP_NW_TYPE_EIP_2P                0x009C  /* EtherNet/IP 2-Port */
+#define ABP_NW_TYPE_EPL                   0x009F  /* POWERLINK */
+
+
+
+
 
 
 /*******************************************************************************
