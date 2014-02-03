@@ -104,4 +104,28 @@
 #define ABP_EPL_NW_EXCPT_INSTANCE_BY_ORDER_ERROR     2
 #define ABP_EPL_NW_EXCPT_INVALID_SYNC_MODE           6
 
+
+/*******************************************************************************
+**
+** Network configuration object constants.
+**
+********************************************************************************
+*/
+
+/*------------------------------------------------------------------------------
+**
+** The Network configuration instances common to most Anybus-CC modules.
+**
+** Note:
+**       In case the values of these instances originate from input devices
+**       controlled by the end user (DIP switches or similar), the application
+**       shall keep these instances updated at all times because some networks
+**       require that a changed switch is indicated by the LED’s.
+**
+**------------------------------------------------------------------------------
+*/
+
+#define ABP_EPL_NC_INST_NUM_NODE_ID       0x01
+
+
 #endif  /* inclusion lock */
