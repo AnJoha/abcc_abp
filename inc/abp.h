@@ -1214,6 +1214,18 @@ ABP_DiEventCodeType;
 #define ABP_APPD_ERR_ATTR_CTRL_FROM_OTHER_CHANNEL 0x03  /* ABCC40 */
 
 
+/*------------------------------------------------------------------------------
+**
+** Definitions for the different lists that can be fetched with the
+** Get_Instance_Numbers command towards the Application Data Object.
+**
+**------------------------------------------------------------------------------
+*/
+
+#define ABP_APPD_LIST_TYPE_ALL             0x01
+#define ABP_APPD_LIST_TYPE_RD_PD_MAPPABLE  0x02
+#define ABP_APPD_LIST_TYPE_WR_PD_MAPPABLE  0x03
+
 /*******************************************************************************
 **
 ** Application object constants.
