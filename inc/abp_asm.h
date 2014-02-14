@@ -50,7 +50,7 @@
 **------------------------------------------------------------------------------
 */
 #define ABP_ASM_IA_DESCRIPTOR               1    /* Descriptor                */
-#define ABP_ASM_IA_ADI_MAP_XX               2    /* Attributes 2-67 are valid */
+#define ABP_ASM_IA_ADI_MAP_XX               2    /* Attributes 2-12 are valid */
 
 /*------------------------------------------------------------------------------
 ** The data size of the Assembly Mapping object specific instance attributes
@@ -58,13 +58,13 @@
 **------------------------------------------------------------------------------
 */
 #define ABP_ASM_IA_DESCRIPTOR_DS                   ABP_UINT32_SIZEOF
-#define ABP_ASM_IA_ADI_MAP_XX_DS                   ( 63 * ABP_BITS32_SIZEOF )
 
 /*------------------------------------------------------------------------------
 ** The Assembly Mapping object specific message commands.
 **------------------------------------------------------------------------------
 */
 #define ABP_ASM_CMD_WRITE_ASSEMBLY_DATA            0x10
+#define ABP_ASM_CMD_READ_ASSEMBLY_DATA             0x11
 
 /*******************************************************************************
 ** Typedefs
