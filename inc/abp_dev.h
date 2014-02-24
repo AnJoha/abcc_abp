@@ -73,6 +73,7 @@
 
 #define ABP_DEV_IA_PREPEND_PRODUCING        18
 #define ABP_DEV_IA_PREPEND_CONSUMING        19
+#define ABP_DEV_IA_ABCC_ADI_OBJECT          20
 
 
 /*------------------------------------------------------------------------------
@@ -98,6 +99,7 @@
 
 #define ABP_DEV_IA_PREPEND_PRODUCING_DS            ABP_UINT16_SIZEOF
 #define ABP_DEV_IA_PREPEND_CONSUMING_DS            ABP_UINT16_SIZEOF
+#define ABP_DEV_IA_ABCC_ADI_OBJECT_DS              ABP_UINT16_SIZEOF
 
 
 /*------------------------------------------------------------------------------
