@@ -151,6 +151,7 @@
 */
 
 #define ABP_EIP_ERR_OWNERSHIP_CONFLICT         0x01  /* Ownership conflict    */
+#define ABP_EIP_ERR_INVALID_CONFIG             0x02  /* Invalid configuration */
 
 
 /*------------------------------------------------------------------------------
