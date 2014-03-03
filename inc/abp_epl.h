@@ -61,7 +61,7 @@
 #define ABP_EPL_IA_MANF_SW_VER            8
 
 #define ABP_EPL_IA_DEVICE_TYPE            10
-#define ABP_EPL_IA_MANF_NAME              11
+#define ABP_EPL_IA_MANF_NAME              14
 
 
 /*------------------------------------------------------------------------------
@@ -71,7 +71,7 @@
 **------------------------------------------------------------------------------
 */
 
-#define ABP_EPL_CFG_STR_LEN               32
+#define ABP_EPL_CFG_STR_LEN               64
 
 #define ABP_EPL_IA_VENDOR_ID_DS           ABP_UINT32_SIZEOF
 #define ABP_EPL_IA_PRODUCT_CODE_DS        ABP_UINT32_SIZEOF
@@ -100,9 +100,7 @@
 **------------------------------------------------------------------------------
 */
 
-#define ABP_EPL_NW_EXCPT_ILLEGAL_DATA_TYPE           1
-#define ABP_EPL_NW_EXCPT_INSTANCE_BY_ORDER_ERROR     2
-#define ABP_EPL_NW_EXCPT_INVALID_SYNC_MODE           6
+#define ABP_EPL_NW_EXCPT_GET_INST_NUMBERS_ERROR      7
 
 
 /*******************************************************************************
