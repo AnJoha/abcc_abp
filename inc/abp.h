@@ -224,11 +224,14 @@ ABP_MsgErrorCodeType;
 */
 typedef enum ABP_AppStatusType
 {
-   ABP_APP_NO_ERROR           = 0,
-   ABP_SYNC_CONFIG_ERR        = 1,
-   ABP_PD_CONFIG_ERR          = 2,
-   ABP_SYNC_LOSS              = 3,
-   ABP_OUTPUT_ERR             = 4
+   ABP_APPSTAT_NO_ERROR           = 0x0000,
+   ABP_APPSTAT_NOT_SYNCED         = 0x0001,
+   ABP_APPSTAT_SYNC_CFG_ERR       = 0x0002,
+   ABP_APPSTAT_READ_PD_CFG_ERR    = 0x0003,
+   ABP_APPSTAT_WRITE_PD_CFG_ERR   = 0x0004,
+   ABP_APPSTAT_SYNC_LOSS          = 0x0005,
+   ABP_APPSTAT_PD_DATA_LOSS       = 0x0006,
+   ABP_APPSTAT_OUTPUT_ERR         = 0x0007
 }
 ABP_AppStatusType;
 
