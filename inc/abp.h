@@ -1218,7 +1218,7 @@ ABP_DiEventCodeType;
 
 #define ABP_APPD_CMD_GET_INST_BY_ORDER    0x10
 #define ABP_APPD_GET_PROFILE_INST_NUMBERS 0x11
-#define ABP_APPD_GET_ADI_INFO_DEPRECATED  0x12   /* ABCC40 deprecated shall not be used */
+#define ABP_APPD_GET_ADI_INFO             0x12   /* ABCC40 deprecated shall not be used */
 #define ABP_APPD_REMAP_ADI_WRITE_AREA     0x13
 #define ABP_APPD_REMAP_ADI_READ_AREA      0x14
 #define ABP_APPD_GET_INSTANCE_NUMBERS     0x15   /* ABCC40 */
