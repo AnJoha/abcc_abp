@@ -1141,7 +1141,7 @@ ABP_DiEventCodeType;
 **
 ** Application data object constants.
 **
-** Object revision: 2.
+** Object revision: 3.
 **
 ********************************************************************************
 */
