@@ -712,6 +712,7 @@ ABP_LangType;
 #define ABP_ANB_IA_VIRTUAL_ATTRS    17  /* ABCC40 */
 #define ABP_ANB_IA_BLACK_WHITE_LIST 18  /* ABCC40 */
 #define ABP_ANB_IA_NETWORK_TIME     19  /* ABCC40 */
+#define ABP_ANB_IA_FW_CUST_VERSION  20  /* ABCC40 */
 
 /*------------------------------------------------------------------------------
 **
@@ -738,6 +739,7 @@ ABP_LangType;
 #define ABP_ANB_IA_VIRTUAL_ATTRS_DS       1524                       /* ABCC40 */
 #define ABP_ANB_IA_BLACK_WHITE_LIST_DS    ( 12 * ABP_UINT16_SIZEOF ) /* ABCC40 */
 #define ABP_ANB_IA_NETWORK_TIME_DS        ABP_UINT64_SIZEOF          /* ABCC40 */
+#define ABP_ANB_IA_FW_CUST_VERSION_DS     ABP_UINT8_SIZEOF           /* ABCC40 */
 
 /*------------------------------------------------------------------------------
 **
