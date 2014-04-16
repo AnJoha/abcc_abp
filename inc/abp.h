@@ -917,6 +917,7 @@ ABP_AnbExceptionCodeType;
 */
 
 #define ABP_DI_ERR_NOT_REMOVED            0x01  /* Event could not be removed */
+#define ABP_DI_LATCH_NOT_SUPPORTED        0x02  /* Latching events not supported */
 #define ABP_DI_ERR_NW_SPECIFIC            0xFF  /* Network specific error     */
 
 
