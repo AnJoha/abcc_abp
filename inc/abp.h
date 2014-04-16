@@ -945,7 +945,7 @@ ABP_DiEventSeverityType;
 **
 **------------------------------------------------------------------------------
 */
-#define ABP_DI_CREATE_CMDEXT0_SEVERITY_BITS     0x70
+#define ABP_DI_CREATE_CMDEXT0_SEVERITY_BITS     0xFE
 #define ABP_DI_CREATE_CMDEXT0_EXT_DIAG_BIT      0x01
 
 /*------------------------------------------------------------------------------
