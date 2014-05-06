@@ -45,7 +45,7 @@
 **
 ** Anybus-CC Energy Control Object constants.
 **
-** Object revision: 1.
+** Object revision: 2.
 **
 ********************************************************************************
 */
@@ -91,6 +91,8 @@
 #define ABP_ECO_IA_MODE_POWER_CONSUMP        7
 #define ABP_ECO_IA_ENERGY_CONSUMP_TO_PAUSE   8
 #define ABP_ECO_IA_ENERGY_CONSUMP_TO_OPERATE 9
+#define ABP_ECO_IA_AVAILABILITY              10
+#define ABP_ECO_IA_POWER_CONSUMPTION         11
 
 
 /*------------------------------------------------------------------------------
@@ -110,6 +112,8 @@
 #define ABP_ECO_IA_MODE_POWER_CONSUMP_DS           ABP_FLOAT_SIZEOF
 #define ABP_ECO_IA_ENERGY_CONSUMP_TO_PAUSE_DS      ABP_FLOAT_SIZEOF
 #define ABP_ECO_IA_ENERGY_CONSUMP_TO_OPERATE_DS    ABP_FLOAT_SIZEOF
+#define ABP_ECO_IA_AVAILABILITY_DS                 ABP_BOOL_SIZEOF
+#define ABP_ECO_IA_POWER_CONSUMPTION_DS            ABP_UINT32_SIZEOF
 
 
 /*------------------------------------------------------------------------------
@@ -119,8 +123,9 @@
 **------------------------------------------------------------------------------
 */
 
-#define ABP_ECO_CMD_START_PAUSE  0x10
-#define ABP_ECO_CMD_END_PAUSE    0x11
+#define ABP_ECO_CMD_START_PAUSE           0x10
+#define ABP_ECO_CMD_END_PAUSE             0x11
+#define ABP_ECO_CMD_PREVIEW_PAUSE_TIME    0x12
 
 
 #endif  /* inclusion lock */
