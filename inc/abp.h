@@ -610,8 +610,6 @@ ABP_LangType;
 **------------------------------------------------------------------------------
 */
 
-#define ABP_OBJ_NUM_ER              231   /* Energy Reporting                 */
-#define ABP_OBJ_NUM_SAFE            232   /* Functional Safety                */
 #define ABP_OBJ_NUM_EPL             233   /* POWERLINK                        */
 #define ABP_OBJ_NUM_AFSI            234   /* Application File System Interface*/
 #define ABP_OBJ_NUM_ASM             235   /* Assembly mapping object          */
