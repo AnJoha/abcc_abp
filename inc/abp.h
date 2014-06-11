@@ -602,7 +602,7 @@ ABP_LangType;
 #define ABP_OBJ_NUM_NWPNIO           14   /* Network PROFINET IO              */
 #define ABP_OBJ_NUM_PNIOADD          15   /* PROFINET IO Additional Diag      */
 #define ABP_OBJ_NUM_DPV0DI           16   /* PROFIBUS DP-V0 Diagnostic        */
-#define ABP_OBJ_NUM_FUS              17   /* Functional Safety                */
+#define ABP_OBJ_NUM_FUSM             17   /* Functional Safety Module         */
 
 
 /*------------------------------------------------------------------------------
@@ -796,7 +796,7 @@ typedef enum ABP_AnbExceptionCodeType
    ABP_ANB_EXCPT_INV_PRD_CFG        = 0x06, /* Invalid process data config    */
    ABP_ANB_EXCPT_INV_APP_RESPONSE   = 0x07, /* Invalid application response   */
    ABP_ANB_EXCPT_NVS_CHECKSUM_ERROR = 0x08, /* NVS memory checksum error      */
-   ABP_ANB_EXCPT_ASM_COM_ERROR      = 0x09, /* ASM communication error        */
+   ABP_ANB_EXCPT_FUSM_ERROR         = 0x09, /* Functional Safety Module error */
    ABP_ANB_EXCPT_INSUFF_APPL_IMPL   = 0x0A, /* Insufficient application impl. */
 
    ABP_ANB_EXCPT_NUM_CODES                  /* Number of exception codes      */
