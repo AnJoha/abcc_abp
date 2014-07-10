@@ -105,7 +105,7 @@
 #define ABP_NWPNIO_CMD_API_ADD                     0x14
 #define ABP_NWPNIO_CMD_APPL_STATE_READY            0x15
 #define ABP_NWPNIO_CMD_AR_ABORT                    0x16
-#define ABP_NWPNIO_CMD_ADD_ASM                     0x17
+#define ABP_NWPNIO_CMD_ADD_SAFETY_MODULE           0x17
 #define ABP_NWPNIO_CMD_IM_OPTIONS                  0x18
 
 
@@ -124,9 +124,8 @@
 #define ABP_NWPNIO_CMD_API_ADD_DS                  8
 #define ABP_NWPNIO_CMD_APPL_STATE_READY_DS         0
 #define ABP_NWPNIO_CMD_AR_ABORT_DS                 0
-#define ABP_NWPNIO_CMD_ADD_ASM_DS                  4
+#define ABP_NWPNIO_CMD_ADD_SAFETY_MODULE_DS        4
 #define ABP_NWPNIO_CMD_IM_OPTIONS_DS               255 /* TODO: How should it be represented? the size can variate */
-
 
 /*------------------------------------------------------------------------------
 **
@@ -155,7 +154,7 @@
 #define ABP_NWPNIO_ERR_NO_PEND_APPL_READY          0x12
 #define ABP_NWPNIO_ERR_UNKNOWN_STACK_ERROR         0x13
 #define ABP_NWPNIO_ERR_MAX_NBR_OF_PLUGGED_SUBMOD   0x14
-#define ABP_NWPNIO_ERR_ASM_NOT_ENABLED             0x15
+#define ABP_NWPNIO_ERR_SAFETY_NOT_ENABLED          0x15
 
 
 #endif  /* inclusion lock */
