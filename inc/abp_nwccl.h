@@ -103,12 +103,12 @@ enum
 **------------------------------------------------------------------------------
 */
 
-enum
+typedef enum ABP_NWCCL_MsgCmdType
 {
    ABP_NWCCL_CMD_MAP_ADI_SPEC_WRITE_AREA   = 0x10,
    ABP_NWCCL_CMD_MAP_ADI_SPEC_READ_AREA    = 0x11,
    ABP_NWCCL_CMD_CCL_CONF_TEST_MODE        = 0x12
-};
+}ABP_NWCCL_MsgCmdType;
 
 
 /*------------------------------------------------------------------------------
@@ -118,7 +118,7 @@ enum
 **------------------------------------------------------------------------------
 */
 
-enum
+typedef enum ABP_NWCCL_MsgErrorCodeType
 {
    ABP_NWCCL_ERR_INVALID_ADI_DATA_TYPE   = 0x01,
    ABP_NWCCL_ERR_INVALID_NUM_ELEMENTS    = 0x02,
@@ -128,9 +128,7 @@ enum
    ABP_NWCCL_ERR_INVALID_CCL_AREA        = 0x06,
    ABP_NWCCL_ERR_INVALID_OFFSET          = 0x07,
    ABP_NWCCL_ERR_DATA_OVERLAPPING        = 0x08
-};
-
-#endif  /* inclusion lock */
+}ABP_NWCCL_MsgErrorCodeType;
 
 /*******************************************************************************
 **
