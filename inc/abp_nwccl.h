@@ -130,6 +130,8 @@ typedef enum ABP_NWCCL_MsgErrorCodeType
    ABP_NWCCL_ERR_DATA_OVERLAPPING        = 0x08
 }ABP_NWCCL_MsgErrorCodeType;
 
+#endif  /* inclusion lock */
+
 /*******************************************************************************
 **
 ** end of abp_nwccl.h
