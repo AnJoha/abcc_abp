@@ -70,6 +70,8 @@
 #define ABP_ETN_IA_ENABLE_ACD                  11
 #define ABP_ETN_IA_PORT1_STATE                 12
 #define ABP_ETN_IA_PORT2_STATE                 13
+#define ABP_ETN_IA_ENABLE_WEB_UPDATE           14
+#define ABP_ETN_IA_ENABLE_HICP_RESET           15
 
 /*------------------------------------------------------------------------------
 **
@@ -92,6 +94,8 @@
 #define ABP_ETN_IA_ENABLE_ACD_DS                ABP_BOOL_SIZEOF
 #define ABP_ETN_IA_PORT1_STATE_DS               ABP_ENUM_SIZEOF
 #define ABP_ETN_IA_PORT2_STATE_DS               ABP_ENUM_SIZEOF
+#define ABP_ETN_IA_ENABLE_WEB_UPDATE_DS         ABP_BOOL_SIZEOF
+#define ABP_ETN_IA_ENABLE_HICP_RESET_DS         ABP_BOOL_SIZEOF
 
 
 /*------------------------------------------------------------------------------
