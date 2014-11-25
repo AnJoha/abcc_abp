@@ -73,7 +73,8 @@ enum
    ABP_CCL_IA_SOFTWARE_VERSION       = 2,
    ABP_CCL_IA_MODEL_CODE             = 3,
    ABP_CCL_IA_NETWORK_SETTINGS       = 4,
-   ABP_CCL_IA_SYS_AREA_HANDLER       = 5
+   ABP_CCL_IA_SYS_AREA_HANDLER       = 5,
+   ABP_CCL_IA_HOLD_CLEAR_SETTING     = 6
 };
 
 
@@ -91,6 +92,7 @@ enum
                                             ABP_UINT8_SIZEOF +                \
                                             ABP_UINT8_SIZEOF )
 #define ABP_CCL_IA_SYS_AREA_HANDLER_DS    ABP_SINT16_SIZEOF
+#define ABP_CCL_IA_HOLD_CLEAR_SETTING_DS  ABP_UINT8_SIZEOF
 
 
 /*------------------------------------------------------------------------------
