@@ -72,6 +72,8 @@
 #define ABP_ETN_IA_PORT2_STATE                 13
 #define ABP_ETN_IA_ENABLE_WEB_UPDATE           14
 #define ABP_ETN_IA_ENABLE_HICP_RESET           15
+#define ABP_ETN_IA_IP_CONFIGURATION            16
+#define ABP_ETN_IA_IP_ADDRESS_BYTE_0_2         17
 
 /*------------------------------------------------------------------------------
 **
@@ -96,6 +98,8 @@
 #define ABP_ETN_IA_PORT2_STATE_DS               ABP_ENUM_SIZEOF
 #define ABP_ETN_IA_ENABLE_WEB_UPDATE_DS         ABP_BOOL_SIZEOF
 #define ABP_ETN_IA_ENABLE_HICP_RESET_DS         ABP_BOOL_SIZEOF
+#define ABP_ETN_IA_IP_CONFIGURATION_DS          ( 3 * ABP_UINT32_SIZEOF )
+#define ABP_ETN_IA_IP_ADDRESS_BYTE_0_2_DS       ( 3 * ABP_UINT8_SIZEOF )
 
 
 /*------------------------------------------------------------------------------
