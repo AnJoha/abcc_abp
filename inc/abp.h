@@ -1373,7 +1373,7 @@ PACKED_STRUCT ABP_Msg255Type;
 **
 ** ABP_MsgHeaderType
 **
-** Structure describing a message header.
+** Structure describing a message header for an 8 bit char platform
 **
 **------------------------------------------------------------------------------
 */
@@ -1392,16 +1392,39 @@ typedef struct ABP_MsgHeaderType
 }
 PACKED_STRUCT ABP_MsgHeaderType;
 
+
 /*------------------------------------------------------------------------------
 **
-** ABP_MsgType
+** ABP_MsgHeaderType16
 **
-** Structure describing a message.
+** Structure describing a message header for a 16 bit char platform
 **
 **------------------------------------------------------------------------------
 */
 
-typedef struct ABP_MsgType
+typedef struct ABP_MsgHeaderType16
+{
+   UINT16   iDataSize;
+   UINT16   iReserved;
+   UINT16   iSourceIdDestObj;
+   UINT16   iInstance;
+   UINT16   iCmdReserved;
+   UINT16   iCmdExt0CmdExt1;
+}
+PACKED_STRUCT ABP_MsgHeaderType16;
+
+
+
+/*------------------------------------------------------------------------------
+**
+** ABP_MsgType8
+**
+** Structure describing a message for an 8 bit char platform
+**
+**------------------------------------------------------------------------------
+*/
+
+typedef struct ABP_MsgType8
 {
    /*
    ** The message header part.
@@ -1415,8 +1438,47 @@ typedef struct ABP_MsgType
 
    UINT8    abData[ ABP_MAX_MSG_DATA_BYTES ];
 }
-PACKED_STRUCT ABP_MsgType;
+PACKED_STRUCT ABP_MsgType8;
 
+
+/*------------------------------------------------------------------------------
+**
+** ABP_MsgType16
+**
+** Structure describing a message for a 16 bit char platform
+**
+**------------------------------------------------------------------------------
+*/
+typedef struct ABP_MsgType16
+{
+   /*
+   ** The message header part.
+   */
+
+   ABP_MsgHeaderType16 sHeader;
+
+   /*
+   ** The message data.
+   */
+
+   UINT16    aiData[ ( ABP_MAX_MSG_DATA_BYTES + 1 ) >> 1 ];
+}
+PACKED_STRUCT ABP_MsgType16;
+
+/*------------------------------------------------------------------------------
+**
+** ABP_MsgType
+**
+** Typedef to ABP_MsgType8 or ABP_MsgType16 depending on platform.
+**
+**------------------------------------------------------------------------------
+*/
+
+#ifdef ABCC_SYS_16_BIT_CHAR
+typedef struct ABP_MsgType16 PACKED_STRUCT ABP_MsgType;
+#else
+typedef struct ABP_MsgType8 PACKED_STRUCT ABP_MsgType;
+#endif
 
 /*******************************************************************************
 **
@@ -1532,7 +1594,27 @@ PACKED_STRUCT ABP_MsgType;
 **------------------------------------------------------------------------------
 */
 
-#define ABP_SetMsgErrorResponse( psMsg, iMsgDataSize, eErr )                   \
+#ifndef ABCC_SYS_BIG_ENDIAN
+#define ABP_SetMsgErrorResponse16( psMsg, iMsgDataSize, eErr )                 \
+{                                                                              \
+   (psMsg)->sHeader.iCmdReserved   &= ~ABP_MSG_HEADER_C_BIT;                   \
+   (psMsg)->sHeader.iCmdReserved   |=  ABP_MSG_HEADER_E_BIT;                   \
+   (psMsg)->sHeader.iDataSize       =  (iMsgDataSize);                         \
+   (psMsg)->aiData[ 0 ]             =  (UINT16)(eErr);                         \
+                                                                               \
+} /* end of ABP_SetMsgErrorResponse() */
+#else
+#define ABP_SetMsgErrorResponse16( psMsg, iMsgDataSize, eErr )                 \
+{                                                                              \
+   (psMsg)->sHeader.iCmdReserved   &= ~( (UINT16)ABP_MSG_HEADER_C_BIT << 8 );  \
+   (psMsg)->sHeader.iCmdReserved   |=  (UINT16)ABP_MSG_HEADER_E_BIT << 8;      \
+   (psMsg)->sHeader.iDataSize       =  (iMsgDataSize);                         \
+   (psMsg)->aiData[ 0 ]             =  ( ( (UINT16)(eErr) & 0x00FF ) << 8 ) | ( ( (UINT16)(eErr) & 0xFF00 ) >> 8 ); \
+                                                                               \
+} /* end of ABP_SetMsgErrorResponse() */
+#endif
+
+#define ABP_SetMsgErrorResponse8( psMsg, iMsgDataSize, eErr )                  \
 {                                                                              \
    (psMsg)->sHeader.bCmd      &= ~ABP_MSG_HEADER_C_BIT;                        \
    (psMsg)->sHeader.bCmd      |=  ABP_MSG_HEADER_E_BIT;                        \
@@ -1540,6 +1622,17 @@ PACKED_STRUCT ABP_MsgType;
    (psMsg)->abData[ 0 ]        =  (UINT8)(eErr);                               \
                                                                                \
 } /* end of ABP_SetMsgErrorResponse() */
+
+
+#ifdef ABCC_SYS_16_BIT_CHAR
+#define ABP_SetMsgErrorResponse( psMsg, iMsgDataSize, eErr ) ABP_SetMsgErrorResponse16( psMsg, iMsgDataSize, eErr )
+#else
+#define ABP_SetMsgErrorResponse( psMsg, iMsgDataSize, eErr ) ABP_SetMsgErrorResponse8( psMsg, iMsgDataSize, eErr )
+#endif
+
+
+
+
 
 /*------------------------------------------------------------------------------
 **
@@ -1592,13 +1685,35 @@ PACKED_STRUCT ABP_MsgType;
 **------------------------------------------------------------------------------
 */
 
-#define ABP_SetMsgResponse( psMsg, iMsgDataSize )                              \
+#ifndef ABCC_SYS_BIG_ENDIAN
+#define ABP_SetMsgResponse16( psMsg, iMsgDataSize )                            \
+{                                                                              \
+   (psMsg)->sHeader.iCmdReserved &= ~ABP_MSG_HEADER_C_BIT;                     \
+   (psMsg)->sHeader.iDataSize     = (iMsgDataSize);                            \
+                                                                               \
+} /* end of ABP_SetMsgResponse() */
+#else
+#define ABP_SetMsgResponse16( psMsg, iMsgDataSize )                            \
+{                                                                              \
+   (psMsg)->sHeader.iCmdReserved &= ~( (UINT16)ABP_MSG_HEADER_C_BIT << 8 );    \
+   (psMsg)->sHeader.iDataSize     =  (iMsgDataSize);                           \
+                                                                               \
+} /* end of ABP_SetMsgResponse() */
+#endif
+
+#define ABP_SetMsgResponse8( psMsg, iMsgDataSize )                             \
 {                                                                              \
    (psMsg)->sHeader.bCmd      &= ~ABP_MSG_HEADER_C_BIT;                        \
    (psMsg)->sHeader.iDataSize  =  (iMsgDataSize);                              \
                                                                                \
 } /* end of ABP_SetMsgResponse() */
 
+
+#ifdef ABCC_SYS_16_BIT_CHAR
+#define ABP_SetMsgResponse( psMsg, iMsgDataSize ) ABP_SetMsgResponse16( psMsg, iMsgDataSize )
+#else
+#define ABP_SetMsgResponse( psMsg, iMsgDataSize ) ABP_SetMsgResponse8( psMsg, iMsgDataSize )
+#endif
 
 #endif  /* inclusion lock */
 
