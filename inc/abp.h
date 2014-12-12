@@ -1475,9 +1475,9 @@ PACKED_STRUCT ABP_MsgType16;
 */
 
 #ifdef ABCC_SYS_16_BIT_CHAR
-typedef struct ABP_MsgType16 PACKED_STRUCT ABP_MsgType;
+typedef struct ABP_MsgType16 ABP_MsgType;
 #else
-typedef struct ABP_MsgType8 PACKED_STRUCT ABP_MsgType;
+typedef struct ABP_MsgType8 ABP_MsgType;
 #endif
 
 /*******************************************************************************
