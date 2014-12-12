@@ -129,6 +129,7 @@
 #define ABP_PNIO_CMD_END_OF_PRM_IND                0x17
 #define ABP_PNIO_CMD_AR_ABORT_IND                  0x19
 #define ABP_PNIO_CMD_PLUG_SUB_FAILED               0x1A
+#define ABP_PNIO_CMD_EXPECTED_IDENT_IND            0x1B
 
 /*------------------------------------------------------------------------------
 **
@@ -147,6 +148,7 @@
 #define ABP_PNIO_CMD_END_OF_PRM_IND_DS             8
 #define ABP_PNIO_CMD_AR_ABORT_IND_DS               2
 #define ABP_PNIO_CMD_PLUG_SUB_FAILED_DS            8
+#define ABP_PNIO_CMD_EXPECTED_IDENT_IND_DS         255
 
 /*------------------------------------------------------------------------------
 **
