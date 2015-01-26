@@ -93,6 +93,8 @@
 #define ABP_ECT_IA_RD_PD_ASSY_INST_TRANS  12
 #define ABP_ECT_IA_ADI_TRANS              13
 
+#define ABP_ECT_IA_OBJ_SUB_TRANS          15
+
 
 /*------------------------------------------------------------------------------
 **
@@ -116,6 +118,8 @@
 #define ABP_ECT_IA_WR_PD_ASSY_INST_TRANS_MAX_DS 1524
 #define ABP_ECT_IA_RD_PD_ASSY_INST_TRANS_MAX_DS 1524
 #define ABP_ECT_IA_ADI_TRANS_MAX_DS             1524
+#define ABP_ECT_IA_OBJ_SUB_TRANS_MAX_DS         1524
+
 
 /*******************************************************************************
 **

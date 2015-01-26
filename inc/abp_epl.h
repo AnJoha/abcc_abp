@@ -61,6 +61,7 @@
 #define ABP_EPL_IA_MANF_SW_VER            8
 
 #define ABP_EPL_IA_DEVICE_TYPE            10
+
 #define ABP_EPL_IA_MANF_NAME              14
 
 
