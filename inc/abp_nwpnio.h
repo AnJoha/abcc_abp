@@ -107,6 +107,7 @@
 #define ABP_NWPNIO_CMD_AR_ABORT                    0x16
 #define ABP_NWPNIO_CMD_ADD_SAFETY_MODULE           0x17
 #define ABP_NWPNIO_CMD_IM_OPTIONS                  0x18
+#define ABP_NWPNIO_CMD_PLUG_SUB_MODULE_EXT         0x19
 
 
 /*------------------------------------------------------------------------------
@@ -125,7 +126,8 @@
 #define ABP_NWPNIO_CMD_APPL_STATE_READY_DS         0
 #define ABP_NWPNIO_CMD_AR_ABORT_DS                 0
 #define ABP_NWPNIO_CMD_ADD_SAFETY_MODULE_DS        4
-#define ABP_NWPNIO_CMD_IM_OPTIONS_DS               255 /* TODO: How should it be represented? the size can variate */
+#define ABP_NWPNIO_CMD_IM_OPTIONS_DS               255
+#define ABP_NWPNIO_CMD_PLUG_SUB_MODULE_EXT_DS      20
 
 /*------------------------------------------------------------------------------
 **
