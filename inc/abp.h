@@ -1274,6 +1274,7 @@ ABP_DiEventCodeType;
 #define ABP_APP_IA_SUP_LANG               2
 #define ABP_APP_IA_SER_NUM                3   /* ABCC40 */
 #define ABP_APP_IA_PAR_CRTL_SUM           4   /* ABCC40 */
+#define ABP_APP_IA_HW_CONF_ADDR           6   /* ABCC40 */
 
 
 /*------------------------------------------------------------------------------
@@ -1286,6 +1287,7 @@ ABP_DiEventCodeType;
 #define ABP_APP_IA_CONFIGURED_DS          ABP_BOOL_SIZEOF
 #define ABP_APP_IA_SER_NUM_DS             ABP_UINT32_SIZEOF	 /* ABCC40 */
 #define ABP_APP_IA_PAR_CRTL_SUM_DS        ( 16 * ABP_UINT8_SIZEOF )  /* ABCC40 */
+#define ABP_APP_IA_HW_CONF_ADDR_DS        ABP_BOOL_SIZEOF    /* ABCC40 */
 
 
 /*------------------------------------------------------------------------------
