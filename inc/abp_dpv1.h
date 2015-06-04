@@ -43,9 +43,10 @@
 
 /*******************************************************************************
 **
-** PROFIBUS DP-V1 application object constants.
+** PROFIBUS DP-V1 application object constants and PROFIBUS specific constants
+** for the Network object.
 **
-** Object revision: 2.
+** Object revision: 4.
 **
 ********************************************************************************
 */
@@ -110,7 +111,8 @@ enum
    ABP_DPV1_IA_IM_VERSION           = 16,
    ABP_DPV1_IA_IM_SUPPORTED         = 17,
    ABP_DPV1_IA_IM_HEADER            = 18,
-   ABP_DPV1_IA_CHK_CFG_BEHAVIOR     = 19
+   ABP_DPV1_IA_CHK_CFG_BEHAVIOR     = 19,
+   ABP_DPV1_IA_SKIP_ADI             = 20
 };
 
 /*------------------------------------------------------------------------------
@@ -140,6 +142,7 @@ enum
 #define ABP_DPV1_IA_IM_SUPPORTED_DS          ( ABP_UINT16_SIZEOF )
 #define ABP_DPV1_IA_IM_HEADER_DS             ( ABP_UINT8_SIZEOF * 10 )
 #define ABP_DPV1_IA_CHK_CFG_BEHAVIOR_DS      ( ABP_UINT8_SIZEOF )
+#define ABP_DPV1_IA_SKIP_ADI_DS              ( ABP_BOOL_SIZEOF )
 
 
 /*------------------------------------------------------------------------------
