@@ -60,7 +60,7 @@
 
 /*******************************************************************************
 **
-** ABCC operation mode constants
+** ABCC operating mode constants
 **
 ********************************************************************************
 */
@@ -209,7 +209,7 @@ typedef enum ABP_MsgErrorCodeType
    ABP_ERR_SEG_BUF_OVERFLOW    = 0x10,    /* Segmentation buffer overflow     */
    ABP_ERR_VAL_TOO_HIGH        = 0x11,    /* Written data value is too high (ABCC40) */
    ABP_ERR_VAL_TOO_LOW         = 0x12,    /* Written data value is too low  (ABCC40) */
-   ABP_ERR_CONTROLLED_FROM_OTHER_CHANNEL = 0x13, /* NAK writes to “read process data” mapped attr. (ABCC40) */
+   ABP_ERR_CONTROLLED_FROM_OTHER_CHANNEL = 0x13, /* NAK writes to "read process data" mapped attr. (ABCC40) */
    ABP_ERR_MSG_CHANNEL_TOO_SMALL = 0x14,  /* Response does not fit (ABCC40)   */
    ABP_ERR_GENERAL_ERROR       = 0x15,    /* General error (ABCC40)           */
    ABP_ERR_OBJ_SPECIFIC        = 0xFF     /* Object specific error            */
@@ -1275,6 +1275,7 @@ ABP_DiEventCodeType;
 #define ABP_APP_IA_SUP_LANG               2
 #define ABP_APP_IA_SER_NUM                3   /* ABCC40 */
 #define ABP_APP_IA_PAR_CRTL_SUM           4   /* ABCC40 */
+#define ABP_APP_IA_FW_AVAILABLE           5   /* ABCC40 */
 #define ABP_APP_IA_HW_CONF_ADDR           6   /* ABCC40 */
 
 
@@ -1286,9 +1287,10 @@ ABP_DiEventCodeType;
 */
 
 #define ABP_APP_IA_CONFIGURED_DS          ABP_BOOL_SIZEOF
-#define ABP_APP_IA_SER_NUM_DS             ABP_UINT32_SIZEOF	 /* ABCC40 */
-#define ABP_APP_IA_PAR_CRTL_SUM_DS        ( 16 * ABP_UINT8_SIZEOF )  /* ABCC40 */
-#define ABP_APP_IA_HW_CONF_ADDR_DS        ABP_BOOL_SIZEOF    /* ABCC40 */
+#define ABP_APP_IA_SER_NUM_DS             ABP_UINT32_SIZEOF         /* ABCC40 */
+#define ABP_APP_IA_PAR_CRTL_SUM_DS        ( 16 * ABP_UINT8_SIZEOF ) /* ABCC40 */
+#define ABP_APP_IA_FW_AVAILABLE_DS        ABP_BOOL_SIZEOF           /* ABCC40 */
+#define ABP_APP_IA_HW_CONF_ADDR_DS        ABP_BOOL_SIZEOF           /* ABCC40 */
 
 
 /*------------------------------------------------------------------------------
