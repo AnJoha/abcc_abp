@@ -123,6 +123,8 @@ enum
 */
 
 #define ABP_DPV1_IA_IDENT_NUMBER_DS          ( ABP_UINT16_SIZEOF )
+#define ABP_DPV1_IA_PRM_DATA_MAX_DS          ( ABP_UINT8_SIZEOF * 244 )
+#define ABP_DPV1_IA_CFG_DATA_MAX_DS          ( ABP_UINT8_SIZEOF * 244 )
 #define ABP_DPV1_IA_SSA_ENABLED_DS           ( ABP_BOOL_SIZEOF  )
 #define ABP_DPV1_IA_SIZEOF_ID_REL_DIAG_DS    ( ABP_UINT8_SIZEOF )
 #define ABP_DPV1_IA_BUFFER_MODE_DS           ( ABP_UINT8_SIZEOF )
@@ -201,6 +203,20 @@ enum
    ABP_DPV1_CMD_SET_IM_RECORD = 0x11,
    ABP_DPV1_CMD_ALARM_ACK     = 0x12
 };
+
+/*------------------------------------------------------------------------------
+**
+** The data sizes of the PROFIBUS DP-V1 object specific message commands.
+**
+**------------------------------------------------------------------------------
+*/
+
+enum
+{
+   ABP_DPV1_CMD_GET_IM_RECORD_DS = 4,
+   ABP_DPV1_CMD_SET_IM_RECORD_DS = 68
+};
+
 
 
 #endif  /* inclusion lock */

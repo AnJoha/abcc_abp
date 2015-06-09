@@ -13,6 +13,7 @@
 ** -----------
 **
 ** abp_add - Anybus-CC Protocol - Additional Diagnostic object definitions
+** PROFIBUS specific constants for the Diagnostic object
 **
 ** This file contains network specific definitions used by the Anybus-CC
 ** PROFIBUS module as well as applications designed to use such module.
@@ -43,7 +44,7 @@
 
 /*******************************************************************************
 **
-** Anybus-CC Additional Diagnostic object constants.
+** Anybus-CC Additional Diagnostic object constants (ABCC30 only)
 **
 ** Object revision: 2.
 **
@@ -133,7 +134,8 @@ enum
 
 /*------------------------------------------------------------------------------
 **
-** Additional Diagnostic object specific error codes
+** Additional Diagnostic object specific error codes and network specific
+** error codes for the Diagnostic object
 **
 **------------------------------------------------------------------------------
 */
