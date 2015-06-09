@@ -112,7 +112,7 @@ enum
    ABP_DPV1_IA_IM_SUPPORTED         = 17,
    ABP_DPV1_IA_IM_HEADER            = 18,
    ABP_DPV1_IA_CHK_CFG_BEHAVIOR     = 19,
-   ABP_DPV1_IA_SKIP_ADI             = 20
+   ABP_DPV1_IA_RESERVED             = 20
 };
 
 /*------------------------------------------------------------------------------
