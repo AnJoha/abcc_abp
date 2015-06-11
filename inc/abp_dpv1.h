@@ -175,10 +175,38 @@ enum
    ABP_DPV1_V0_MODE4
 };
 
+/*------------------------------------------------------------------------------
+**
+** Values of Profile ID attribute
+** Note! This is not a complete list. The Profile ID's is defined by the
+** PROFIBUS/PROFINET International organization.
+**
+**------------------------------------------------------------------------------
+*/
+
+enum
+{
+   ABP_DPV1_PROFILE_ID_NONE            = 0x0000,
+   ABP_DPV1_PROFILE_ID_PROFIDRIVE      = 0x3A00,
+   ABP_DPV1_PROFILE_ID_ROBOT           = 0x3B00,
+   ABP_DPV1_PROFILE_ID_DISPLAY         = 0x3C00,
+   ABP_DPV1_PROFILE_ID_ENCODER         = 0x3D00,
+   ABP_DPV1_PROFILE_ID_FLUID_POWER     = 0x3F00,
+   ABP_DPV1_PROFILE_ID_WATER_TREATMENT = 0x4900,
+   ABP_DPV1_PROFILE_ID_IOLINK_MASTER   = 0x4E00,
+   ABP_DPV1_PROFILE_ID_IDENTIFICATION  = 0x5B00,
+   ABP_DPV1_PROFILE_ID_WEIGHING_DOSAGE = 0x5C00,
+   ABP_DPV1_PROFILE_ID_PUMPS           = 0x5D00,
+   ABP_DPV1_PROFILE_ID_SWITCHGEAR      = 0x5E00,
+   ABP_DPV1_PROFILE_ID_REMOTE_IO       = 0x5F00,
+   ABP_DPV1_PROFILE_ID_LABORATORY      = 0x6200,
+   ABP_DPV1_PROFILE_ID_PA              = 0x9700,
+   ABP_DPV1_PROFILE_ID_GENERIC_DEVICE  = 0xF600
+};
 
 /*------------------------------------------------------------------------------
 **
-** Values of Check Cfg Behavior attribute
+** Values of Check Cfg Behavior attribute (Only in ABCC30 series)
 **
 **------------------------------------------------------------------------------
 */
@@ -201,7 +229,9 @@ enum
 {
    ABP_DPV1_CMD_GET_IM_RECORD = 0x10,
    ABP_DPV1_CMD_SET_IM_RECORD = 0x11,
-   ABP_DPV1_CMD_ALARM_ACK     = 0x12
+   ABP_DPV1_CMD_ALARM_ACK     = 0x12,     /* Only for ABCC30 */
+   ABP_DPV1_CMD_GET_RECORD    = 0x13,     /* Only for ABCC40 */
+   ABP_DPV1_CMD_SET_RECORD    = 0x14      /* Only for ABCC40 */
 };
 
 /*------------------------------------------------------------------------------
@@ -213,11 +243,12 @@ enum
 
 enum
 {
-   ABP_DPV1_CMD_GET_IM_RECORD_DS = 4,
-   ABP_DPV1_CMD_SET_IM_RECORD_DS = 68
+   ABP_DPV1_CMD_GET_IM_RECORD_DS       = 4,
+   ABP_DPV1_CMD_SET_IM_RECORD_DS       = 68,
+   ABP_DPV1_CMD_GET_RECORD_DS          = 12,
+   ABP_DPV1_CMD_GET_RECORD_RSP_MAX_DS  = 240,
+   ABP_DPV1_CMD_SET_RECORD_MAX_DS      = 251
 };
-
-
 
 #endif  /* inclusion lock */
 
