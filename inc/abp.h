@@ -799,6 +799,7 @@ typedef enum ABP_AnbExceptionCodeType
    ABP_ANB_EXCPT_NVS_CHECKSUM_ERROR = 0x08, /* NVS memory checksum error      */
    ABP_ANB_EXCPT_FUSM_ERROR         = 0x09, /* Functional Safety Module error */
    ABP_ANB_EXCPT_INSUFF_APPL_IMPL   = 0x0A, /* Insufficient application impl. */
+   ABP_ANB_EXCPT_MISSING_SERIAL_NUM = 0x0B, /* Missing serial number          */
 
    ABP_ANB_EXCPT_NUM_CODES                  /* Number of exception codes      */
 }
