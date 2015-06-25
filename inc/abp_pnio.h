@@ -157,10 +157,10 @@
 **------------------------------------------------------------------------------
 */
 
-#define ABP_PNIO_NW_EXCPT_ILLEGAL_VALUE      1
-#define ABP_PNIO_NW_EXCPT_WRONG_DATA_SIZE    2
-#define ABP_PNIO_NW_EXCPT_ILLEGAL_RSP        3
-
+#define ABP_PNIO_NW_EXCPT_ILLEGAL_VALUE         1
+#define ABP_PNIO_NW_EXCPT_WRONG_DATA_SIZE       2
+#define ABP_PNIO_NW_EXCPT_ILLEGAL_RSP           3
+#define ABP_PNIO_NW_EXCPT_MISSING_MAC_ADDRESS   4
 
 #endif  /* inclusion lock */
 
