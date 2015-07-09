@@ -51,6 +51,7 @@
 #define ABP_SAFE_IA_SAFETY_ENABLE         1
 #define ABP_SAFE_IA_BAUD_RATE             2
 #define ABP_SAFE_IA_IO_CONFIG             3
+#define ABP_SAFE_IA_CYCLE_TIME            4 /* ABCC40 */
 
 
 /*------------------------------------------------------------------------------
@@ -62,6 +63,7 @@
 
 #define ABP_SAFE_IA_SAFETY_ENABLE_DS      ABP_BOOL_SIZEOF
 #define ABP_SAFE_IA_BAUD_RATE_DS          ABP_UINT32_SIZEOF
+#define ABP_SAFE_IA_CYCLE_TIME_DS         ABP_UINT8_SIZEOF
 
 
 /*------------------------------------------------------------------------------
@@ -155,6 +157,7 @@
 #define ABP_FUSM_EXCPT_INFO_INCOMPAT_MODULE     14
 #define ABP_FUSM_EXCPT_INFO_MAX_RETRANSMISSIONS 15
 #define ABP_FUSM_EXCPT_INFO_FW_FILE_ERROR       16
+#define ABP_FUSM_EXCPT_INFO_INV_CYCLE_TIME      17
 
 
 /*------------------------------------------------------------------------------
