@@ -92,6 +92,13 @@
 
 #define ABP_MOD_CMD_PROCESS_MODBUS_MESSAGE         0x10
 
+/*------------------------------------------------------------------------------
+**
+** Exception information codes.
+**
+**------------------------------------------------------------------------------
+*/
+#define ABP_MOD_NW_EXCPT_MISSING_MAC_ADDRESS 1
 
 #endif  /* inclusion lock */
 
