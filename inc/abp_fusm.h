@@ -158,6 +158,10 @@
 #define ABP_FUSM_EXCPT_INFO_MAX_RETRANSMISSIONS 15
 #define ABP_FUSM_EXCPT_INFO_FW_FILE_ERROR       16
 #define ABP_FUSM_EXCPT_INFO_INV_CYCLE_TIME      17
+#define ABP_FUSM_EXCPT_INFO_INV_SPDU_IN_SIZE    18
+#define ABP_FUSM_EXCPT_INFO_INV_SPDU_OUT_SIZE   19
+#define ABP_FUSM_EXCPT_INFO_BAD_FORMAT_IN_SPDU  20
+#define ABP_FUSM_EXCPT_INFO_SAFE_MOD_INIT_FAIL  21
 
 
 /*------------------------------------------------------------------------------
