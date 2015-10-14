@@ -130,6 +130,8 @@
 #define ABP_PNIO_CMD_AR_ABORT_IND                  0x19
 #define ABP_PNIO_CMD_PLUG_SUB_FAILED               0x1A
 #define ABP_PNIO_CMD_EXPECTED_IDENT_IND            0x1B
+#define ABP_PNIO_CMD_SAVE_IP_SUITE                 0x1C
+#define ABP_PNIO_CMD_SAVE_STATION_NAME             0x1D
 
 /*------------------------------------------------------------------------------
 **
@@ -152,7 +154,17 @@
 
 /*------------------------------------------------------------------------------
 **
-** PROFINET IO object specific exception constants.
+** Response codes for Expected_Ident_Ind
+**
+**------------------------------------------------------------------------------
+*/
+
+#define ABP_PNIO_RSP_EXPECTED_IDENT_IND_CONT   0
+#define ABP_PNIO_RSP_EXPECTED_IDENT_IND_BLOCK  1
+
+/*------------------------------------------------------------------------------
+**
+** PROFINET IO specific exception information codes.
 **
 **------------------------------------------------------------------------------
 */
@@ -161,6 +173,7 @@
 #define ABP_PNIO_NW_EXCPT_WRONG_DATA_SIZE       2
 #define ABP_PNIO_NW_EXCPT_ILLEGAL_RSP           3
 #define ABP_PNIO_NW_EXCPT_MISSING_MAC_ADDRESS   4
+#define ABP_PNIO_NW_EXCPT_CMD_TIMEOUT           5
 
 #endif  /* inclusion lock */
 

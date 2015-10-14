@@ -108,6 +108,7 @@
 #define ABP_NWPNIO_CMD_ADD_SAFETY_MODULE           0x17
 #define ABP_NWPNIO_CMD_IM_OPTIONS                  0x18
 #define ABP_NWPNIO_CMD_PLUG_SUB_MODULE_EXT         0x19
+#define ABP_NWPNIO_CMD_IDENT_CHANGE_DONE           0x1A
 
 
 /*------------------------------------------------------------------------------
@@ -128,6 +129,8 @@
 #define ABP_NWPNIO_CMD_ADD_SAFETY_MODULE_DS        4
 #define ABP_NWPNIO_CMD_IM_OPTIONS_DS               255
 #define ABP_NWPNIO_CMD_PLUG_SUB_MODULE_EXT_DS      20
+#define ABP_NWPNIO_CMD_IDENT_CHANGE_DONE_DS        0
+
 
 /*------------------------------------------------------------------------------
 **
@@ -157,7 +160,7 @@
 #define ABP_NWPNIO_ERR_UNKNOWN_STACK_ERROR         0x13
 #define ABP_NWPNIO_ERR_MAX_NBR_OF_PLUGGED_SUBMOD   0x14
 #define ABP_NWPNIO_ERR_SAFETY_NOT_ENABLED          0x15
-#define ABP_NWPNIO_ERR_ADI_DATATYPE_CONSTRAINT     0x16  
+#define ABP_NWPNIO_ERR_ADI_DATATYPE_CONSTRAINT     0x16
 
 
 #endif  /* inclusion lock */
