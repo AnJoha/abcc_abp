@@ -611,6 +611,7 @@ ABP_LangType;
 **------------------------------------------------------------------------------
 */
 
+#define ABP_OBJ_NUM_CFN             230   /* CC-Link IE Field Network         */
 #define ABP_OBJ_NUM_ER              231   /* Energy Reporting                 */
 #define ABP_OBJ_NUM_SAFE            232   /* Functional Safety                */
 #define ABP_OBJ_NUM_EPL             233   /* POWERLINK                        */

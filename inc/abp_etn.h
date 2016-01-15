@@ -127,6 +127,7 @@ typedef enum ABP_EtnPortStateType
 {
    ABP_ETN_IA_PORT_STATE_ENABLE     = 0x00, /* Enable Ethernet port           */
    ABP_ETN_IA_PORT_STATE_DISABLE    = 0x01, /* Disable Ethernet port          */
+   ABP_ETN_IA_PORT_STATE_INACTIVATE = 0x02, /* Inactivate Ethernet port       */
 
    ABP_ETN_IA_PORT_STATE_NUM_VALUES         /* Number of port states          */
 }
