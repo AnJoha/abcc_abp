@@ -12,10 +12,12 @@
 ** Description
 ** -----------
 **
-** abp_fusm.h - Anybus-CC Functional Safety Objects Protocol Definitions.
+** abp_fusm.h - Anybus-CC Functional Safety Module Object Protocol Definitions.
 **
 ** This software component contains FUSM definitions used by Anybus-CC
 ** modules as well as applications designed to use Functional Safety.
+**
+** This describes the safety object residing in the Anybus.
 **
 ********************************************************************************
 ********************************************************************************
@@ -39,31 +41,6 @@
 
 #ifndef ABP_FUSM_H
 #define ABP_FUSM_H
-
-
-/*------------------------------------------------------------------------------
-**
-** The Functional Safety instance attributes.
-**
-**------------------------------------------------------------------------------
-*/
-
-#define ABP_SAFE_IA_SAFETY_ENABLE         1
-#define ABP_SAFE_IA_BAUD_RATE             2
-#define ABP_SAFE_IA_IO_CONFIG             3
-#define ABP_SAFE_IA_CYCLE_TIME            4 /* ABCC40 */
-
-
-/*------------------------------------------------------------------------------
-**
-** The data size of the Functional Safety instance attributes (in bytes).
-**
-**------------------------------------------------------------------------------
-*/
-
-#define ABP_SAFE_IA_SAFETY_ENABLE_DS      ABP_BOOL_SIZEOF
-#define ABP_SAFE_IA_BAUD_RATE_DS          ABP_UINT32_SIZEOF
-#define ABP_SAFE_IA_CYCLE_TIME_DS         ABP_UINT8_SIZEOF
 
 
 /*------------------------------------------------------------------------------
@@ -166,7 +143,7 @@
 
 /*------------------------------------------------------------------------------
 **
-** The Anybus-CC Functional Safety object specific message commands.
+** The Anybus-CC Functional Safety Module object specific message commands.
 **
 **------------------------------------------------------------------------------
 */
