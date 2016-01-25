@@ -17,6 +17,8 @@
 ** This software component contains definitions used by Anybus-CC
 ** modules as well as applications designed to use Functional Safety.
 **
+** This describes the safety object residing in the host application.
+**
 ********************************************************************************
 ********************************************************************************
 **                                                                            **
@@ -48,8 +50,10 @@
 **------------------------------------------------------------------------------
 */
 
-#define ABP_SAFE_IA_SAFETY_ENABLE         1
+#define ABP_SAFE_IA_SAFETY_ENABLED        1
 #define ABP_SAFE_IA_BAUD_RATE             2
+#define ABP_SAFE_IA_IO_CONFIG             3
+#define ABP_SAFE_IA_CYCLE_TIME            4 /* ABCC40 */
 
 
 /*------------------------------------------------------------------------------
@@ -59,8 +63,9 @@
 **------------------------------------------------------------------------------
 */
 
-#define ABP_SAFE_IA_SAFETY_ENABLE_DS      ABP_BOOL_SIZEOF
+#define ABP_SAFE_IA_SAFETY_ENABLED_DS     ABP_BOOL_SIZEOF
 #define ABP_SAFE_IA_BAUD_RATE_DS          ABP_UINT32_SIZEOF
+#define ABP_SAFE_IA_CYCLE_TIME_DS         ABP_UINT8_SIZEOF
 
 
 #endif  /* inclusion lock */

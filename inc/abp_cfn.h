@@ -44,8 +44,8 @@
 ** The data size of the CC-Link object instance attributes (in bytes).
 **------------------------------------------------------------------------------
 */
-#define ABP_CFN_VENDOR_NAME_STR_LEN 32
-#define ABP_CFN_MODEL_NAME_STR_LEN  20
+#define ABP_CFN_VENDOR_NAME_STR_LEN 31
+#define ABP_CFN_MODEL_NAME_STR_LEN  19
 
 #define ABP_CFN_IA_VENDOR_CODE_DS   ABP_UINT16_SIZEOF
 #define ABP_CFN_IA_VENDOR_NAME_DS   ( ABP_CHAR_SIZEOF * ABP_CFN_VENDOR_NAME_STR_LEN )
