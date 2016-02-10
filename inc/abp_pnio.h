@@ -132,6 +132,7 @@
 #define ABP_PNIO_CMD_EXPECTED_IDENT_IND            0x1B
 #define ABP_PNIO_CMD_SAVE_IP_SUITE                 0x1C
 #define ABP_PNIO_CMD_SAVE_STATION_NAME             0x1D
+#define ABP_PNIO_CMD_INDICATE_DEVICE               0x1E
 
 /*------------------------------------------------------------------------------
 **
@@ -151,6 +152,7 @@
 #define ABP_PNIO_CMD_AR_ABORT_IND_DS               2
 #define ABP_PNIO_CMD_PLUG_SUB_FAILED_DS            8
 #define ABP_PNIO_CMD_EXPECTED_IDENT_IND_DS         255
+#define ABP_PNIO_CMD_INDICATE_DEVICE_DS            0
 
 /*------------------------------------------------------------------------------
 **
