@@ -93,7 +93,6 @@
 #define ABP_CTRL_M_BIT              0x40
 #define ABP_CTRL_R_BIT              0x20
 #define ABP_CTRL_A_BIT              0x10
-#define ABP_CTRL_G_BIT              0x01
 
 
 /*------------------------------------------------------------------------------
