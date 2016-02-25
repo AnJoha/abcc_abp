@@ -93,7 +93,6 @@
 #define ABP_CTRL_M_BIT              0x40
 #define ABP_CTRL_R_BIT              0x20
 #define ABP_CTRL_A_BIT              0x10
-#define ABP_CTRL_G_BIT              0x01
 
 
 /*------------------------------------------------------------------------------
@@ -717,6 +716,7 @@ ABP_LangType;
 #define ABP_ANB_IA_BLACK_WHITE_LIST 18  /* ABCC40 */
 #define ABP_ANB_IA_NETWORK_TIME     19  /* ABCC40 */
 #define ABP_ANB_IA_FW_CUST_VERSION  20  /* ABCC40 */
+#define ABP_ANB_IA_ABIP_LICENSE     21  /* Anybus IP */
 
 /*------------------------------------------------------------------------------
 **
@@ -744,6 +744,7 @@ ABP_LangType;
 #define ABP_ANB_IA_BLACK_WHITE_LIST_DS    ( 12 * ABP_UINT16_SIZEOF ) /* ABCC40 */
 #define ABP_ANB_IA_NETWORK_TIME_DS        ABP_UINT64_SIZEOF          /* ABCC40 */
 #define ABP_ANB_IA_FW_CUST_VERSION_DS     ABP_UINT8_SIZEOF           /* ABCC40 */
+#define ABP_ANB_IA_ABIP_LICENSE_DS        ABP_ENUM_SIZEOF            /* Anybus IP */
 
 /*------------------------------------------------------------------------------
 **
@@ -809,6 +810,23 @@ ABP_AnbExceptionCodeType;
 
 /*------------------------------------------------------------------------------
 **
+** Anybus IP License.
+**
+**------------------------------------------------------------------------------
+*/
+
+typedef enum ABP_AbipLicenseType
+{
+   ABP_ANB_ABIP_LICENSE_NONE      =  0x00,
+   ABP_ANB_ABIP_LICENSE_TIME_BOMB =  0x01,
+   ABP_ANB_ABIP_LICENSE_STANDARD  =  0x02,
+   ABP_ANB_ABIP_LICENSE_EXTENDED  =  0x03
+}
+ABP_AbipLicenseType;
+
+
+/*------------------------------------------------------------------------------
+**
 ** LED colour codes.
 **
 **------------------------------------------------------------------------------
@@ -841,9 +859,10 @@ ABP_AnbExceptionCodeType;
 **------------------------------------------------------------------------------
 */
 
-#define ABP_ANB_GPIO_CONFIG_STD     0x00     /* Standard GPIO                 */
-#define ABP_ANB_GPIO_CONFIG_EXT_LED 0x01     /* Extended LED functionality    */
-#define ABP_ANB_GPIO_CONFIG_RMII    0x02     /* RMII functionality            */
+#define ABP_ANB_GPIO_CONFIG_STD           0x00  /* Standard GPIO              */
+#define ABP_ANB_GPIO_CONFIG_EXT_LED       0x01  /* Extended LED functionality */
+#define ABP_ANB_GPIO_CONFIG_RMII          0x02  /* RMII functionality         */
+#define ABP_ANB_GPIO_CONFIG_THREE_STATE   0x03  /* Three-state GPIO pins      */
 
 
 /*******************************************************************************
