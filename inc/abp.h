@@ -859,9 +859,10 @@ ABP_AbipLicenseType;
 **------------------------------------------------------------------------------
 */
 
-#define ABP_ANB_GPIO_CONFIG_STD     0x00     /* Standard GPIO                 */
-#define ABP_ANB_GPIO_CONFIG_EXT_LED 0x01     /* Extended LED functionality    */
-#define ABP_ANB_GPIO_CONFIG_RMII    0x02     /* RMII functionality            */
+#define ABP_ANB_GPIO_CONFIG_STD           0x00  /* Standard GPIO              */
+#define ABP_ANB_GPIO_CONFIG_EXT_LED       0x01  /* Extended LED functionality */
+#define ABP_ANB_GPIO_CONFIG_RMII          0x02  /* RMII functionality         */
+#define ABP_ANB_GPIO_CONFIG_THREE_STATE   0x03  /* Three-state GPIO pins      */
 
 
 /*******************************************************************************
