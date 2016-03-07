@@ -603,6 +603,7 @@ ABP_LangType;
 #define ABP_OBJ_NUM_PNIOADD          15   /* PROFINET IO Additional Diag      */
 #define ABP_OBJ_NUM_DPV0DI           16   /* PROFIBUS DP-V0 Diagnostic        */
 #define ABP_OBJ_NUM_FUSM             17   /* Functional Safety Module         */
+#define ABP_OBJ_NUM_NWCFN            18   /* Network CC-Link IE Field Network */
 
 
 /*------------------------------------------------------------------------------
