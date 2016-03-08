@@ -7,14 +7,7 @@
 ** of an authorized company official.                                         **
 ********************************************************************************
 ********************************************************************************
-** Anybus-CC Protocol - CC-Link IE Field Network Definitions.
-**
-** This software component contains protocol definitions used by the CC-Link IE
-** Field Network Anybus-CC module as well as applications designed to use such
-** modules.
-**
-** The generic portion used by all Anybus-CC modules is available in the file
-** ABP.H.
+** Anybus-CC Network CC-Link IE Field Network Object Protocol Definitions
 ********************************************************************************
 ********************************************************************************
 ** Services:
@@ -22,43 +15,30 @@
 ********************************************************************************
 */
 
-#ifndef ABP_CFN_H
-#define ABP_CFN_H
+#ifndef ABP_NWCFN_H_
+#define ABP_NWCFN_H_
 
 /*******************************************************************************
 ** Constants
 ********************************************************************************
 */
 /*------------------------------------------------------------------------------
-** CC-Link IE Field Network object instance attributes
+** Network CC-Link IE Field Network object instance attributes.
 **------------------------------------------------------------------------------
 */
-#define ABP_CFN_IA_VENDOR_CODE 1
-#define ABP_CFN_IA_VENDOR_NAME 2
-#define ABP_CFN_IA_MODEL_TYPE  3
-#define ABP_CFN_IA_MODEL_NAME  4
-#define ABP_CFN_IA_MODEL_CODE  5
-#define ABP_CFN_IA_SW_VERSION  6
+#define ABP_NWCFN_IA_IO_DATA_SIZES 1
 
 /*------------------------------------------------------------------------------
-** The data size of the CC-Link IE Field Network object instance attributes
-** (in bytes).
+** The data sizes of the Network CC-Link IE Field Network object instance
+** attributes (in bytes).
 **------------------------------------------------------------------------------
 */
-#define ABP_CFN_VENDOR_NAME_STR_LEN 31
-#define ABP_CFN_MODEL_NAME_STR_LEN  19
-
-#define ABP_CFN_IA_VENDOR_CODE_DS   ABP_UINT16_SIZEOF
-#define ABP_CFN_IA_VENDOR_NAME_DS   ( ABP_CHAR_SIZEOF * ABP_CFN_VENDOR_NAME_STR_LEN )
-#define ABP_CFN_IA_MODEL_TYPE_DS    ABP_UINT16_SIZEOF
-#define ABP_CFN_IA_MODEL_NAME_DS    ( ABP_CHAR_SIZEOF * ABP_CFN_MODEL_NAME_STR_LEN )
-#define ABP_CFN_IA_MODEL_CODE_DS    ABP_UINT32_SIZEOF
-#define ABP_CFN_IA_SW_VERSION_DS    ABP_UINT8_SIZEOF
+#define ABP_NWCFN_IA_IO_DATA_SIZES_DS ( 4 * ABP_UINT16_SIZEOF )
 
 /*------------------------------------------------------------------------------
-** CC-Link IE Field Network object specific commands
+** Network CC-Link IE Field Network object specific message commands
 **------------------------------------------------------------------------------
 */
-#define ABP_CFN_CMD_SET_BUF_SIZE_RESTRICTION 0x10
+#define ABP_NWCFN_CMD_EXT_LOOPBACK 0x10
 
 #endif  /* inclusion lock */
