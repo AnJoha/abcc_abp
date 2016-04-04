@@ -388,7 +388,7 @@ ABP_AppStatusType;
 #define ABP_NW_TYPE_EIP_2P_BB             0x009B  /* EtherNet/IP 2-Port BB DLR */
 #define ABP_NW_TYPE_EIP_2P                0x009C  /* EtherNet/IP 2-Port */
 #define ABP_NW_TYPE_EPL                   0x009F  /* POWERLINK */
-
+#define ABP_NW_TYPE_CFN                   0x009E  /* CC-Link IE Field Network */
 
 
 
