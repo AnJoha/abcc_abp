@@ -134,8 +134,7 @@ enum
 
 /*------------------------------------------------------------------------------
 **
-** Additional Diagnostic object specific error codes and network specific
-** error codes for the Diagnostic object
+** Additional Diagnostic object specific error codes
 **
 **------------------------------------------------------------------------------
 */

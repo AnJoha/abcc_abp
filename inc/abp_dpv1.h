@@ -13,6 +13,8 @@
 ** -----------
 **
 ** abp_dpv1 - Anybus-CC Protocol - PROFIBUS DP-V1 application object definitions
+**            and PROFIBUS specific constants for the Network object
+**            and Diagnostic object.
 **
 ** This software component contains protocol definitions used by Anybus-CC
 ** modules as well as applications designed to use such modules.
@@ -43,13 +45,24 @@
 
 /*******************************************************************************
 **
-** PROFIBUS DP-V1 application object constants and PROFIBUS specific constants
-** for the Network object.
-**
-** Object revision: 4.
+** Diagnostic object constants.
 **
 ********************************************************************************
 */
+
+/*------------------------------------------------------------------------------
+**
+** Network specific error codes for the Diagnostic Object (Only for ABCC40)
+**
+**------------------------------------------------------------------------------
+*/
+
+enum
+{
+   ABP_DI_DPV1_ERR_ALARM_TYPE_DISABLED    = 0x08,
+   ABP_DI_DPV1_ERR_TOO_MANY_ACTIVE_ALARMS = 0x09
+};
+
 
 /*******************************************************************************
 **
@@ -83,6 +96,15 @@ enum
    ABP_NW_EXCPT_DPV1_INVALID_MAP_EMPTY_SLOT          = 0x0D
 };
 
+
+/*******************************************************************************
+**
+** PROFIBUS DP-V1 object constants.
+**
+** Object revision: 4
+**
+********************************************************************************
+*/
 
 /*------------------------------------------------------------------------------
 **
