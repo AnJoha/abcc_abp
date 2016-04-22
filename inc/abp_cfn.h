@@ -33,13 +33,12 @@
 ** CC-Link IE Field Network object instance attributes
 **------------------------------------------------------------------------------
 */
-#define ABP_CFN_IA_VENDOR_CODE       1
-#define ABP_CFN_IA_VENDOR_NAME       2
-#define ABP_CFN_IA_MODEL_TYPE        3
-#define ABP_CFN_IA_MODEL_NAME        4
-#define ABP_CFN_IA_MODEL_CODE        5
-#define ABP_CFN_IA_SW_VERSION        6
-#define ABP_CFN_IA_NOTIFY_IO_SIZE_EN 7
+#define ABP_CFN_IA_VENDOR_CODE 1
+#define ABP_CFN_IA_VENDOR_NAME 2
+#define ABP_CFN_IA_MODEL_TYPE  3
+#define ABP_CFN_IA_MODEL_NAME  4
+#define ABP_CFN_IA_MODEL_CODE  5
+#define ABP_CFN_IA_SW_VERSION  6
 
 /*------------------------------------------------------------------------------
 ** The data size of the CC-Link IE Field Network object instance attributes
@@ -49,13 +48,12 @@
 #define ABP_CFN_VENDOR_NAME_STR_LEN 31
 #define ABP_CFN_MODEL_NAME_STR_LEN  19
 
-#define ABP_CFN_IA_VENDOR_CODE_DS       ABP_UINT16_SIZEOF
-#define ABP_CFN_IA_VENDOR_NAME_DS       ( ABP_CHAR_SIZEOF * ABP_CFN_VENDOR_NAME_STR_LEN )
-#define ABP_CFN_IA_MODEL_TYPE_DS        ABP_UINT16_SIZEOF
-#define ABP_CFN_IA_MODEL_NAME_DS        ( ABP_CHAR_SIZEOF * ABP_CFN_MODEL_NAME_STR_LEN )
-#define ABP_CFN_IA_MODEL_CODE_DS        ABP_UINT32_SIZEOF
-#define ABP_CFN_IA_SW_VERSION_DS        ABP_UINT8_SIZEOF
-#define ABP_CFN_IA_NOTIFY_IO_SIZE_EN_DS ABP_BOOL_SIZEOF
+#define ABP_CFN_IA_VENDOR_CODE_DS ABP_UINT16_SIZEOF
+#define ABP_CFN_IA_VENDOR_NAME_DS ( ABP_CHAR_SIZEOF * ABP_CFN_VENDOR_NAME_STR_LEN )
+#define ABP_CFN_IA_MODEL_TYPE_DS  ABP_UINT16_SIZEOF
+#define ABP_CFN_IA_MODEL_NAME_DS  ( ABP_CHAR_SIZEOF * ABP_CFN_MODEL_NAME_STR_LEN )
+#define ABP_CFN_IA_MODEL_CODE_DS  ABP_UINT32_SIZEOF
+#define ABP_CFN_IA_SW_VERSION_DS  ABP_UINT8_SIZEOF
 
 /*------------------------------------------------------------------------------
 ** CC-Link IE Field Network object specific commands
