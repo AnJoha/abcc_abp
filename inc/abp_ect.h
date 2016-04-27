@@ -95,6 +95,7 @@
 
 #define ABP_ECT_IA_OBJ_SUB_TRANS          15
 #define ABP_ECT_IA_ENABLE_FOE             16
+#define ABP_ECT_IA_ENABLE_EOE             17
 
 
 /*------------------------------------------------------------------------------
@@ -121,6 +122,7 @@
 #define ABP_ECT_IA_ADI_TRANS_MAX_DS             1524
 #define ABP_ECT_IA_OBJ_SUB_TRANS_MAX_DS         1524
 #define ABP_ECT_IA_ENABLE_FOE_DS                ABP_BOOL_SIZEOF
+#define ABP_ECT_IA_ENABLE_EOE_DS                ABP_BOOL_SIZEOF
 
 
 /*******************************************************************************
