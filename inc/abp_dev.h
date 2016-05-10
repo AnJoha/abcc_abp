@@ -74,6 +74,8 @@
 #define ABP_DEV_IA_PREPEND_PRODUCING        18
 #define ABP_DEV_IA_PREPEND_CONSUMING        19
 #define ABP_DEV_IA_ABCC_ADI_OBJECT          20
+#define ABP_DEV_IA_PROD_INSTANCE_LIST       21
+#define ABP_DEV_IA_CONS_INSTANCE_LIST       22
 
 
 /*------------------------------------------------------------------------------
