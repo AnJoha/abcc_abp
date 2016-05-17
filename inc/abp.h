@@ -377,19 +377,26 @@ ABP_AppStatusType;
 #define ABP_NW_TYPE_PDPV1                 0x0005  /* PROFIBUS DP-V1 */
 #define ABP_NW_TYPE_COP                   0x0020  /* CANopen */
 #define ABP_NW_TYPE_DEV                   0x0025  /* DeviceNet */
+#define ABP_NW_TYPE_RTU                   0x0045  /* Modbus-RTU */
 #define ABP_NW_TYPE_CNT                   0x0065  /* ControlNet */
+#define ABP_NW_TYPE_ETN_1P                0x0080  /* Modbus-TCP */
 #define ABP_NW_TYPE_PRT                   0x0084  /* PROFINET RT */
 #define ABP_NW_TYPE_EIP_1P                0x0085  /* EtherNet/IP */
 #define ABP_NW_TYPE_ECT                   0x0087  /* EtherCAT */
 #define ABP_NW_TYPE_PIR                   0x0089  /* PROFINET IRT */
 #define ABP_NW_TYPE_CCL                   0x0090  /* CC-Link */
+#define ABP_NW_TYPE_ETN_2P                0x0093  /* Modbus-TCP 2-Port */
 #define ABP_NW_TYPE_CPN                   0x0095  /* CompoNet */
 #define ABP_NW_TYPE_PRT_2P                0x0096  /* PROFINET RT 2-port */
+#define ABP_NW_TYPE_SRC3                  0x0098  /* SERCOS III */
+#define ABP_NW_TYPE_BMP                   0x0099  /* BACnet MS/TP */
+#define ABP_NW_TYPE_BIP                   0x009A  /* BACnet/IP */
 #define ABP_NW_TYPE_EIP_2P_BB             0x009B  /* EtherNet/IP 2-Port BB DLR */
 #define ABP_NW_TYPE_EIP_2P                0x009C  /* EtherNet/IP 2-Port */
+#define ABP_NW_TYPE_PIR_FO                0x009D  /* PROFINET IRT FO */
 #define ABP_NW_TYPE_EPL                   0x009F  /* POWERLINK */
 #define ABP_NW_TYPE_CFN                   0x009E  /* CC-Link IE Field Network */
-
+#define ABP_NW_TYPE_CET                   0x00A3  /* Common Ethernet */
 
 
 
