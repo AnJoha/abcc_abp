@@ -798,20 +798,21 @@ ABP_AnbStateType;
 
 typedef enum ABP_AnbExceptionCodeType
 {
-   ABP_ANB_EXCPT_NONE               = 0x00, /* No exception                   */
-   ABP_ANB_EXCPT_APP_TO             = 0x01, /* Application timeout            */
-   ABP_ANB_EXCPT_INV_DEV_ADDR       = 0x02, /* Invalid device address         */
-   ABP_ANB_EXCPT_INV_COM_SETTINGS   = 0x03, /* Invalid communication settings */
-   ABP_ANB_EXCPT_MAJ_UNREC_APP_EVNT = 0x04, /* Major unrecoverable app event  */
-   ABP_ANB_EXCPT_WAIT_APP_RESET     = 0x05, /* Waiting for application reset  */
-   ABP_ANB_EXCPT_INV_PRD_CFG        = 0x06, /* Invalid process data config    */
-   ABP_ANB_EXCPT_INV_APP_RESPONSE   = 0x07, /* Invalid application response   */
-   ABP_ANB_EXCPT_NVS_CHECKSUM_ERROR = 0x08, /* NVS memory checksum error      */
-   ABP_ANB_EXCPT_FUSM_ERROR         = 0x09, /* Functional Safety Module error */
-   ABP_ANB_EXCPT_INSUFF_APPL_IMPL   = 0x0A, /* Insufficient application impl. */
-   ABP_ANB_EXCPT_MISSING_SERIAL_NUM = 0x0B, /* Missing serial number          */
+   ABP_ANB_EXCPT_NONE                = 0x00, /* No exception                   */
+   ABP_ANB_EXCPT_APP_TO              = 0x01, /* Application timeout            */
+   ABP_ANB_EXCPT_INV_DEV_ADDR        = 0x02, /* Invalid device address         */
+   ABP_ANB_EXCPT_INV_COM_SETTINGS    = 0x03, /* Invalid communication settings */
+   ABP_ANB_EXCPT_MAJ_UNREC_APP_EVNT  = 0x04, /* Major unrecoverable app event  */
+   ABP_ANB_EXCPT_WAIT_APP_RESET      = 0x05, /* Waiting for application reset  */
+   ABP_ANB_EXCPT_INV_PRD_CFG         = 0x06, /* Invalid process data config    */
+   ABP_ANB_EXCPT_INV_APP_RESPONSE    = 0x07, /* Invalid application response   */
+   ABP_ANB_EXCPT_NVS_CHECKSUM_ERROR  = 0x08, /* NVS memory checksum error      */
+   ABP_ANB_EXCPT_FUSM_ERROR          = 0x09, /* Functional Safety Module error */
+   ABP_ANB_EXCPT_INSUFF_APPL_IMPL    = 0x0A, /* Insufficient application impl. */
+   ABP_ANB_EXCPT_MISSING_SERIAL_NUM  = 0x0B, /* Missing serial number          */
+   ABP_ANB_EXCPT_CORRUPT_FILE_SYSTEM = 0x0C, /* File system is corrupt         */
 
-   ABP_ANB_EXCPT_NUM_CODES                  /* Number of exception codes      */
+   ABP_ANB_EXCPT_NUM_CODES                   /* Number of exception codes      */
 }
 ABP_AnbExceptionCodeType;
 
