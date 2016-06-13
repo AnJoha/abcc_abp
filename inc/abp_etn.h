@@ -74,6 +74,7 @@
 #define ABP_ETN_IA_ENABLE_HICP_RESET           15
 #define ABP_ETN_IA_IP_CONFIGURATION            16
 #define ABP_ETN_IA_IP_ADDRESS_BYTE_0_2         17
+#define ABP_ETN_IA_ETH_PHY_CONFIG              18
 
 /*------------------------------------------------------------------------------
 **
@@ -132,6 +133,18 @@ typedef enum ABP_EtnPortStateType
    ABP_ETN_IA_PORT_STATE_NUM_VALUES         /* Number of port states          */
 }
 ABP_EtnPortStateType;
+
+
+/*------------------------------------------------------------------------------
+**
+** Ethernet PHY Configuration attribute bit definitions.
+**
+** ABP_ETN_IA_ETH_PHY_CFG_FALLBACK_DUPLEX - 0 = Half duplex, 1 = Full duplex
+**
+**------------------------------------------------------------------------------
+*/
+
+#define ABP_ETN_IA_ETH_PHY_CFG_FALLBACK_DUPLEX   0x0001
 
 #endif  /* inclusion lock */
 
