@@ -52,7 +52,9 @@
 
 #define ABP_SAFE_IA_SAFETY_ENABLED        1
 #define ABP_SAFE_IA_BAUD_RATE             2
-#define ABP_SAFE_IA_IO_CONFIG             3
+#define ABP_SAFE_IA_IO_CONFIG             3 /* Obsolete - replaced by command
+                                             * in functional safety module
+                                             * object. */
 #define ABP_SAFE_IA_CYCLE_TIME            4 /* ABCC40 */
 
 

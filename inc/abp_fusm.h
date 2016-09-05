@@ -149,6 +149,7 @@
 */
 
 #define ABP_FUSM_CMD_ERROR_CONFIRMATION       0x10
+#define ABP_FUSM_CMD_SET_ASM_IO_CFG_STRING    0x11
 
 
 #endif  /* inclusion lock */
