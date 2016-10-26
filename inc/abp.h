@@ -211,6 +211,7 @@ typedef enum ABP_MsgErrorCodeType
    ABP_ERR_CONTROLLED_FROM_OTHER_CHANNEL = 0x13, /* NAK writes to "read process data" mapped attr. (ABCC40) */
    ABP_ERR_MSG_CHANNEL_TOO_SMALL = 0x14,  /* Response does not fit (ABCC40)   */
    ABP_ERR_GENERAL_ERROR       = 0x15,    /* General error (ABCC40)           */
+   ABP_ERR_PROTECTED_ACCESS    = 0x16,    /* Protected access (ABCC40)        */
    ABP_ERR_OBJ_SPECIFIC        = 0xFF     /* Object specific error            */
 }
 ABP_MsgErrorCodeType;
@@ -451,13 +452,14 @@ ABP_AppStatusType;
 #define ABP_PAD15                   47       /* Padding bitfield (ABCC40)     */
 #define ABP_PAD16                   48       /* Padding bitfield (ABCC40)     */
 
-#define ABP_BIT1                   65       /* 1 bit bitfield (ABCC40)       */
-#define ABP_BIT2                   66       /* 2 bit bitfield (ABCC40)       */
-#define ABP_BIT3                   67       /* 3 bit bitfield (ABCC40)       */
-#define ABP_BIT4                   68       /* 4 bit bitfield (ABCC40)       */
-#define ABP_BIT5                   69       /* 5 bit bitfield (ABCC40)       */
-#define ABP_BIT6                   70       /* 6 bit bitfield (ABCC40)       */
-#define ABP_BIT7                   71       /* 7 bit bitfield (ABCC40)       */
+#define ABP_BOOL1                   64       /* 1 bit boolean (ABCC40)        */
+#define ABP_BIT1                    65       /* 1 bit bitfield (ABCC40)       */
+#define ABP_BIT2                    66       /* 2 bit bitfield (ABCC40)       */
+#define ABP_BIT3                    67       /* 3 bit bitfield (ABCC40)       */
+#define ABP_BIT4                    68       /* 4 bit bitfield (ABCC40)       */
+#define ABP_BIT5                    69       /* 5 bit bitfield (ABCC40)       */
+#define ABP_BIT6                    70       /* 6 bit bitfield (ABCC40)       */
+#define ABP_BIT7                    71       /* 7 bit bitfield (ABCC40)       */
 
 
 /*------------------------------------------------------------------------------
@@ -511,6 +513,7 @@ ABP_AppStatusType;
 #define ABP_UINT64_MAX              0xFFFFFFFFFFFFFFFFLU
 #define ABP_FLOAT_MAX               3.40282347E+38F
 
+#define ABP_BOOL1_MAX               0x1            /* ABCC40 */
 #define ABP_BITS1_MAX               0x1            /* ABCC40 */
 #define ABP_BITS2_MAX               0x3            /* ABCC40 */
 #define ABP_BITS3_MAX               0x7            /* ABCC40 */
@@ -545,6 +548,7 @@ ABP_AppStatusType;
 #define ABP_UINT64_MIN              0
 #define ABP_FLOAT_MIN               1.17549435E-38F
 
+#define ABP_BOOL1_MIN               0 /* ABCC40 */
 #define ABP_BITS1_MIN               0 /* ABCC40 */
 #define ABP_BITS2_MIN               0 /* ABCC40 */
 #define ABP_BITS3_MIN               0 /* ABCC40 */
@@ -1245,6 +1249,7 @@ ABP_DiEventCodeType;
 #define ABP_APPD_DESCR_SET_ACCESS         0x02
 #define ABP_APPD_DESCR_MAPPABLE_WRITE_PD  0x08
 #define ABP_APPD_DESCR_MAPPABLE_READ_PD   0x10
+#define ABP_APPD_DESCR_NVS_PARAMETER      0x20
 
 
 /*------------------------------------------------------------------------------
@@ -1285,6 +1290,7 @@ ABP_DiEventCodeType;
 #define ABP_APPD_LIST_TYPE_ALL             0x01
 #define ABP_APPD_LIST_TYPE_RD_PD_MAPPABLE  0x02
 #define ABP_APPD_LIST_TYPE_WR_PD_MAPPABLE  0x03
+#define ABP_APPD_LIST_TYPE_NVS_PARAMS      0x04
 
 /*******************************************************************************
 **
@@ -1574,6 +1580,22 @@ typedef struct ABP_MsgType8 ABP_MsgType;
 
 #define ABP_Is_BITx( bType )  ( ( (bType) >= ABP_BIT1 ) && ( (bType) <= ABP_BIT7 ) )
 #define ABP_Is_PADx( bType )  ( ( (bType) >= ABP_PAD0 ) && ( (bType) <= ABP_PAD16 ) )
+
+/*------------------------------------------------------------------------------
+** ABP_IsTypeWithBitAlignment
+**
+** Check if the supplied type is of a type which is possible to map with bit
+** alignment (as opposed to byte alignment).
+**------------------------------------------------------------------------------
+** Arguments:
+**    bType                   - ABCC type specifier
+**
+** Returns:
+**    TRUE if type have bit alignment, else FALSE.
+**------------------------------------------------------------------------------
+*/
+#define ABP_IsTypeWithBitAlignment( bType ) ( ABP_Is_BITx( (bType) ) || ABP_Is_PADx( (bType) ) || \
+                                            ( bType == ABP_BOOL1 ) )
 
 /*------------------------------------------------------------------------------
 **
