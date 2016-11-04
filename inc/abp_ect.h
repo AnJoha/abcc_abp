@@ -152,6 +152,7 @@
 #define ABP_ECT_NW_EXCPT_ASM_MAP_ERROR                                    6
 #define ABP_ECT_NW_EXCPT_GET_INST_NUMBERS_ERROR                           7
 #define ABP_ECT_NW_EXCPT_MDD_ERROR                                        8
+#define ABP_ECT_NW_EXCPT_NO_MAC_ADDR                                      9
 
 /*******************************************************************************
 **
