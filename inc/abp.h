@@ -756,7 +756,7 @@ ABP_LangType;
 #define ABP_ANB_IA_BLACK_WHITE_LIST_DS    ( 12 * ABP_UINT16_SIZEOF ) /* ABCC40 */
 #define ABP_ANB_IA_NETWORK_TIME_DS        ABP_UINT64_SIZEOF          /* ABCC40 */
 #define ABP_ANB_IA_FW_CUST_VERSION_DS     ABP_UINT8_SIZEOF           /* ABCC40 */
-#define ABP_ANB_IA_ABIP_LICENSE_DS        ABP_ENUM_SIZEOF            /* Anybus IP */
+#define ABP_ANB_IA_ABIP_LICENSE_DS        ABP_UINT8_SIZEOF           /* Anybus IP */
 
 /*------------------------------------------------------------------------------
 **
