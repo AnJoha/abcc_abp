@@ -82,6 +82,8 @@
 #define ABP_PNIO_IA_SYSTEM_CONTACT              22
 #define ABP_PNIO_IA_PROFIENERGY_FUNC            23
 #define ABP_PNIO_IA_CUSTOM_STATION_NAME         24
+#define ABP_PNIO_IA_IM_MODULE_ORDER_ID          25
+#define ABP_PNIO_IA_IM_ANNOTATION               26
 
 /*------------------------------------------------------------------------------
 **
@@ -113,6 +115,8 @@
 #define ABP_PNIO_IA_SYSTEM_CONTACT_DS              ( 255 * ABP_UINT8_SIZEOF )
 #define ABP_PNIO_IA_PROFIENERGY_FUNC_DS            ( ABP_UINT8_SIZEOF )
 #define ABP_PNIO_IA_CUSTOM_STATION_NAME_DS         ( 58 * ABP_UINT8_SIZEOF )
+#define ABP_PNIO_IA_IM_MODULE_ORDER_ID_DS          ( 64 * ABP_UINT8_SIZEOF )
+#define ABP_PNIO_IA_IM_ANNOTATION_ID_DS            ( 64 * ABP_UINT8_SIZEOF )
 
 /*------------------------------------------------------------------------------
 **
