@@ -98,6 +98,7 @@
 #define ABP_ECT_IA_ENABLE_EOE             17
 #define ABP_ECT_IA_CHANGE_SR_SWITCH       18
 #define ABP_ECT_IA_SET_DEV_ID_AS_CSA      19
+#define ABP_ECT_IA_ETHERCAT_STATE         20
 
 
 /*------------------------------------------------------------------------------
@@ -127,6 +128,7 @@
 #define ABP_ECT_IA_ENABLE_EOE_DS                ABP_BOOL_SIZEOF
 #define ABP_ECT_IA_CHANGE_SR_SWITCH_DS          ABP_BOOL_SIZEOF
 #define ABP_ECT_IA_SET_DEV_ID_AS_CSA_DS         ABP_BOOL_SIZEOF
+#define ABP_ECT_IA_ETHERCAT_STATE_DS            ABP_UINT8_SIZEOF
 
 
 /*******************************************************************************
