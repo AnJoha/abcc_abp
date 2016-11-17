@@ -1196,6 +1196,7 @@ ABP_DiEventCodeType;
 
 #define ABP_APPD_OA_NR_READ_PD_MAPPABLE_INSTANCES        11
 #define ABP_APPD_OA_NR_WRITE_PD_MAPPABLE_INSTANCES       12
+#define ABP_APPD_OA_NR_NV_INSTANCES                      13
 
 /*------------------------------------------------------------------------------
 **
@@ -1206,6 +1207,7 @@ ABP_DiEventCodeType;
 
 #define ABP_APPD_OA_NR_READ_PD_MAPPABLE_INSTANCES_DS           ABP_UINT16_SIZEOF
 #define ABP_APPD_OA_NR_WRITE_PD_MAPPABLE_INSTANCES_DS          ABP_UINT16_SIZEOF
+#define ABP_APPD_OA_NR_NV_INSTANCES_DS                         ABP_UINT16_SIZEOF
 
 /*------------------------------------------------------------------------------
 **
