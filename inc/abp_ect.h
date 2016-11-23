@@ -131,6 +131,16 @@
 #define ABP_ECT_IA_ETHERCAT_STATE_DS            ABP_UINT8_SIZEOF
 
 
+/*------------------------------------------------------------------------------
+**
+** The Anybus CompactCom EtherCAT Object specific commands.
+**
+**------------------------------------------------------------------------------
+*/
+
+#define ABP_ECT_CMD_GET_OBJECT_DESC             0x10
+
+
 /*******************************************************************************
 **
 ** Network object constants.
