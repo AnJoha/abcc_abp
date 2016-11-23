@@ -182,6 +182,8 @@
 #define ABP_PNIO_NW_EXCPT_ILLEGAL_RSP           3
 #define ABP_PNIO_NW_EXCPT_MISSING_MAC_ADDRESS   4
 #define ABP_PNIO_NW_EXCPT_CMD_TIMEOUT           5
+#define ABP_PNIO_NW_EXCPT_TOO_MANY_AM_INST      6
+#define ABP_PNIO_NW_EXCPT_MDD_ERR               7
 
 #endif  /* inclusion lock */
 
