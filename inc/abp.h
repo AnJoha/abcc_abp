@@ -511,7 +511,7 @@ ABP_AppStatusType;
 
 #define ABP_SINT64_MAX              0x7FFFFFFFFFFFFFFFL
 #define ABP_UINT64_MAX              0xFFFFFFFFFFFFFFFFLU
-#define ABP_FLOAT_MAX               3.40282347E+38F
+#define ABP_FLOAT_MAX               3.402823466E+38F
 
 #define ABP_BOOL1_MAX               0x1            /* ABCC40 */
 #define ABP_BITS1_MAX               0x1            /* ABCC40 */
