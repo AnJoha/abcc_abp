@@ -1352,9 +1352,12 @@ ABP_DiEventCodeType;
 */
 
 /*------------------------------------------------------------------------------
-** PACKED_STRUCT
 **
-** Compiler independent symbols to pack structures for compilers that
+** PACKED_STRUCT
+** ABCC_SYS_PACK_ON
+** ABCC_SYS_PACK_OFF
+**
+** Compiler dependent symbols to pack structures for compilers that
 ** need an in-line directive.
 **
 **------------------------------------------------------------------------------
@@ -1368,15 +1371,24 @@ ABP_DiEventCodeType;
    #endif
 #endif
 
+#ifndef ABCC_SYS_PACK_ON
+   #define ABCC_SYS_PACK_ON
+#endif
+
+#ifndef ABCC_SYS_PACK_OFF
+   #define ABCC_SYS_PACK_OFF
+#endif
+
 /*------------------------------------------------------------------------------
 **
 ** ABP_Msg255HeaderType
 **
-** Structure describing a message header .
+** Structure describing a message header.
 **
 **------------------------------------------------------------------------------
 */
 
+ABCC_SYS_PACK_ON
 typedef struct ABP_Msg255HeaderType
 {
    UINT8    bSourceId;
@@ -1388,6 +1400,7 @@ typedef struct ABP_Msg255HeaderType
    UINT8    bCmdExt1;
 }
 PACKED_STRUCT ABP_Msg255HeaderType;
+ABCC_SYS_PACK_OFF
 
 /*------------------------------------------------------------------------------
 **
@@ -1398,6 +1411,7 @@ PACKED_STRUCT ABP_Msg255HeaderType;
 **------------------------------------------------------------------------------
 */
 
+ABCC_SYS_PACK_ON
 typedef struct ABP_Msg255Type
 {
    /*
@@ -1413,6 +1427,7 @@ typedef struct ABP_Msg255Type
    UINT8    abData[ ABP_MAX_MSG_255_DATA_BYTES ];
 }
 PACKED_STRUCT ABP_Msg255Type;
+ABCC_SYS_PACK_OFF
 
 /*------------------------------------------------------------------------------
 **
@@ -1423,6 +1438,7 @@ PACKED_STRUCT ABP_Msg255Type;
 **------------------------------------------------------------------------------
 */
 
+ABCC_SYS_PACK_ON
 typedef struct ABP_MsgHeaderType
 {
    UINT16   iDataSize;
@@ -1436,7 +1452,7 @@ typedef struct ABP_MsgHeaderType
    UINT8    bCmdExt1;
 }
 PACKED_STRUCT ABP_MsgHeaderType;
-
+ABCC_SYS_PACK_OFF
 
 /*------------------------------------------------------------------------------
 **
@@ -1447,6 +1463,7 @@ PACKED_STRUCT ABP_MsgHeaderType;
 **------------------------------------------------------------------------------
 */
 
+ABCC_SYS_PACK_ON
 typedef struct ABP_MsgHeaderType16
 {
    UINT16   iDataSize;
@@ -1457,8 +1474,7 @@ typedef struct ABP_MsgHeaderType16
    UINT16   iCmdExt0CmdExt1;
 }
 PACKED_STRUCT ABP_MsgHeaderType16;
-
-
+ABCC_SYS_PACK_OFF
 
 /*------------------------------------------------------------------------------
 **
@@ -1469,6 +1485,7 @@ PACKED_STRUCT ABP_MsgHeaderType16;
 **------------------------------------------------------------------------------
 */
 
+ABCC_SYS_PACK_ON
 typedef struct ABP_MsgType8
 {
    /*
@@ -1484,7 +1501,7 @@ typedef struct ABP_MsgType8
    UINT8    abData[ ABP_MAX_MSG_DATA_BYTES ];
 }
 PACKED_STRUCT ABP_MsgType8;
-
+ABCC_SYS_PACK_OFF
 
 /*------------------------------------------------------------------------------
 **
@@ -1494,6 +1511,8 @@ PACKED_STRUCT ABP_MsgType8;
 **
 **------------------------------------------------------------------------------
 */
+
+ABCC_SYS_PACK_ON
 typedef struct ABP_MsgType16
 {
    /*
@@ -1509,6 +1528,7 @@ typedef struct ABP_MsgType16
    UINT16    aiData[ ( ABP_MAX_MSG_DATA_BYTES + 1 ) >> 1 ];
 }
 PACKED_STRUCT ABP_MsgType16;
+ABCC_SYS_PACK_OFF
 
 /*------------------------------------------------------------------------------
 **
