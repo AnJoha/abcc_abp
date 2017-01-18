@@ -183,6 +183,8 @@
 #define ABP_PNIO_NW_EXCPT_MISSING_MAC_ADDRESS   4
 #define ABP_PNIO_NW_EXCPT_CMD_TIMEOUT           5
 #define ABP_PNIO_NW_EXCPT_MDD_ERR               6
+#define ABP_PNIO_NW_EXCPT_PE_WRONG_VERSION      7
+#define ABP_PNIO_NW_EXCPT_PE_INST_OUT_OF_RANGE  8
 
 #endif  /* inclusion lock */
 
