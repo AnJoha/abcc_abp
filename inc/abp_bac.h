@@ -66,7 +66,6 @@
 #define ABP_BAC_IA_SUPPORT_ADV_MAPPING                 7
 #define ABP_BAC_IA_CURRENT_DATE_AND_TIME               8
 #define ABP_BAC_IA_PASSWORD                            9
-#define ABP_BAC_IA_SERIAL_NUMBER                       10
 
 
 /*------------------------------------------------------------------------------
@@ -86,7 +85,6 @@
 #define ABP_BAC_IA_SUPPORT_ADV_MAPPING_DS              ABP_BOOL_SIZEOF
 #define ABP_BAC_IA_CURRENT_DATE_AND_TIME_DS            7
 #define ABP_BAC_IA_PASSWORD_MAX_DS                     ( 20 * ABP_UINT8_SIZEOF )
-#define ABP_BAC_IA_SERIAL_NUMBER_MAX_DS                ( 16 * ABP_CHAR_SIZEOF )
 
 
 /*------------------------------------------------------------------------------
