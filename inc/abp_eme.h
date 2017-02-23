@@ -47,34 +47,38 @@
 #define ABP_EME_IA_VOLTAGE_PHASE_PHASE_MIN                     5
 #define ABP_EME_IA_VOLTAGE_PHASE_PHASE_MAX                     6
 
-#define ABP_EME_IA_CURRENT                                     7
-#define ABP_EME_IA_CURRENT_MIN                                 8
-#define ABP_EME_IA_CURRENT_MAX                                 9
+#define ABP_EME_IA_VOLTAGE_PHASE_GROUND                        7
+#define ABP_EME_IA_VOLTAGE_PHASE_GROUND_MIN                    8
+#define ABP_EME_IA_VOLTAGE_PHASE_GROUND_MAX                    9
 
-#define ABP_EME_IA_APPARENT_POWER                              10
-#define ABP_EME_IA_APPARENT_POWER_MIN                          11
-#define ABP_EME_IA_APPARENT_POWER_MAX                          12
+#define ABP_EME_IA_CURRENT                                     10
+#define ABP_EME_IA_CURRENT_MIN                                 11
+#define ABP_EME_IA_CURRENT_MAX                                 12
 
-#define ABP_EME_IA_ACTIVE_POWER                                13
-#define ABP_EME_IA_ACTIVE_POWER_MIN                            14
-#define ABP_EME_IA_ACTIVE_POWER_MAX                            15
+#define ABP_EME_IA_APPARENT_POWER                              13
+#define ABP_EME_IA_APPARENT_POWER_MIN                          14
+#define ABP_EME_IA_APPARENT_POWER_MAX                          15
 
-#define ABP_EME_IA_REACTIVE_POWER                              16
-#define ABP_EME_IA_REACTIVE_POWER_MIN                          17
-#define ABP_EME_IA_REACTIVE_POWER_MAX                          18
+#define ABP_EME_IA_ACTIVE_POWER                                16
+#define ABP_EME_IA_ACTIVE_POWER_MIN                            17
+#define ABP_EME_IA_ACTIVE_POWER_MAX                            18
 
-#define ABP_EME_IA_POWER_FACTOR                                19
-#define ABP_EME_IA_POWER_FACTOR_MIN                            20
-#define ABP_EME_IA_POWER_FACTOR_MAX                            21
+#define ABP_EME_IA_REACTIVE_POWER                              19
+#define ABP_EME_IA_REACTIVE_POWER_MIN                          20
+#define ABP_EME_IA_REACTIVE_POWER_MAX                          21
 
-#define ABP_EME_IA_FREQUENCY                                   22
-#define ABP_EME_IA_FREQUENCY_MIN                               23
-#define ABP_EME_IA_FREQUENCY_MAX                               24
+#define ABP_EME_IA_POWER_FACTOR                                22
+#define ABP_EME_IA_POWER_FACTOR_MIN                            23
+#define ABP_EME_IA_POWER_FACTOR_MAX                            24
 
-#define ABP_EME_IA_FIELD_ROTATION                              25
-#define ABP_EME_IA_TOTAL_ACTIVE_ENERGY                         26
-#define ABP_EME_IA_TOTAL_REACTIVE_ENERGY                       27
-#define ABP_EME_IA_TOTAL_APPARENT_ENERGY                       28
+#define ABP_EME_IA_FREQUENCY                                   25
+#define ABP_EME_IA_FREQUENCY_MIN                               26
+#define ABP_EME_IA_FREQUENCY_MAX                               27
+
+#define ABP_EME_IA_FIELD_ROTATION                              28
+#define ABP_EME_IA_TOTAL_ACTIVE_ENERGY                         29
+#define ABP_EME_IA_TOTAL_REACTIVE_ENERGY                       30
+#define ABP_EME_IA_TOTAL_APPARENT_ENERGY                       31
 
 /*------------------------------------------------------------------------------
 **
@@ -94,6 +98,10 @@
 #define ABP_EME_IA_VOLTAGE_PHASE_PHASE_DS       ABP_EME_4X_TIMESTAMP_VALUE_DS
 #define ABP_EME_IA_VOLTAGE_PHASE_PHASE_MIN_DS   ABP_EME_4X_TIMESTAMP_VALUE_DS
 #define ABP_EME_IA_VOLTAGE_PHASE_PHASE_MAX_DS   ABP_EME_4X_TIMESTAMP_VALUE_DS
+
+#define ABP_EME_IA_VOLTAGE_PHASE_GROUND_DS      ABP_EME_4X_TIMESTAMP_VALUE_DS
+#define ABP_EME_IA_VOLTAGE_PHASE_GROUND_MIN_DS  ABP_EME_4X_TIMESTAMP_VALUE_DS
+#define ABP_EME_IA_VOLTAGE_PHASE_GROUND_MAX_DS  ABP_EME_4X_TIMESTAMP_VALUE_DS
 
 #define ABP_EME_IA_CURRENT_DS                   ( ABP_EME_TIMESTAMP_VALUE_DS * 5 )
 #define ABP_EME_IA_CURRENT_MIN_DS               ABP_EME_4X_TIMESTAMP_VALUE_DS

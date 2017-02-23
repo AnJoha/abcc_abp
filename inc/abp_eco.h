@@ -57,9 +57,10 @@
 **------------------------------------------------------------------------------
 */
 
-#define ABP_ECO_OA_CURRENT_ENERGY_SAVING_MODE   11
-#define ABP_ECO_OA_REMAINING_TIME_TO_DEST       12
-#define ABP_ECO_OA_ENERGY_CONSUMP_TO_DEST       13
+#define ABP_ECO_OA_CURRENT_ENERGY_SAVING_MODE         11
+#define ABP_ECO_OA_REMAINING_TIME_TO_DEST             12
+#define ABP_ECO_OA_ENERGY_CONSUMP_TO_DEST             13
+#define ABP_ECO_OA_TRANSITION_TO_POWER_OFF_SUPPORTED  14
 
 
 /*------------------------------------------------------------------------------
@@ -70,10 +71,10 @@
 **------------------------------------------------------------------------------
 */
 
-#define ABP_ECO_OA_CURRENT_ENERGY_SAVING_MODE_DS   ABP_UINT16_SIZEOF
-#define ABP_ECO_OA_REMAINING_TIME_TO_DEST_DS       ABP_UINT32_SIZEOF
-#define ABP_ECO_OA_ENERGY_CONSUMP_TO_DEST_DS       ABP_FLOAT_SIZEOF
-
+#define ABP_ECO_OA_CURRENT_ENERGY_SAVING_MODE_DS         ABP_UINT16_SIZEOF
+#define ABP_ECO_OA_REMAINING_TIME_TO_DEST_DS             ABP_UINT32_SIZEOF
+#define ABP_ECO_OA_ENERGY_CONSUMP_TO_DEST_DS             ABP_FLOAT_SIZEOF
+#define ABP_ECO_OA_TRANSITION_TO_POWER_OFF_SUPPORTED_DS  ABP_BOOL_SIZEOF
 
 /*------------------------------------------------------------------------------
 **
