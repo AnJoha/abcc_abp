@@ -75,6 +75,8 @@
 #define ABP_ETN_IA_IP_CONFIGURATION            16
 #define ABP_ETN_IA_IP_ADDRESS_BYTE_0_2         17
 #define ABP_ETN_IA_ETH_PHY_CONFIG              18
+#define ABP_ETN_IA_SNMP_READ_ONLY              20
+#define ABP_ETN_IA_SNMP_READ_WRITE             21
 
 /*------------------------------------------------------------------------------
 **
