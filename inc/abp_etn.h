@@ -103,6 +103,8 @@
 #define ABP_ETN_IA_ENABLE_HICP_RESET_DS         ABP_BOOL_SIZEOF
 #define ABP_ETN_IA_IP_CONFIGURATION_DS          ( 3 * ABP_UINT32_SIZEOF )
 #define ABP_ETN_IA_IP_ADDRESS_BYTE_0_2_DS       ( 3 * ABP_UINT8_SIZEOF )
+#define ABP_ETN_IA_SNMP_READ_ONLY_DS            ( 32 * ABP_CHAR_SIZEOF )
+#define ABP_ETN_IA_SNMP_READ_WRITE_DS           ( 32 * ABP_CHAR_SIZEOF )
 
 
 /*------------------------------------------------------------------------------
