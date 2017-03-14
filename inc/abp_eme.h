@@ -31,7 +31,7 @@
 ** The Energy Measurement object specific message commands.
 **------------------------------------------------------------------------------
 */
-#define ABP_EME_CMD_GET_ATTRIBUTE_ELEMENT_LIST                 0x10
+#define ABP_EME_CMD_GET_ATTRIBUTE_MEASUREMENT_LIST                 0x10
 
 /*------------------------------------------------------------------------------
 **
