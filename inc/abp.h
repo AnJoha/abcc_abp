@@ -1318,6 +1318,7 @@ ABP_DiEventCodeType;
 #define ABP_APP_IA_PAR_CRTL_SUM           4   /* ABCC40 */
 #define ABP_APP_IA_FW_AVAILABLE           5   /* ABCC40 */
 #define ABP_APP_IA_HW_CONF_ADDR           6   /* ABCC40 */
+#define ABP_APP_IA_MODE                   7   /* ABCC40 */
 
 
 /*------------------------------------------------------------------------------
@@ -1332,6 +1333,7 @@ ABP_DiEventCodeType;
 #define ABP_APP_IA_PAR_CRTL_SUM_DS        ( 16 * ABP_UINT8_SIZEOF ) /* ABCC40 */
 #define ABP_APP_IA_FW_AVAILABLE_DS        ABP_BOOL_SIZEOF           /* ABCC40 */
 #define ABP_APP_IA_HW_CONF_ADDR_DS        ABP_BOOL_SIZEOF           /* ABCC40 */
+#define ABP_APP_IA_MODE_DS                ABP_BITS32_SIZEOF         /* ABCC40 */
 
 
 /*------------------------------------------------------------------------------
@@ -1344,6 +1346,16 @@ ABP_DiEventCodeType;
 #define ABP_APP_CMD_RESET_REQUEST         0x10
 #define ABP_APP_CMD_CHANGE_LANG_REQUEST   0x11
 #define ABP_APP_CMD_RESET_DIAGNOSTIC      0x12	 /* ABCC40 */
+
+/*------------------------------------------------------------------------------
+**
+** Definition for different modes for attribute ABP_APP_IA_MODE.
+**
+**------------------------------------------------------------------------------
+*/
+
+#define ABP_APP_MODE_NORMAL_LED          0x00000000
+#define ABP_APP_MODE_AIDA_LED            0x00000001
 
 /*******************************************************************************
 **
