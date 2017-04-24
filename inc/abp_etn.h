@@ -109,9 +109,9 @@
 #define ABP_ETN_IA_IP_ADDRESS_BYTE_0_2_DS          ( 3 * ABP_UINT8_SIZEOF )
 #define ABP_ETN_IA_SNMP_READ_ONLY_DS               ( 32 * ABP_CHAR_SIZEOF )
 #define ABP_ETN_IA_SNMP_READ_WRITE_DS              ( 32 * ABP_CHAR_SIZEOF )
-#define ABP_ETN_IA_ENABLE_DHCP_CLIENT_DS           ABP_BOOL_SIZEOF
 #define ABP_ETN_IA_DHCP_OPTION_61_SOURCE_DS        ABP_ENUM_SIZEOF
 #define ABP_ETN_IA_DHCP_OPTION_61_GENERIC_STR_DS   ( 64 * ABP_UINT8_SIZEOF )
+#define ABP_ETN_IA_ENABLE_DHCP_CLIENT_DS           ABP_BOOL_SIZEOF
 
 
 /*------------------------------------------------------------------------------
@@ -153,7 +153,7 @@ ABP_EtnPortStateType;
 **------------------------------------------------------------------------------
 */
 
-typedef enum ABP_DHCPOption61Source
+typedef enum ABP_DHCPOption61SourceType
 {
    ABP_ETN_IA_DHCP_OPTION_61_SOURCE_DISABLE     = 0x00,
    ABP_ETN_IA_DHCP_OPTION_61_SOURCE_MACID       = 0x01,
@@ -162,7 +162,7 @@ typedef enum ABP_DHCPOption61Source
 
    ABP_ETN_IA_DHCP_OPTION_61_SOURCE_NUM_VALUES
 }
-ABP_DHCPOption61Source;
+ABP_DHCPOption61SourceType;
 
 
 /*------------------------------------------------------------------------------
