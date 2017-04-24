@@ -77,6 +77,7 @@
 #define ABP_ETN_IA_ETH_PHY_CONFIG              18
 #define ABP_ETN_IA_SNMP_READ_ONLY              20
 #define ABP_ETN_IA_SNMP_READ_WRITE             21
+#define ABP_ETN_IA_ENABLE_DHCP_CLIENT          24
 
 /*------------------------------------------------------------------------------
 **
@@ -105,6 +106,7 @@
 #define ABP_ETN_IA_IP_ADDRESS_BYTE_0_2_DS       ( 3 * ABP_UINT8_SIZEOF )
 #define ABP_ETN_IA_SNMP_READ_ONLY_DS            ( 32 * ABP_CHAR_SIZEOF )
 #define ABP_ETN_IA_SNMP_READ_WRITE_DS           ( 32 * ABP_CHAR_SIZEOF )
+#define ABP_ETN_IA_ENABLE_DHCP_CLIENT_DS        ABP_BOOL_SIZEOF
 
 
 /*------------------------------------------------------------------------------
