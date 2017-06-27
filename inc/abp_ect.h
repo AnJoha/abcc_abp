@@ -192,6 +192,8 @@
 
 #define ABP_NC_INST_NUM_DEVICE_ID       0x01
 
+#define ABP_NC_INST_NUM_FSOE_ADDRESS    0x15
+
 /*******************************************************************************
 **
 ** Diagnostic object constants.
