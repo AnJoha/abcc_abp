@@ -101,6 +101,7 @@
 #define ABP_ECT_IA_ETHERCAT_STATE         20
 #define ABP_ECT_IA_STATE_TIMEOUTS         21
 #define ABP_ECT_IA_COMP_IDENT_LISTS       22
+#define ABP_ECT_IA_CLEAR_IDENT_AL_STS     24
 
 
 /*------------------------------------------------------------------------------
@@ -133,6 +134,7 @@
 #define ABP_ECT_IA_ETHERCAT_STATE_DS            ABP_UINT8_SIZEOF
 #define ABP_ECT_IA_STATE_TIMEOUTS_DS            ( ABP_UINT32_SIZEOF * 4 )
 #define ABP_ECT_IA_COMP_IDENT_LISTS_DS          ABP_BOOL_SIZEOF
+#define ABP_ECT_IA_CLEAR_IDENT_AL_STS_DS        ABP_BOOL_SIZEOF
 
 
 /*------------------------------------------------------------------------------
