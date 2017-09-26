@@ -622,6 +622,7 @@ ABP_LangType;
 **------------------------------------------------------------------------------
 */
 
+#define ABP_OBJ_NUM_OPCUA           227   /* OPC Unified Architecture         */
 #define ABP_OBJ_NUM_EME             228   /* Energy Measurement               */
 #define ABP_OBJ_NUM_PNAM            229   /* PROFINET Asset Management        */
 #define ABP_OBJ_NUM_CFN             230   /* CC-Link IE Field Network         */
