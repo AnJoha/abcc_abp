@@ -1319,6 +1319,10 @@ ABP_DiEventCodeType;
 #define ABP_APP_IA_FW_AVAILABLE           5   /* ABCC40 */
 #define ABP_APP_IA_HW_CONF_ADDR           6   /* ABCC40 */
 #define ABP_APP_IA_MODE                   7   /* ABCC40 */
+#define ABP_APP_IA_VENDOR_NAME            8   /* ABCC40 */
+#define ABP_APP_IA_PRODUCT_NAME           9   /* ABCC40 */
+#define ABP_APP_IA_FW_VERSION             10  /* ABCC40 */
+#define ABP_APP_IA_HW_VERSION             11  /* ABCC40 */
 
 
 /*------------------------------------------------------------------------------
@@ -1334,6 +1338,10 @@ ABP_DiEventCodeType;
 #define ABP_APP_IA_FW_AVAILABLE_DS        ABP_BOOL_SIZEOF           /* ABCC40 */
 #define ABP_APP_IA_HW_CONF_ADDR_DS        ABP_BOOL_SIZEOF           /* ABCC40 */
 #define ABP_APP_IA_MODE_DS                ABP_BITS32_SIZEOF         /* ABCC40 */
+#define ABP_APP_IA_VENDOR_NAME_MAX_DS     ( 64 * ABP_CHAR_SIZEOF )  /* ABCC40 */
+#define ABP_APP_IA_PRODUCT_NAME_MAX_DS    ( 64 * ABP_CHAR_SIZEOF )  /* ABCC40 */
+#define ABP_APP_IA_FW_VERSION_DS          ( 3 * ABP_UINT8_SIZEOF )  /* ABCC40 */
+#define ABP_APP_IA_HW_VERSION_DS          ABP_UINT16_SIZEOF         /* ABCC40 */
 
 
 /*------------------------------------------------------------------------------
