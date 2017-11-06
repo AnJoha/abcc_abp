@@ -1110,6 +1110,22 @@ ABP_DiEventCodeType;
 #define ABP_NW_EXCPT_INFO_NONE            0x00  /* No information             */
 
 
+/*------------------------------------------------------------------------------
+**
+** The Network data format values.
+**
+**------------------------------------------------------------------------------
+*/
+
+typedef enum ABP_NwDataFormatType
+{
+   ABP_NW_DATA_FORMAT_LSB_FIRST = 0,                /* 'Little endian'        */
+   ABP_NW_DATA_FORMAT_MSB_FIRST = 1,                /* 'Big endian'           */
+   ABP_NW_DATA_FORMAT_NUM_FORMATS                   /* Number of data formats */
+}
+ABP_NwDataFormatType;
+
+
 /*******************************************************************************
 **
 ** Network configuration object constants.
