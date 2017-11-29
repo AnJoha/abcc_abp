@@ -134,6 +134,15 @@
 
 /*------------------------------------------------------------------------------
 **
+** Anybus-CC Network PROFINET Object PlugSubmodule CmdExt0 bit masks
+**
+**------------------------------------------------------------------------------
+*/
+#define ABP_NWPNIO_PLUG_SUBMODULE_CMDEXT0_SAFETY_BIT     0x01
+
+
+/*------------------------------------------------------------------------------
+**
 ** The Anybus-CC Network PROFINET Object Interface object specific error codes.
 **
 **------------------------------------------------------------------------------
@@ -161,6 +170,7 @@
 #define ABP_NWPNIO_ERR_MAX_NBR_OF_PLUGGED_SUBMOD   0x14
 #define ABP_NWPNIO_ERR_SAFETY_NOT_ENABLED          0x15
 #define ABP_NWPNIO_ERR_ADI_DATATYPE_CONSTRAINT     0x16
+#define ABP_NWPNIO_ERR_ASM_ALREADY_PLUGGED         0x17
 
 
 #endif  /* inclusion lock */
