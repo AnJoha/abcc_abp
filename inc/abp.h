@@ -398,6 +398,9 @@ ABP_AppStatusType;
 #define ABP_NW_TYPE_EPL                   0x009F  /* POWERLINK */
 #define ABP_NW_TYPE_CFN                   0x009E  /* CC-Link IE Field Network */
 #define ABP_NW_TYPE_CET                   0x00A3  /* Common Ethernet */
+#define ABP_NW_TYPE_EIP_2P_BB_IIOT        0x00AB  /* EtherNet/IP IIoT */
+#define ABP_NW_TYPE_PIR_IIOT              0x00AD  /* PROFINET IRT IIoT */
+#define ABP_NW_TYPE_PIR_FO_IIOT           0x00AE  /* PROFINET IRT FO IIoT */
 
 
 
