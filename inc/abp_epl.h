@@ -102,6 +102,7 @@
 */
 
 #define ABP_EPL_NW_EXCPT_GET_INST_NUMBERS_ERROR      7
+#define ABP_EPL_NW_EXCPT_NO_MAC_ADDR                 8
 
 
 /*******************************************************************************
