@@ -212,6 +212,7 @@ typedef enum ABP_MsgErrorCodeType
    ABP_ERR_MSG_CHANNEL_TOO_SMALL = 0x14,  /* Response does not fit (ABCC40)   */
    ABP_ERR_GENERAL_ERROR       = 0x15,    /* General error (ABCC40)           */
    ABP_ERR_PROTECTED_ACCESS    = 0x16,    /* Protected access (ABCC40)        */
+   ABP_ERR_DATA_NOT_AVAILABLE  = 0x17,    /* Data not available (ABCC40)      */
    ABP_ERR_OBJ_SPECIFIC        = 0xFF     /* Object specific error            */
 }
 ABP_MsgErrorCodeType;
@@ -1373,7 +1374,9 @@ ABP_NwDataFormatType;
 
 #define ABP_APP_CMD_RESET_REQUEST         0x10
 #define ABP_APP_CMD_CHANGE_LANG_REQUEST   0x11
-#define ABP_APP_CMD_RESET_DIAGNOSTIC      0x12	 /* ABCC40 */
+#define ABP_APP_CMD_RESET_DIAGNOSTIC      0x12   /* ABCC40 */
+#define ABP_APP_CMD_GET_DATA_NOTIFICTION  0x13   /* ABCC40 */
+
 
 /*------------------------------------------------------------------------------
 **
@@ -1384,6 +1387,38 @@ ABP_NwDataFormatType;
 
 #define ABP_APP_MODE_NORMAL_LED          0x00000000
 #define ABP_APP_MODE_AIDA_LED            0x00000001
+
+
+/*------------------------------------------------------------------------------
+**
+** Definitions of Dataset
+**
+**------------------------------------------------------------------------------
+*/
+
+typedef enum ABP_AppDataset
+{
+   ABP_APP_DATASET_SINGLEADI     = 0,
+   ABP_APP_DATASET_MODULARDEVICE = 1,
+   ABP_APP_DATASET_TRANSPARENT   = 2,
+   ABP_APP_DATASET_NUM_DATASETS
+}
+ABP_AppDatasetType;
+
+
+/*------------------------------------------------------------------------------
+**
+** Definitions of NotificationEntry
+**
+**------------------------------------------------------------------------------
+*/
+
+#define ABP_APP_NOTIFENTRY_IDENTIFIER_BIT     0x0001
+#define ABP_APP_NOTIFENTRY_SUBIDENT_BIT       0x0002
+#define ABP_APP_NOTIFENTRY_VALUE_BIT          0x0004
+#define ABP_APP_NOTIFENTRY_TIMESTAMP_BIT      0x0008
+#define ABP_APP_NOTIFENTRY_VALUECHANGED_BIT   0x8000
+
 
 /*******************************************************************************
 **
