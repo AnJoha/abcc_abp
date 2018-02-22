@@ -1400,10 +1400,11 @@ typedef enum ABP_AppDataset
 {
    ABP_APP_DATASET_SINGLEADI     = 0,
    ABP_APP_DATASET_MODULARDEVICE = 1,
-   ABP_APP_DATASET_TRANSPARENT   = 2,
-   ABP_APP_DATASET_NUM_DATASETS
+   ABP_APP_DATASET_TRANSPARENT   = 2
 }
 ABP_AppDatasetType;
+
+#define ABP_APP_NW_CHANNELS_MQTT_BIT 0x0001
 
 
 /*------------------------------------------------------------------------------
