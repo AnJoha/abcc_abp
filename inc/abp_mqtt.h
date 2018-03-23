@@ -27,8 +27,8 @@
 ** MQTT instance attributes
 **------------------------------------------------------------------------------
 */
-#define ABP_MQTT_IA_MODE        1
-#define ABP_MQTT_IA_CLIENT_ID   2
+#define ABP_MQTT_IA_MODE        ( 1 )
+#define ABP_MQTT_IA_CLIENT_ID   ( 2 )
 
 /*------------------------------------------------------------------------------
 ** The data size of the MQTT instance attributes
@@ -47,5 +47,18 @@ typedef enum ABP_MqttMode
    ABP_MQTT_MODE_JSON     = 1
 }
 ABP_MqttModeType;
+
+/*------------------------------------------------------------------------------
+** The MQTT Object specific message commands
+**------------------------------------------------------------------------------
+*/
+#define ABP_MQTT_CMD_GET_PUBLISH_CONFIGURATION   ( 0x10 )
+
+/*------------------------------------------------------------------------------
+** Get_Publish_Configuration (0x10) specific defines
+**------------------------------------------------------------------------------
+*/
+#define ABP_MQTT_GETPUBCONF_RETAIN_OFFSET   ( 0 )
+#define ABP_MQTT_GETPUBCONF_TOPIC_OFFSET    ( 1 )
 
 #endif  /* inclusion lock */
