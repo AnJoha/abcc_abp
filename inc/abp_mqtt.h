@@ -28,14 +28,12 @@
 **------------------------------------------------------------------------------
 */
 #define ABP_MQTT_IA_MODE        ( 1 )
-#define ABP_MQTT_IA_CLIENT_ID   ( 2 )
 
 /*------------------------------------------------------------------------------
 ** The data size of the MQTT instance attributes
 **------------------------------------------------------------------------------
 */
 #define ABP_MQTT_IA_ENABLE_DS          ( ABP_UINT8_SIZEOF )
-#define ABP_MQTT_IA_CLIENT_ID_MAX_DS   ( 23 * ABP_CHAR_SIZEOF )
 
 /*------------------------------------------------------------------------------
 ** Values of the Mode attribute
