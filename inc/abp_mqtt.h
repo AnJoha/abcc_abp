@@ -33,7 +33,7 @@
 ** The data size of the MQTT instance attributes
 **------------------------------------------------------------------------------
 */
-#define ABP_MQTT_IA_ENABLE_DS          ( ABP_UINT8_SIZEOF )
+#define ABP_MQTT_IA_MODE_DS     ( ABP_UINT8_SIZEOF )
 
 /*------------------------------------------------------------------------------
 ** Values of the Mode attribute
