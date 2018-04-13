@@ -1893,6 +1893,17 @@ typedef struct ABP_MsgType8 ABP_MsgType;
 #define ABP_SetMsgResponse( psMsg, iMsgDataSize ) ABP_SetMsgResponse8( psMsg, iMsgDataSize )
 #endif
 
+
+/*******************************************************************************
+**
+** Segmentation protocol control bits for CmdExt1
+**
+********************************************************************************
+*/
+#define ABP_MSG_CMDEXT1_SEG_FIRST      0x01
+#define ABP_MSG_CMDEXT1_SEG_LAST       0x02
+#define ABP_MSG_CMDEXT1_SEG_ABORT      0x04
+
 #endif  /* inclusion lock */
 
 /*******************************************************************************
