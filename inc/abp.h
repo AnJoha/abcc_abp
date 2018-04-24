@@ -1418,7 +1418,6 @@ ABP_AppDatasetType;
 #define ABP_APP_NOTIFENTRY_SUBIDENT_BIT       0x0001
 #define ABP_APP_NOTIFENTRY_VALUE_BIT          0x0002
 #define ABP_APP_NOTIFENTRY_TIMESTAMP_BIT      0x0004
-#define ABP_APP_NOTIFENTRY_VALUECHANGED_BIT   0x8000
 
 
 /*******************************************************************************
