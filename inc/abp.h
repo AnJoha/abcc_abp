@@ -1721,13 +1721,15 @@ typedef struct ABP_MsgType8 ABP_MsgType;
 */
 
 #define ABP_SetMsg255ErrorResponse( psMsg, bMsgDataSize, eErr )                \
+do                                                                             \
 {                                                                              \
    (psMsg)->sHeader.bCmd      &= ~ABP_MSG_HEADER_C_BIT;                        \
    (psMsg)->sHeader.bCmd      |=  ABP_MSG_HEADER_E_BIT;                        \
    (psMsg)->sHeader.bDataSize  =  (bMsgDataSize);                              \
    (psMsg)->abData[ 0 ]        =  (UINT8)(eErr);                               \
                                                                                \
-} /* end of ABP_SetMsg255ErrorResponse() */
+}                                                                              \
+while( 0 ) /* end of ABP_SetMsg255ErrorResponse() */
 
 /*------------------------------------------------------------------------------
 **
@@ -1754,42 +1756,50 @@ typedef struct ABP_MsgType8 ABP_MsgType;
 
 #ifdef ABCC_SYS_BIG_ENDIAN
 #define ABP_SetMsgErrorResponse16( psMsg, iMsgDataSize, eErr )                 \
+do                                                                             \
 {                                                                              \
    (psMsg)->sHeader.iCmdReserved   &= ~( (UINT16)ABP_MSG_HEADER_C_BIT << 8 );  \
    (psMsg)->sHeader.iCmdReserved   |=  (UINT16)ABP_MSG_HEADER_E_BIT << 8;      \
    (psMsg)->sHeader.iDataSize       =  ( (UINT16)(iMsgDataSize) << 8 ) | ( (UINT16)(iMsgDataSize) >> 8 ); \
    (psMsg)->aiData[ 0 ]             =  ( (UINT16)(eErr) << 8 ) | ( (UINT16)(eErr) >> 8 ); \
                                                                                \
-} /* end of ABP_SetMsgErrorResponse() */
+}                                                                              \
+while( 0 ) /* end of ABP_SetMsgErrorResponse() */
 #else
 #define ABP_SetMsgErrorResponse16( psMsg, iMsgDataSize, eErr )                 \
+do                                                                             \
 {                                                                              \
    (psMsg)->sHeader.iCmdReserved   &= ~ABP_MSG_HEADER_C_BIT;                   \
    (psMsg)->sHeader.iCmdReserved   |=  ABP_MSG_HEADER_E_BIT;                   \
    (psMsg)->sHeader.iDataSize       =  (iMsgDataSize);                         \
    (psMsg)->aiData[ 0 ]             =  (UINT16)(eErr);                         \
                                                                                \
-} /* end of ABP_SetMsgErrorResponse() */
+}                                                                              \
+while( 0 ) /* end of ABP_SetMsgErrorResponse() */
 #endif
 
 #ifdef ABCC_SYS_BIG_ENDIAN
 #define ABP_SetMsgErrorResponse8( psMsg, iMsgDataSize, eErr )                  \
+do                                                                             \
 {                                                                              \
    (psMsg)->sHeader.bCmd      &= ~ABP_MSG_HEADER_C_BIT;                        \
    (psMsg)->sHeader.bCmd      |=  ABP_MSG_HEADER_E_BIT;                        \
    (psMsg)->sHeader.iDataSize  =  ( (UINT16)(iMsgDataSize) << 8 ) | ( (UINT16)(iMsgDataSize) >> 8 ); \
    (psMsg)->abData[ 0 ]        =  (UINT8)(eErr);                               \
                                                                                \
-} /* end of ABP_SetMsgErrorResponse() */
+}                                                                              \
+while( 0 ) /* end of ABP_SetMsgErrorResponse() */
 #else
 #define ABP_SetMsgErrorResponse8( psMsg, iMsgDataSize, eErr )                  \
+do                                                                             \
 {                                                                              \
    (psMsg)->sHeader.bCmd      &= ~ABP_MSG_HEADER_C_BIT;                        \
    (psMsg)->sHeader.bCmd      |=  ABP_MSG_HEADER_E_BIT;                        \
    (psMsg)->sHeader.iDataSize  =  (iMsgDataSize);                              \
    (psMsg)->abData[ 0 ]        =  (UINT8)(eErr);                               \
                                                                                \
-} /* end of ABP_SetMsgErrorResponse() */
+}                                                                              \
+while( 0 ) /* end of ABP_SetMsgErrorResponse() */
 #endif
 
 
@@ -1826,11 +1836,13 @@ typedef struct ABP_MsgType8 ABP_MsgType;
 */
 
 #define ABP_SetMsg255Response( psMsg, bMsgDataSize )                           \
+do                                                                             \
 {                                                                              \
    (psMsg)->sHeader.bCmd      &= ~ABP_MSG_HEADER_C_BIT;                        \
    (psMsg)->sHeader.bDataSize  =  (bMsgDataSize);                              \
                                                                                \
-} /* end of ABP_SetMsg255Response() */
+}                                                                              \
+while( 0 ) /* end of ABP_SetMsg255Response() */
 
 /*------------------------------------------------------------------------------
 **
@@ -1856,34 +1868,42 @@ typedef struct ABP_MsgType8 ABP_MsgType;
 
 #ifdef ABCC_SYS_BIG_ENDIAN
 #define ABP_SetMsgResponse16( psMsg, iMsgDataSize )                            \
+do                                                                             \
 {                                                                              \
    (psMsg)->sHeader.iCmdReserved &= ~( (UINT16)ABP_MSG_HEADER_C_BIT << 8 );    \
    (psMsg)->sHeader.iDataSize  =  ( (UINT16)(iMsgDataSize) << 8 ) | ( (UINT16)(iMsgDataSize) >> 8 ); \
                                                                                \
-} /* end of ABP_SetMsgResponse() */
+}                                                                              \
+while( 0 ) /* end of ABP_SetMsgResponse() */
 #else
 #define ABP_SetMsgResponse16( psMsg, iMsgDataSize )                            \
+do                                                                             \
 {                                                                              \
    (psMsg)->sHeader.iCmdReserved &= ~ABP_MSG_HEADER_C_BIT;                     \
    (psMsg)->sHeader.iDataSize     = (iMsgDataSize);                            \
                                                                                \
-} /* end of ABP_SetMsgResponse() */
+}                                                                              \
+while( 0 ) /* end of ABP_SetMsgResponse() */
 #endif
 
 #ifdef ABCC_SYS_BIG_ENDIAN
 #define ABP_SetMsgResponse8( psMsg, iMsgDataSize )                             \
+do                                                                             \
 {                                                                              \
    (psMsg)->sHeader.bCmd      &= ~ABP_MSG_HEADER_C_BIT;                        \
    (psMsg)->sHeader.iDataSize  =  ( (UINT16)(iMsgDataSize) << 8 ) | ( (UINT16)(iMsgDataSize) >> 8 ); \
                                                                                \
-} /* end of ABP_SetMsgResponse() */
+}                                                                              \
+while( 0 ) /* end of ABP_SetMsgResponse() */
 #else
 #define ABP_SetMsgResponse8( psMsg, iMsgDataSize )                             \
+do                                                                             \
 {                                                                              \
    (psMsg)->sHeader.bCmd      &= ~ABP_MSG_HEADER_C_BIT;                        \
    (psMsg)->sHeader.iDataSize  =  (iMsgDataSize);                              \
                                                                                \
-} /* end of ABP_SetMsgResponse() */
+}                                                                              \
+while( 0 ) /* end of ABP_SetMsgResponse() */
 #endif
 
 
