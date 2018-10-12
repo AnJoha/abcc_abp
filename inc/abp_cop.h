@@ -75,6 +75,8 @@
 #define ABP_COP_IA_MANF_DEV_NAME          6
 #define ABP_COP_IA_MANF_HW_VER            7
 #define ABP_COP_IA_MANF_SW_VER            8
+#define ABP_COP_IA_DEVICE_TYPE            10  /* Only for ABCC 40 COP */
+#define ABP_COP_IA_DEF_PDO_MAP_CONF       14  /* Only for ABCC 30 COP */
 
 
 /*------------------------------------------------------------------------------
@@ -84,7 +86,7 @@
 **------------------------------------------------------------------------------
 */
 
-#define ABP_COP_CFG_STR_LEN               24
+#define ABP_COP_CFG_STR_LEN               64   /* The max string length for ABCC 30 is 24 */
 
 #define ABP_COP_IA_VENDOR_ID_DS           ABP_UINT32_SIZEOF
 #define ABP_COP_IA_PRODUCT_CODE_DS        ABP_UINT32_SIZEOF
@@ -94,6 +96,8 @@
 #define ABP_COP_IA_MANF_DEV_NAME_MAX_DS   ( ABP_CHAR_SIZEOF * ABP_COP_CFG_STR_LEN )
 #define ABP_COP_IA_MANF_HW_VER_MAX_DS     ( ABP_CHAR_SIZEOF * ABP_COP_CFG_STR_LEN )
 #define ABP_COP_IA_MANF_SW_VER_MAX_DS     ( ABP_CHAR_SIZEOF * ABP_COP_CFG_STR_LEN )
+#define ABP_COP_IA_DEVICE_TYPE_DS         ABP_UINT32_SIZEOF
+#define ABP_COP_IA_DEF_PDO_MAP_CONF_DS    ABP_UINT8_SIZEOF
 
 
 /*******************************************************************************
