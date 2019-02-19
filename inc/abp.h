@@ -438,6 +438,7 @@ ABP_AppStatusType;
 #define ABP_SINT64                  16       /* Signed 64 bit integer         */
 #define ABP_UINT64                  17       /* Unsigned 64 bit integer       */
 #define ABP_FLOAT                   18       /* Floating point/real number    */
+#define ABP_DOUBLE                  19       /* Double precision/real number (ABCC40) */
 
 #define ABP_PAD0                    32       /* Padding bitfield (ABCC40)     */
 #define ABP_PAD1                    33       /* Padding bitfield (ABCC40)     */
@@ -491,6 +492,7 @@ ABP_AppStatusType;
 #define ABP_SINT64_SIZEOF           8        /* Signed 64 bit integer         */
 #define ABP_UINT64_SIZEOF           8        /* Unsigned 64 bit integer       */
 #define ABP_FLOAT_SIZEOF            4        /* Floating point/real number    */
+#define ABP_DOUBLE_SIZEOF           8        /* Double precision/real number (ABCC40) */
 
 
 /*------------------------------------------------------------------------------
@@ -517,6 +519,7 @@ ABP_AppStatusType;
 #define ABP_SINT64_MAX              0x7FFFFFFFFFFFFFFFL
 #define ABP_UINT64_MAX              0xFFFFFFFFFFFFFFFFLU
 #define ABP_FLOAT_MAX               3.402823466E+38F
+#define ABP_DOUBLE_MAX              1.7976931348623157E+308L /* ABCC40 */
 
 #define ABP_BOOL1_MAX               0x1            /* ABCC40 */
 #define ABP_BITS1_MAX               0x1            /* ABCC40 */
@@ -552,6 +555,7 @@ ABP_AppStatusType;
 #define ABP_SINT64_MIN              ( - ABP_SINT64_MAX - 1 )
 #define ABP_UINT64_MIN              0
 #define ABP_FLOAT_MIN               1.17549435E-38F
+#define ABP_DOUBLE_MIN              2.2250738585072014E-308L /* ABCC40 */
 
 #define ABP_BOOL1_MIN               0 /* ABCC40 */
 #define ABP_BITS1_MIN               0 /* ABCC40 */
