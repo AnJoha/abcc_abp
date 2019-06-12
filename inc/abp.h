@@ -57,7 +57,6 @@
 #define ABP_H_
 
 
-
 /*******************************************************************************
 **
 ** ABCC operating mode constants
@@ -328,7 +327,6 @@ ABP_AppStatusType;
 #define ABP_SPI_CTRL_T                 0x80
 
 
-
 /*------------------------------------------------------------------------------
 **
 ** SPI status word in MISO frame
@@ -403,8 +401,6 @@ ABP_AppStatusType;
 #define ABP_NW_TYPE_PIR_IIOT              0x00AD  /* PROFINET IRT IIoT */
 #define ABP_NW_TYPE_PIR_FO_IIOT           0x00AE  /* PROFINET IRT FO IIoT */
 #define ABP_NW_TYPE_CET_IIOT              0x00AF  /* Common Ethernet IIoT */
-
-
 
 
 /*******************************************************************************
@@ -591,7 +587,7 @@ ABP_LangType;
 **
 ** Anybus-CC protocol object number pool.
 **
-** Each object, whether it’s a network specific or a common object, an Anybus
+** Each object, whether it is a network specific or a common object, an Anybus
 ** module or a host application object, must have a unique object number. This
 ** number list is therefore common to both the application and the Anybus.
 **
@@ -918,7 +914,7 @@ ABP_AbipLicenseType;
 */
 
 #define ABP_DI_OA_MAX_INST_DS             ABP_UINT16_SIZEOF
-#define ABP_DI_OA_SUPPORT_FUNC_DS         ABP_BITS32_SIZEOF	 /* ABCC40 */
+#define ABP_DI_OA_SUPPORT_FUNC_DS         ABP_BITS32_SIZEOF /* ABCC40 */
 
 /*------------------------------------------------------------------------------
 **
@@ -939,10 +935,10 @@ ABP_AbipLicenseType;
 #define ABP_DI_IA_SEVERITY                1
 #define ABP_DI_IA_EVENT_CODE              2
 #define ABP_DI_IA_NW_SPEC_EVENT_INFO      3
-#define ABP_DI_IA_SLOT                    4	 /* ABCC40 */
-#define ABP_DI_IA_ADI                     5	 /* ABCC40 */
-#define ABP_DI_IA_ELEMENT                 6	 /* ABCC40 */
-#define ABP_DI_IA_BIT                     7	 /* ABCC40 */
+#define ABP_DI_IA_SLOT                    4 /* ABCC40 */
+#define ABP_DI_IA_ADI                     5 /* ABCC40 */
+#define ABP_DI_IA_ELEMENT                 6 /* ABCC40 */
+#define ABP_DI_IA_BIT                     7 /* ABCC40 */
 
 
 /*------------------------------------------------------------------------------
@@ -954,10 +950,10 @@ ABP_AbipLicenseType;
 
 #define ABP_DI_IA_SEVERITY_DS             ABP_UINT8_SIZEOF
 #define ABP_DI_IA_EVENT_CODE_DS           ABP_UINT8_SIZEOF
-#define ABP_DI_IA_SLOT_DS                 ABP_UINT16_SIZEOF	 /* ABCC40 */
-#define ABP_DI_IA_ADI_DS                  ABP_UINT16_SIZEOF	 /* ABCC40 */
-#define ABP_DI_IA_ELEMENT_DS              ABP_UINT8_SIZEOF   /* ABCC40 */
-#define ABP_DI_IA_BIT_DS                  ABP_UINT8_SIZEOF	 /* ABCC40 */
+#define ABP_DI_IA_SLOT_DS                 ABP_UINT16_SIZEOF /* ABCC40 */
+#define ABP_DI_IA_ADI_DS                  ABP_UINT16_SIZEOF /* ABCC40 */
+#define ABP_DI_IA_ELEMENT_DS              ABP_UINT8_SIZEOF  /* ABCC40 */
+#define ABP_DI_IA_BIT_DS                  ABP_UINT8_SIZEOF  /* ABCC40 */
 
 
 /*------------------------------------------------------------------------------
@@ -1158,7 +1154,7 @@ ABP_NwDataFormatType;
 #define ABP_NC_VAR_IA_NUM_ELEM            3
 #define ABP_NC_VAR_IA_DESCRIPTOR          4
 #define ABP_NC_VAR_IA_VALUE               5
-#define ABP_NC_VAR_IA_CONFIG_VALUE        6	 /* ABCC40 */
+#define ABP_NC_VAR_IA_CONFIG_VALUE        6 /* ABCC40 */
 
 
 /*------------------------------------------------------------------------------
@@ -1198,7 +1194,7 @@ ABP_NwDataFormatType;
 **    2. In case the values of these instances originate from input devices
 **       controlled by the end user (DIP switches or similar), the application
 **       shall keep these instances updated at all times because some networks
-**       require that a changed switch is indicated by the LED’s.
+**       require that a changed switch is indicated by the LEDs.
 **
 **------------------------------------------------------------------------------
 */
@@ -1812,9 +1808,6 @@ while( 0 ) /* end of ABP_SetMsgErrorResponse() */
 #else
 #define ABP_SetMsgErrorResponse( psMsg, iMsgDataSize, eErr ) ABP_SetMsgErrorResponse8( psMsg, iMsgDataSize, eErr )
 #endif
-
-
-
 
 
 /*------------------------------------------------------------------------------
