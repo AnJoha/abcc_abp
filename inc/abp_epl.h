@@ -63,6 +63,7 @@
 #define ABP_EPL_IA_MANF_NAME              14
 #define ABP_EPL_ENABLE_IT_FUNC            17
 #define ABP_EPL_SDO_IT_FRAME_RATIO        19
+#define ABP_EPL_APP_SW_DATE_AND_TIME      21
 
 
 /*------------------------------------------------------------------------------
@@ -86,6 +87,7 @@
 #define ABP_EPL_IA_MANF_NAME_MAX_DS       ( ABP_CHAR_SIZEOF * ABP_EPL_CFG_STR_LEN )
 #define ABP_EPL_ENABLE_IT_FUNC_DS         ABP_BOOL_SIZEOF
 #define ABP_EPL_SDO_IT_FRAME_RATIO_DS     ABP_UINT8_SIZEOF
+#define ABP_EPL_APP_SW_DATE_AND_TIME_DS   ( ABP_UINT32_SIZEOF * 2 )
 
 /*******************************************************************************
 **
