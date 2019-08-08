@@ -886,6 +886,18 @@ ABP_AbipLicenseType;
 #define ABP_ANB_GPIO_CONFIG_RMII          0x02  /* RMII functionality         */
 #define ABP_ANB_GPIO_CONFIG_THREE_STATE   0x03  /* Three-state GPIO pins      */
 
+/*------------------------------------------------------------------------------
+**
+** Factory default reset bitfield definitions.
+**
+**------------------------------------------------------------------------------
+*/
+
+#define ABP_ANB_FACTORY_DEFAULT_NC              0x00000001  /* Set default NC parameters          */
+#define ABP_ANB_FACTORY_DEFAULT_ANB_FS          0x00000002  /* Default Anybus filesystem          */
+#define ABP_ANB_FACTORY_DEFAULT_USER_ACCOUNTS   0x00000004  /* Delete user created accounts       */
+#define ABP_ANB_FACTORY_DEFAULT_CERTS           0x00000008  /* Delete user installed certificates */
+
 
 /*******************************************************************************
 **
