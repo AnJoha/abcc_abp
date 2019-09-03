@@ -893,10 +893,9 @@ ABP_AbipLicenseType;
 **------------------------------------------------------------------------------
 */
 
-#define ABP_ANB_FACTORY_DEFAULT_NC              0x00000001  /* Set default NC parameters          */
-#define ABP_ANB_FACTORY_DEFAULT_ANB_FS          0x00000002  /* Default Anybus filesystem          */
-#define ABP_ANB_FACTORY_DEFAULT_USER_ACCOUNTS   0x00000004  /* Delete user created accounts       */
-#define ABP_ANB_FACTORY_DEFAULT_CERTS           0x00000008  /* Delete user installed certificates */
+#define ABP_ANB_FACTORY_DEFAULT_NC         0x00000001  /* Set default NC parameters             */
+#define ABP_ANB_FACTORY_DEFAULT_ANB_FS     0x00000002  /* Default Anybus filesystem             */
+#define ABP_ANB_FACTORY_DEFAULT_SECURITY   0x00000004  /* Delete user accounts and certificates */
 
 
 /*******************************************************************************
