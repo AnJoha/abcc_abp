@@ -824,6 +824,7 @@ typedef enum ABP_AnbExceptionCodeType
    ABP_ANB_EXCPT_INSUFF_APPL_IMPL    = 0x0A, /* Insufficient application impl. */
    ABP_ANB_EXCPT_MISSING_SERIAL_NUM  = 0x0B, /* Missing serial number          */
    ABP_ANB_EXCPT_CORRUPT_FILE_SYSTEM = 0x0C, /* File system is corrupt         */
+   ABP_ANB_EXCPT_SECURITY_ERROR      = 0x0D, /* Security related error         */
 
    ABP_ANB_EXCPT_NUM_CODES                   /* Number of exception codes      */
 }
