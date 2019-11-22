@@ -193,6 +193,7 @@
 #define ABP_PNIO_NW_EXCPT_MDD_ERR               6
 #define ABP_PNIO_NW_EXCPT_PE_WRONG_VERSION      7
 #define ABP_PNIO_NW_EXCPT_PE_INST_OUT_OF_RANGE  8
+#define ABP_PNIO_NW_EXCPT_INVALID_MAX_AR        9
 
 #endif  /* inclusion lock */
 
