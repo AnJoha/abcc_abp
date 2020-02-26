@@ -158,6 +158,7 @@
 */
 
 #define ABP_ECT_CMD_GET_OBJECT_DESC             0x10
+#define ABP_ECT_CMD_GET_OBJECT_ACCESS           0x11
 
 
 /*******************************************************************************
