@@ -160,6 +160,7 @@
 #define ABP_ECT_CMD_GET_OBJECT_DESC             0x10
 #define ABP_ECT_CMD_GET_OBJECT_ACCESS           0x11
 #define ABP_ECT_CMD_GET_DATA_TYPE               0x12
+#define ABP_ECT_CMD_GET_ENUM_DATA               0x13
 
 
 /*******************************************************************************
