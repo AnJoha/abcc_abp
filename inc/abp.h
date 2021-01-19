@@ -402,6 +402,7 @@ ABP_AppStatusType;
 #define ABP_NW_TYPE_PIR_IIOT              0x00AD  /* PROFINET IRT IIoT */
 #define ABP_NW_TYPE_PIR_FO_IIOT           0x00AE  /* PROFINET IRT FO IIoT */
 #define ABP_NW_TYPE_CET_IIOT              0x00AF  /* Common Ethernet IIoT */
+#define ABP_NW_TYPE_CIET                  0x00B2  /* CC-Link IE TSN */
 
 
 /*******************************************************************************
