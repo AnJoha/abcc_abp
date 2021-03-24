@@ -622,6 +622,7 @@ ABP_LangType;
 #define ABP_OBJ_NUM_DPV0DI           16   /* PROFIBUS DP-V0 Diagnostic        */
 #define ABP_OBJ_NUM_FUSM             17   /* Functional Safety Module         */
 #define ABP_OBJ_NUM_NWCFN            18   /* Network CC-Link IE Field Network */
+#define ABP_OBJ_NUM_TIME             19   /* Time object                      */
 
 
 /*------------------------------------------------------------------------------
