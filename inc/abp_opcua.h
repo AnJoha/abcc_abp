@@ -54,7 +54,8 @@
 typedef enum ABP_OpcuaModel
 {
    ABP_OPCUA_MODEL_DISABLED            = 0,
-   ABP_OPCUA_MODEL_CC40                = 1
+   ABP_OPCUA_MODEL_CC40                = 1,
+   ABP_OPCUA_MODEL_APPLICATION         = 2
 }
 ABP_OpcuaModelType;
 
