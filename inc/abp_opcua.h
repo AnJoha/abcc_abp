@@ -68,4 +68,23 @@ ABP_OpcuaModelType;
 #define ABP_OPCUA_IA_LIMITS_MIN_PUB_INT_MIN      ( 1000 )
 #define ABP_OPCUA_IA_LIMITS_MIN_PUB_INT_MAX      ( 1000 * 3600 * 24 )
 
+/*------------------------------------------------------------------------------
+** OPC UA Object specific commands
+**------------------------------------------------------------------------------
+*/
+
+#define ABP_OPCUA_CMD_METHOD_CALL   0x10
+
+/*------------------------------------------------------------------------------
+** Application data value types
+**------------------------------------------------------------------------------
+*/
+typedef enum ABP_OpcuaApplicationDataValue
+{
+   ABP_OPCUA_DATA_VALUE_SCALAR   = 0,
+   ABP_OPCUA_DATA_VALUE_ARRAY    = 1
+}
+ABP_OpcuaApplicationDataValueType;
+
+
 #endif  /* inclusion lock */
