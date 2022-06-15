@@ -65,7 +65,7 @@ ABP_OpcuaModelType;
 */
 #define ABP_OPCUA_IA_LIMITS_MAX_MON_ITEMS_MIN    ( 8 )
 #define ABP_OPCUA_IA_LIMITS_MAX_MON_ITEMS_MAX    ( 100 )
-#define ABP_OPCUA_IA_LIMITS_MIN_PUB_INT_MIN      ( 1000 )
+#define ABP_OPCUA_IA_LIMITS_MIN_PUB_INT_MIN      ( 10 )
 #define ABP_OPCUA_IA_LIMITS_MIN_PUB_INT_MAX      ( 1000 * 3600 * 24 )
 
 /*------------------------------------------------------------------------------
