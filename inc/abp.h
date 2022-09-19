@@ -630,6 +630,7 @@ ABP_LangType;
 **------------------------------------------------------------------------------
 */
 
+#define ABP_OBJ_NUM_CIET            225   /* CC-Link IE TSN                   */
 #define ABP_OBJ_NUM_MQTT            226   /* MQ Telemetry Transport           */
 #define ABP_OBJ_NUM_OPCUA           227   /* OPC Unified Architecture         */
 #define ABP_OBJ_NUM_EME             228   /* Energy Measurement               */
