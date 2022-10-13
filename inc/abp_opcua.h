@@ -45,7 +45,7 @@
 #define ABP_OPCUA_IA_DEVICE_TYPE_NAME_MAX_DS     ( 64 * ABP_CHAR_SIZEOF )
 #define ABP_OPCUA_IA_DEVICE_INST_NAME_MAX_DS     ( 64 * ABP_CHAR_SIZEOF )
 #define ABP_OPCUA_IA_PRODUCT_URI_MAX_DS          ( 128 * ABP_CHAR_SIZEOF )
-#define ABP_OPCUA_IA_LIMITS_DS                   ( ABP_UINT16_SIZEOF + ABP_UINT32_SIZEOF )
+#define ABP_OPCUA_IA_LIMITS_DS                   ( ABP_UINT16_SIZEOF + ABP_UINT32_SIZEOF + ABP_UINT32_SIZEOF + ABP_UINT32_SIZEOF )
 
 /*------------------------------------------------------------------------------
 ** Values of Model attribute
@@ -65,8 +65,12 @@ ABP_OpcuaModelType;
 */
 #define ABP_OPCUA_IA_LIMITS_MAX_MON_ITEMS_MIN    ( 8 )
 #define ABP_OPCUA_IA_LIMITS_MAX_MON_ITEMS_MAX    ( 100 )
-#define ABP_OPCUA_IA_LIMITS_MIN_PUB_INT_MIN      ( 10 )
+#define ABP_OPCUA_IA_LIMITS_MIN_PUB_INT_MIN      ( 1000 )
 #define ABP_OPCUA_IA_LIMITS_MIN_PUB_INT_MAX      ( 1000 * 3600 * 24 )
+#define ABP_OPCUA_IA_LIMITS_MIN_SAMPLING_INT_MIN ( 10 )
+#define ABP_OPCUA_IA_LIMITS_MIN_SAMPLING_INT_MAX ( 1000 * 3600 * 24 )
+#define ABP_OPCUA_IA_LIMITS_MAX_QUEUE_SIZE_MIN   ( 1 )
+#define ABP_OPCUA_IA_LIMITS_MAX_QUEUE_SIZE_MAX   ( 100 )
 
 /*------------------------------------------------------------------------------
 ** OPC UA Object specific commands
