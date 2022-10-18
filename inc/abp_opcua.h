@@ -70,7 +70,7 @@ ABP_OpcuaModelType;
 #define ABP_OPCUA_IA_LIMITS_MIN_SAMPLING_INT_MIN ( 10 )
 #define ABP_OPCUA_IA_LIMITS_MIN_SAMPLING_INT_MAX ( 1000 * 3600 * 24 )
 #define ABP_OPCUA_IA_LIMITS_MAX_QUEUE_SIZE_MIN   ( 1 )
-#define ABP_OPCUA_IA_LIMITS_MAX_QUEUE_SIZE_MAX   ( 100 )
+#define ABP_OPCUA_IA_LIMITS_MAX_QUEUE_SIZE_MAX   ( 110 )
 
 /*------------------------------------------------------------------------------
 ** OPC UA Object specific commands
