@@ -158,7 +158,8 @@ typedef enum ABP_MsgCmdType
    ABP_CMD_RESET                 = 0x05,  /* Reset                            */
    ABP_CMD_GET_ENUM_STR          = 0x06,  /* Get enumeration string           */
    ABP_CMD_GET_INDEXED_ATTR      = 0x07,  /* Get indexed attribute            */
-   ABP_CMD_SET_INDEXED_ATTR      = 0x08   /* Set indexed attribute            */
+   ABP_CMD_SET_INDEXED_ATTR      = 0x08,  /* Set indexed attribute            */
+   ABP_CMD_GET_BIT_DESCRIPTION   = 0x09   /* Get bit description              */
 }
 ABP_MsgCmdType;
 
