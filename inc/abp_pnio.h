@@ -87,6 +87,7 @@
 #define ABP_PNIO_IA_IM5_ENABLED                 27
 #define ABP_PNIO_IA_S2_ENABLED                  28
 #define ABP_PNIO_IA_S2_PRIMARY_AR_HANDLE        29
+#define ABP_PNIO_IA_DAP_MOD_IDENT               30
 
 /*------------------------------------------------------------------------------
 **
@@ -123,6 +124,7 @@
 #define ABP_PNIO_IA_IM5_ENABLE_DS                  ABP_BOOL_SIZEOF
 #define ABP_PNIO_IA_S2_ENABLE_DS                   ABP_BOOL_SIZEOF
 #define ABP_PNIO_IA_S2_PRIMARY_AR_HANDLE_DS        ABP_UINT16_SIZEOF
+#define ABP_PNIO_IA_DAP_MOD_IDENT_DS               ABP_UINT32_SIZEOF
 
 /*------------------------------------------------------------------------------
 **
