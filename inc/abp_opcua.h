@@ -34,6 +34,7 @@
 #define ABP_OPCUA_IA_DEVICE_INST_NAME        5
 #define ABP_OPCUA_IA_PRODUCT_URI             6
 #define ABP_OPCUA_IA_LIMITS                  7
+#define ABP_OPCUA_IA_APPLICATION_MODELS      8
 
 /*------------------------------------------------------------------------------
 ** The data size of the OPC UA instance attributes
@@ -46,6 +47,7 @@
 #define ABP_OPCUA_IA_DEVICE_INST_NAME_MAX_DS     ( 64 * ABP_CHAR_SIZEOF )
 #define ABP_OPCUA_IA_PRODUCT_URI_MAX_DS          ( 128 * ABP_CHAR_SIZEOF )
 #define ABP_OPCUA_IA_LIMITS_DS                   ( ABP_UINT16_SIZEOF + ABP_UINT32_SIZEOF + ABP_UINT32_SIZEOF + ABP_UINT32_SIZEOF )
+#define ABP_OPCUA_IA_APPLICATION_MODELS_MAX_DS   ( ABP_OPCUA_IA_APPLICATIONS_MODELS_MAX * ( ABP_UINT8_SIZEOF + ABP_UINT8_SIZEOF + ABP_UINT16_SIZEOF ) )
 
 /*------------------------------------------------------------------------------
 ** Values of Model attribute
@@ -73,11 +75,31 @@ ABP_OpcuaModelType;
 #define ABP_OPCUA_IA_LIMITS_MAX_QUEUE_SIZE_MAX   ( 110 )
 
 /*------------------------------------------------------------------------------
+** Struct for the "Application models" attribute
+**------------------------------------------------------------------------------
+*/
+typedef struct ABP_OpcuaApplicationsModelsEntry
+{
+   UINT8 bFileIndex;
+   UINT8 bNamespaceUriIndex;
+   UINT16 iAdiOffset;
+}
+PACKED_STRUCT ABP_OpcuaApplicationsModelsEntryType;
+
+/*------------------------------------------------------------------------------
+** Max number of application models that a user can specify
+**------------------------------------------------------------------------------
+*/
+#define ABP_OPCUA_IA_APPLICATIONS_MODELS_MAX 35
+
+/*------------------------------------------------------------------------------
 ** OPC UA Object specific commands
 **------------------------------------------------------------------------------
 */
 
 #define ABP_OPCUA_CMD_METHOD_CALL   0x10
+#define ABP_OPCUA_CMD_GET_APPLICATION_MODELS_FILENAME  0x11
+#define ABP_OPCUA_CMD_GET_APPLICATION_MODELS_NAMESPACE 0x12
 
 /*------------------------------------------------------------------------------
 ** Application data value types
