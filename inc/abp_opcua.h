@@ -35,6 +35,7 @@
 #define ABP_OPCUA_IA_PRODUCT_URI             6
 #define ABP_OPCUA_IA_LIMITS                  7
 #define ABP_OPCUA_IA_APPLICATION_MODELS      8
+#define ABP_OPCUA_IA_STATUS                  9
 
 /*------------------------------------------------------------------------------
 ** The data size of the OPC UA instance attributes
@@ -48,6 +49,7 @@
 #define ABP_OPCUA_IA_PRODUCT_URI_MAX_DS          ( 128 * ABP_CHAR_SIZEOF )
 #define ABP_OPCUA_IA_LIMITS_DS                   ( ABP_UINT16_SIZEOF + ABP_UINT32_SIZEOF + ABP_UINT32_SIZEOF + ABP_UINT32_SIZEOF )
 #define ABP_OPCUA_IA_APPLICATION_MODELS_MAX_DS   ( ABP_OPCUA_IA_APPLICATIONS_MODELS_MAX * ( ABP_UINT8_SIZEOF + ABP_UINT8_SIZEOF + ABP_UINT16_SIZEOF ) )
+#define ABP_OPCUA_IA_STATUS_DS                   ( ABP_ENUM_SIZEOF + ABP_UINT8_SIZEOF )
 
 /*------------------------------------------------------------------------------
 ** Values of Model attribute
@@ -73,6 +75,38 @@ ABP_OpcuaModelType;
 #define ABP_OPCUA_IA_LIMITS_MIN_SAMPLING_INT_MAX ( 1000 * 3600 * 24 )
 #define ABP_OPCUA_IA_LIMITS_MAX_QUEUE_SIZE_MIN   ( 1 )
 #define ABP_OPCUA_IA_LIMITS_MAX_QUEUE_SIZE_MAX   ( 110 )
+
+/*------------------------------------------------------------------------------
+** Values of Status attribute
+**------------------------------------------------------------------------------
+*/
+typedef enum ABP_OpcuaStatus
+{
+   ABP_OPCUA_STATUS_NOT_STARTED                    = 0,
+   ABP_OPCUA_STATUS_INITIALIZING                   = 1,
+   ABP_OPCUA_STATUS_RUNNING                        = 2,
+   ABP_OPCUA_STATUS_CLIENT_CONNECTED               = 3,
+   ABP_OPCUA_STATUS_STOPPED                        = 4,
+   ABP_OPCUA_STATUS_GENERAL_FAILURE                = 128,
+   ABP_OPCUA_STATUS_READING_NODESET_FILE_FAILED    = 129,
+   ABP_OPCUA_STATUS_NO_SERVER_CERTIFICATE          = 130,
+   ABP_OPCUA_STATUS_INVALID_SERVER_CERTIFICATE_URI = 131,
+   ABP_OPCUA_STATUS_INVALID_MODEL_ATTRIBUTE        = 132
+
+}
+ABP_OpcuaStatusType;
+
+
+/*------------------------------------------------------------------------------
+** Struct for the "Status" attribute
+**------------------------------------------------------------------------------
+*/
+typedef struct ABP_OpcuaServerStatus
+{
+   ABP_OpcuaStatusType eStatus;
+   UINT8 bActiveSessions;
+}
+PACKED_STRUCT ABP_OpcuaServerStatusType;
 
 /*------------------------------------------------------------------------------
 ** Struct for the "Application models" attribute
