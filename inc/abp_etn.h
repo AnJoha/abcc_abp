@@ -81,6 +81,7 @@
 #define ABP_ETN_IA_DHCP_OPTION_61_GENERIC_STR  23
 #define ABP_ETN_IA_ENABLE_DHCP_CLIENT          24
 #define ABP_ETN_IA_ENABLE_WEBDAV               25
+#define ABP_ETN_IA_PASSWORD_CONFIGURATION      26
 
 
 /*------------------------------------------------------------------------------
@@ -114,6 +115,7 @@
 #define ABP_ETN_IA_DHCP_OPTION_61_GENERIC_STR_DS   ( 64 * ABP_UINT8_SIZEOF )
 #define ABP_ETN_IA_ENABLE_DHCP_CLIENT_DS           ABP_BOOL_SIZEOF
 #define ABP_ETN_IA_ENABLE_WEBDAV_DS                ABP_BOOL_SIZEOF
+#define ABP_ETN_IA_PASSWORD_CONFIGURATION_DS       ( 2 * ABP_UINT8_SIZEOF )
 
 
 /*------------------------------------------------------------------------------
@@ -177,6 +179,31 @@ ABP_DHCPOption61SourceType;
 */
 
 #define ABP_ETN_IA_ETH_PHY_CFG_FALLBACK_DUPLEX   0x0001
+
+
+/*------------------------------------------------------------------------------
+**
+** Password configuration attribute
+**
+**------------------------------------------------------------------------------
+*/
+
+typedef struct ABP_PasswordConfigType
+{
+   UINT8 bMinPasswordLength;
+   UINT8 bPasswordComplexity;
+} PACKED_STRUCT ABP_PasswordConfigType;
+
+/*------------------------------------------------------------------------------
+**
+** Password complexity requirements bit definitions
+**
+**------------------------------------------------------------------------------
+*/
+#define ABP_ETN_IA_PASSWORD_COMPLEXITY_LOWERCASE   0x01
+#define ABP_ETN_IA_PASSWORD_COMPLEXITY_UPPERCASE   0x02
+#define ABP_ETN_IA_PASSWORD_COMPLEXITY_DIGIT       0x04
+#define ABP_ETN_IA_PASSWORD_COMPLEXITY_SPECIAL     0x08
 
 #endif  /* inclusion lock */
 
