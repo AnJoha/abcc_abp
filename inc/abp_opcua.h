@@ -80,7 +80,7 @@ ABP_OpcuaModelType;
 ** Values of Status attribute
 **------------------------------------------------------------------------------
 */
-typedef enum ABP_OpcuaStatus
+typedef enum ABP_OpcuaState
 {
    ABP_OPCUA_STATUS_NOT_STARTED                    = 0,
    ABP_OPCUA_STATUS_INITIALIZING                   = 1,
@@ -94,31 +94,7 @@ typedef enum ABP_OpcuaStatus
    ABP_OPCUA_STATUS_INVALID_MODEL_ATTRIBUTE        = 132
 
 }
-ABP_OpcuaStatusType;
-
-
-/*------------------------------------------------------------------------------
-** Struct for the "Status" attribute
-**------------------------------------------------------------------------------
-*/
-typedef struct ABP_OpcuaServerStatus
-{
-   ABP_OpcuaStatusType eStatus;
-   UINT8 bActiveSessions;
-}
-PACKED_STRUCT ABP_OpcuaServerStatusType;
-
-/*------------------------------------------------------------------------------
-** Struct for the "Application models" attribute
-**------------------------------------------------------------------------------
-*/
-typedef struct ABP_OpcuaApplicationsModelsEntry
-{
-   UINT8 bFileIndex;
-   UINT8 bNamespaceUriIndex;
-   UINT16 iAdiOffset;
-}
-PACKED_STRUCT ABP_OpcuaApplicationsModelsEntryType;
+ABP_OpcuaStateType;
 
 /*------------------------------------------------------------------------------
 ** Max number of application models that a user can specify
