@@ -76,6 +76,7 @@
 #define ABP_DEV_IA_ABCC_ADI_OBJECT          20
 #define ABP_DEV_IA_PROD_INSTANCE_LIST       21
 #define ABP_DEV_IA_CONS_INSTANCE_LIST       22
+#define ABP_DEV_IA_GROUP_2_ONLY_MODE        23
 
 
 /*------------------------------------------------------------------------------
@@ -102,6 +103,7 @@
 #define ABP_DEV_IA_PREPEND_PRODUCING_DS            ABP_UINT16_SIZEOF
 #define ABP_DEV_IA_PREPEND_CONSUMING_DS            ABP_UINT16_SIZEOF
 #define ABP_DEV_IA_ABCC_ADI_OBJECT_DS              ABP_UINT16_SIZEOF
+#define ABP_DEV_IA_GROUP_2_ONLY_MODE_DS            ABP_BOOL_SIZEOF
 
 
 /*------------------------------------------------------------------------------
