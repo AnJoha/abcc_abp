@@ -1,10 +1,7 @@
 /*******************************************************************************
 ********************************************************************************
-** COPYRIGHT NOTIFICATION (c) 2016 HMS Industrial Networks AB                 **
-**                                                                            **
-** This program is the property of HMS Industrial Networks AB.                **
-** It may not be reproduced, distributed, or used without permission          **
-** of an authorized company official.                                         **
+** Copyright 2016-present HMS Industrial Networks AB.
+** Licensed under the MIT License.
 ********************************************************************************
 ********************************************************************************
 ** Anybus-CC Network CC-Link IE Field Network Object Protocol Definitions

@@ -1,10 +1,7 @@
 /*******************************************************************************
 ********************************************************************************
-** COPYRIGHT NOTIFICATION (c) 2022 HMS Industrial Networks AB                 **
-**                                                                            **
-** This program is the property of HMS Industrial Networks AB.                **
-** It may not be reproduced, distributed, or used without permission          **
-** of an authorized company official.                                         **
+** Copyright 2022-present HMS Industrial Networks AB.
+** Licensed under the MIT License.
 ********************************************************************************
 ********************************************************************************
 ** Anybus-CC Protocol - CC-Link IE TSN Definitions.
